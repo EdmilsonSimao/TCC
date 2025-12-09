@@ -1,0 +1,190 @@
+<div id="auto-play" data-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true, "speed": 2000 }' class="relative w-full " >
+  <div class="carousel w-full h-200">
+    <div class="carousel-body opacity-0 justify-start">
+      <!-- Slide 1 -->
+      <div class="carousel-slide">
+        <div class="bg-base-200/60 flex h-full  w-full object-contain justify-center">
+          <img src="/img/fundo-1.jpg" alt="">
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-slide">
+        <div class="bg-base-200 flex h-auto object-contain justify-center">
+         <img src="/img/turismo.jpg" alt="">
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-slide">
+        <div class="bg-base-200 flex h-auto object-contain justify-center">
+          <img src="/img/lazer.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Previous Slide -->
+  <button type="button" class="carousel-prev start-5 max-sm:start-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
+    <span class="icon-[tabler--chevron-left] size-5 cursor-pointer"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <!-- Next Slide -->
+   <button type="button" class="carousel-next end-5 max-sm:end-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
+    <span class="icon-[tabler--chevron-right] size-5"></span>
+    <span class="sr-only">Next</span>
+  </button>
+</div>
+
+{{!-- Galeria --}}
+<div class="bg-base-100 py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-[60%] px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
+        <h2 class="text-base-content text-2xl font-semibold md:text-4xl lg:text-6xl">
+          <span class="relative z-3 font-bold">
+            Explore our
+            <span
+              class="from-primary absolute start-0 bottom-1 -z-1 h-0.5 w-full bg-gradient-to-r to-transparent to-80%"
+              aria-hidden="true"
+            ></span>
+          </span>
+          Gallery
+        </h2>
+        <p class="text-base-content/80 text-3xl">
+          Explore our gallery to learn more about our amazing products and their features.
+        </p>
+      </div>
+{{#each lugares}}
+      <div class="grid gap-6 md:grid-cols-2">
+        <div>
+          <img
+            src="{{image.image1}}"
+            alt="Coastal cliffs and ocean view"
+            class="rounded-box aspect-5/4 min-h-121.75 object-cover"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <img
+            src="{{image.image2}}"
+            alt="Silhouettes on beach"
+            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
+          />
+          <img
+            src="{{image.image3}}"
+            alt="Snowy mountain peaks"
+            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
+          />
+          <img
+            src="{{image.image4}}"
+            alt="Rolling green hills"
+            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
+          />
+          <img
+            src="{{image.image5}}"
+            alt="Sunset landscape"
+            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
+          />
+        </div>
+{{/each}}
+     
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+    <div class="mx-auto max-w-[60%] px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="relative mx-auto mb-12 w-fit sm:mb-16 lg:mb-24">
+        <h2 class="text-base-content text-2xl font-bold md:text-3xl lg:text-4xl">localização</h2>
+        <span
+          class="from-primary/40 to-primary/5 absolute start-0 top-9 h-1 w-full rounded-full bg-gradient-to-r"
+        ></span>
+      </div>
+
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+    
+     <div class="fui-map rounded-2xl shadow-lg h-full w-full border border-gray-300">
+      <iframe
+        class="w-full h-full"
+        src="https://www.google.com/maps?q=Luanda&output=embed">
+      </iframe>
+    </div>
+        <div>
+           {{#each lugares}} 
+          <!-- Section Title -->
+          <h3 class="text-base-content mb-6 text-2xl font-semibold">{{nome}}</h3>
+          <p class="text-base-content/80 mb-10 text-lg font-medium">
+         {{descricao}} 
+          </p>
+      {{/each}}
+          <!-- Contact Info Grid -->
+          <div class="grid gap-6 md:grid-cols-2">
+            <!-- Office Hours -->
+            <div class="card shadow-none">
+              <div class="card-body items-center gap-3">
+                <div class="avatar avatar-placeholder">
+                  <div class="border-primary/20 text-primary w-9 rounded-full border">
+                    <span class="icon-[tabler--clock] text-primary size-6"></span>
+                  </div>
+                </div>
+                <h4 class="text-base-content text-lg font-medium">Office Hours</h4>
+                <div class="text-center">
+                  <p class="text-base-content/80">Monday-Friday</p>
+                  <p class="text-base-content/80">8:00 am to 5:00 pm</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Our Address -->
+            <div class="card shadow-none">
+              <div class="card-body items-center gap-3">
+                <div class="avatar avatar-placeholder">
+                  <div class="border-primary/20 text-primary w-9 rounded-full border">
+                    <span class="icon-[tabler--map-pin] text-primary size-6"></span>
+                  </div>
+                </div>
+                <h4 class="text-base-content text-lg font-medium">Our Address</h4>
+                <address class="text-base-content/80 text-center not-italic">
+                  802 Pension Rd,Maine
+                  <br />
+                  96812, USA
+                </address>
+              </div>
+            </div>
+
+            <!-- Office 2 -->
+            <div class="card shadow-none">
+              <div class="card-body items-center gap-3">
+                <div class="avatar avatar-placeholder">
+                  <div class="border-primary/20 text-primary w-9 rounded-full border">
+                    <span class="icon-[tabler--briefcase] text-primary size-6"></span>
+                  </div>
+                </div>
+                <h4 class="text-base-content text-lg font-medium">Office 2</h4>
+                <address class="text-base-content/80 text-center not-italic">
+                  802 Pension Rd,Maine
+                  <br />
+                  96812, USA
+                </address>
+              </div>
+            </div>
+
+            <!-- Get in Touch -->
+            <div class="card shadow-none">
+              <div class="card-body items-center gap-3">
+                <div class="avatar avatar-placeholder">
+                  <div class="border-primary/20 text-primary w-9 rounded-full border">
+                    <span class="icon-[tabler--phone] text-primary size-6"></span>
+                  </div>
+                </div>
+                <h4 class="text-base-content text-lg font-medium">Get in Touch</h4>
+                <div class="text-center">
+                  <p class="text-base-content/80">+1-316-688-5685</p>
+                  <p class="text-base-content/80">+1-316-477-0169</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,63 @@
+/* ==============================
+ESTILO DO CARROSSEL DE IMAGENS
+============================== */
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* Cada slide */
+.slide {
+    display: none;
+    /* Todos escondidos por padrão */
+    position: relative;
+}
+
+
+.slide .image {
+    width: 100%;
+    height: 30%;
+    object-fit: cover;
+}
+
+
+/* Legenda */
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+
+/* Botões de navegação */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    color: white;
+    font-size: 24px;
+    user-select: none;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}

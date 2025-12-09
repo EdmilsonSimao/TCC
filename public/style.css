@@ -1,0 +1,261 @@
+.fundo-1{
+    background-image: url("./img/bebidas.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.fundo-2{
+    background-image: url("./img/turismo.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.fundo-3{
+    background-image: url("./img/lazer.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+
+.cont{
+    background-image: url("./img/destino3.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.fundo-cont{
+    background: #101112e7;
+}
+
+.bot{
+    
+    margin-right: -16px;
+
+}
+
+
+/* ==========================
+   LOGIN PAGE - CSS COMENTADO
+   ========================== */
+
+/* ======================================
+   CONTAINER PRINCIPAL DO LOGIN
+   ====================================== */
+.login-contain {
+    display: flex;
+    /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    min-height: calc(100vh - 100px);
+    /* Altura total da tela menos header/footer */
+    padding: 20px;
+    /* Espaçamento interno */
+
+    /* FUNDO DA PÁGINA:
+       - Use 'background-color' para cor sólida
+       - Use 'background: linear-gradient(...)' para gradiente
+    */
+    background-color: #f2f2f2;
+    /* Exemplo de cor sólida */
+    /* background: linear-gradient(to right, #0b7dda, #00c6ff); */
+    /* Gradiente azul atual */
+}
+
+/* ======================================
+   CAIXA DE LOGIN
+   ====================================== */
+ .login-container .formo {
+    height: 400px;
+    width: 300px;
+    /* Largura da caixa de login */
+    background: #fff;
+    /* Fundo branco da caixa */
+    padding: 40px 30px;
+    /* Espaçamento interno */
+    border-radius: 12px;
+    /* Cantos arredondados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    /* Sombra suave */
+}
+
+/* ======================================
+   CABEÇALHO DA CAIXA DE LOGIN
+   ====================================== */
+ .cardtopo {
+    text-align: center;
+    margin-bottom: 30px;
+    /* Espaço abaixo do cabeçalho */
+}
+
+.dard1{
+    width: 500px;
+}
+/* Título do formulário */
+.titulo {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #333;
+    /* Cor do título - altere aqui */
+}
+
+/* Texto explicativo abaixo do título */
+.cardtopo p {
+    font-size: 14px;
+    color: #555;
+    /* Cor do parágrafo - altere aqui */
+}
+
+/* ======================================
+   GRUPOS DE INPUTS
+   ====================================== */
+.cardgrupo {
+    display: flex;
+    flex-direction: column;
+    /* Inputs empilhados verticalmente */
+    margin-bottom: 20px;
+    /* Espaço abaixo do grupo */
+}
+
+/* Label dos inputs */
+ .cardgrupo label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    /* Cor do label */
+}
+
+/* Input de texto/email/senha */
+ .inpt {
+    padding: 12px 15px;
+    border: 1.5px solid #ccc;
+    /* Cor da borda */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 100%;
+    /* Suaviza mudança de cor quando focado */
+  
+}
+
+/* Efeito de foco no input */
+ .inpt:focus {
+    border-color: #0b7dda;
+    /* Cor da borda ao focar */
+    outline: none;
+}
+
+/* ======================================
+   SENHA - BOTÃO MOSTRAR/OCULTAR
+   ====================================== */
+.senha-grupo {
+    position: relative;
+    /* Permite posicionar o botão dentro do input */
+}
+ .ver-senha {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #0b7dda;
+    /* Cor do texto "ver senha" */
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ======================================
+   BOTÃO DE LOGIN
+   ====================================== */
+ .botao button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0b7dda;
+    /* Cor do botão */
+    color: #fff;
+    /* Cor do texto do botão */
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover do botão */
+.botao button:hover {
+    background-color: #005fa3;
+    /* Cor quando passar o mouse */
+}
+
+/* Texto abaixo do botão (ex.: "Esqueceu a senha?") */
+.botao p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    /* Cor do texto */
+}
+
+.botao p a {
+    color: #0b7dda;
+    /* Cor do link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao p a:hover {
+    color: #005fa3;
+    /* Cor do link ao passar o mouse */
+}
+
+/* ======================================
+   RESPONSIVO (TELAS PEQUENAS)
+   ====================================== */
+@media (max-width: 420px) {
+    .login-page .formo {
+        width: 90%;
+        /* Ajusta largura para telas pequenas */
+        padding: 30px 20px;
+    }
+
+    .login-page .formo .lotipo {
+        font-size: 26px;
+        /* Ajusta tamanho da logo */
+    }
+
+    .login-page .formo .titulo {
+        font-size: 20px;
+        /* Ajusta tamanho do título */
+    }
+}
+
+
+.logo-img {
+    width: 60px;
+    /* largura da imagem */
+    height: 60px;
+    /* altura igual à largura para ficar circular */
+    display: block;
+    margin: 0 auto 15px auto;
+    /* centraliza a imagem e dá espaçamento abaixo */
+
+    border-radius: 50%;
+    /* transforma a imagem em círculo */
+    border: 1px solid #0b7dda;
+    /* cor da borda do logotipo, ajuste conforme desejar */
+
+    object-fit: cover;
+    /* mantém a proporção da imagem sem distorcer */
+}
+
+/* .hotel{
+    background: red;
+}
+
+.car{
+background:yellow;
+} 
+ body{
+    background: blue;
+ }
+ .contato{
+    background: green;
+ }*/

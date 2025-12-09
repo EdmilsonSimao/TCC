@@ -1,0 +1,32 @@
+<div class="md:h-20 mb-5">
+  <nav class="navbar rounded-box shadow-base-300/20 shadow-sm p-4 bg-gray-900">
+    <div class="navbar-start">
+      <a class="link link-neutral text-xl font-bold no-underline text-amber-50" href="#">
+       <img class="w-15 rounded-[50%]" src="./img/logo.jpg" alt="">
+      </a>
+    </div>
+    <div class="navbar-center max-md:hidden text-amber-50">
+      <ul class="menu menu-horizontal gap-2 p-0 text-base  rtl:ml-20">
+        <li class="text-amber-50"><a href="/">Home</a></li>
+        <li class="text-amber-50"><a href="/sobre">Sobre</a></li>
+        <li class="text-amber-50"><a href="servicos">Servicos</a></li>
+        <li class="text-amber-50"><a href="/contacto">Contactos</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end items-center gap-4">
+      <div class="dropdown relative inline-flex [--placement:bottom] md:hidden">
+        <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-text btn-secondary btn-square" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          <span class="icon-[tabler--menu-2] dropdown-open:hidden size-5"></span>
+          <span class="icon-[tabler--x] dropdown-open:block hidden size-5"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-default">
+          <li><a class="dropdown-item" href="/">Home</a></li>
+          <li><a class="dropdown-item" href="/sobre">Sobre</a></li>
+          <li><a class="dropdown-item" href="servicos">Servicos</a></li>
+          <li><a class="dropdown-item" href="/contacto">Contactos</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-primary" href="/login">Login</a>
+    </div>
+  </nav>
+</div>

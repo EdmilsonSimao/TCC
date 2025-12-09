@@ -1,0 +1,89 @@
+/* ===== GERAL ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== HEADER ===== */
+.cabecalho {
+    background-color: #003366;
+    color: white;
+    padding: 10px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.meun .lista {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu .lista li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu .lista li a:hover {
+    color: #ffcc00;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===== CARDS DE DESTAQUES ===== */
+.destaques {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+
+.logo img {
+    width: 60px;
+    /* Define a largura da logo */
+    height: 60px;
+    /* Define a altura da logo */
+    border-radius: 50%;
+    /* Deixa a logo circular */
+    border: 3px solid #0b7dda;
+    /* Adiciona uma borda azul ao redor da logo */
+    display: block;
+    /* Faz a imagem se comportar como bloco */
+    margin: 0 auto;
+    /* Centraliza horizontalmente a logo */
+    object-fit: cover;
+    /* Garante que a imagem preencha o círculo sem distorção */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Pequena sombra para destaque */
+}
+
+/* Ajuste no nav caso queira centralizar todo conteúdo da logo e menu */
+header nav {
+    display: flex;
+    align-items: center;
+    /* Alinha verticalmente a logo com o menu */
+    justify-content: space-between;
+    /* Espaça logo e menu lateralmente */
+    padding: 10px 20px;
+}

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "flyonui";
+@import "flyonui/variants.css"; 
+@source "flyonui/dist/index.js"; 
+@source "flyonui/dist/accordion.js"; 
+@plugin "@iconify/tailwind4";
+@import "tailwindcss-intersect";
+@plugin "tailwindcss-motion";

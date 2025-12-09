@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Empire Young</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+
+<body class="cadastro-page">
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Empire young</div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- FORMULÁRIO DE CADASTRO -->
+    <div class="cadastro-container">
+        <form class="form-cadastro" action="">
+            <div class="card1">
+                <div class="cardtopo">
+                    <h1 class="lotipo">EMPIRE <label>YOUNG</label></h1>
+                    <h2 class="titulo">Criar Conta</h2>
+                    <p>Preencha os dados abaixo para criar sua conta</p>
+                </div>
+
+                <div class="card-grupo">
+                    <label>Nome Completo</label>
+                    <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="card-grupo">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Digite seu email" required>
+                </div>
+
+                <div class="card-grupo senha-grupo">
+                    <label>Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    <span id="verSenha" class="ver-senha">Mostrar</span>
+                </div>
+
+                <div class="card-grupo senha-grupo">
+                    <label>Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha"
+                        required>
+                    <span id="verConfirmSenha" class="ver-senha">Mostrar</span>
+                </div>
+
+                <div class="card-grupo botao">
+                    <button type="submit">Cadastrar</button>
+                    <p>Já possui uma conta? <a href="login.html">Entre aqui</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Empire young. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/cadastro.js"></script>
+</body>
+
+</html>

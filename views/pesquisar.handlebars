@@ -1,0 +1,51 @@
+{{!--Barra de pesquisa--}}
+
+<div class="card mt-[-20px] w-full">
+<form action="/pesquisa" method="post">
+  <div class="card-body bg-slate-800 flex justify-around">
+    <div class="input input-lg h-10 flex max-w-full md:max-w-[80%] mx-auto">
+    <span class="icon-[tabler--search] text-base-content/80 my-auto size-6 shrink-0"></span>
+    <input type="search" class="p-2" placeholder="pesquisa" id="pesquisa" name="pesquisa"/>
+    <label class="sr-only" for="kbdInput">Pesquise aqui o seu próximo destino</label>
+    </span>
+      <button class="md:w-30 btn h-10 text-md btn-primary bot">pesquisar</button>
+  </div>
+</form>
+</div>
+
+<div class="w-full md:w-[80%] md:mx-auto">
+    <div class="card">
+    <div class="card-body text-blue-600 bolder ">
+        <h2 class="md:text-4xl ">Ofertas Disponiveis</h2>
+    </div>
+</div>
+
+{{!-- cardes pesquisa --}}
+
+<div class="grid grid-cols-1 w-full md:w-[100%] lg:grid-cols-3 lg:justify-around mt-15 lg:mx-auto lg:justify-items-center">
+ 
+{{#each lugares}}
+<div class="card md:m-5 intersect:motion-scale-in-0 intersect:motion-opacity-in-0 intersect:motion-blur-in-[5px] intersect:motion-ease-spring-smooth intersect-half origin-bottom-right sm:max-w-sm md:max-w-xl" >
+  <figure><img class=" object-cover h-80" src="{{image.image1}}" alt="headphone" /></figure>
+  <div class="card-body">
+    <h3 class="card-title mb-2.5 text-4xl">{{nome}}</h5>
+    <p class="mb-4  text-xl">A perfect balance of exhilarating high-fidelity audio and the effortless magic of Airpods.</p>
+    <div class="card-actions">
+       <a href="/info/{{nome}}">
+      <button class="btn btn-primary intersect:motion-delay-[400ms] intersect:motion-ease-spring-bouncy intersect:motion-scale-in-0 text-2xl" >
+        saber mais 
+      </button>
+      </a>
+      <div >
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+</div>
