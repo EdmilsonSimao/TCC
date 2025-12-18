@@ -1,190 +1,214 @@
-<div id="auto-play" data-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true, "speed": 2000 }' class="relative w-full " >
-  <div class="carousel w-full h-200">
-    <div class="carousel-body opacity-0 justify-start">
-      <!-- Slide 1 -->
-      <div class="carousel-slide">
-        <div class="bg-base-200/60 flex h-full  w-full object-contain justify-center">
-          <img src="/img/fundo-1.jpg" alt="">
-        </div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="carousel-slide">
-        <div class="bg-base-200 flex h-auto object-contain justify-center">
-         <img src="/img/turismo.jpg" alt="">
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-slide">
-        <div class="bg-base-200 flex h-auto object-contain justify-center">
-          <img src="/img/lazer.jpg" alt="">
-        </div>
-      </div>
+<!-- HERO DO DESTINO -->
+<section class="relative h-[70vh] bg-cover bg-center"
+  style="background-image: url('/img/destinos/serraLeba (1).jpg');">
+  
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative z-10 h-full flex items-center">
+    <div class="max-w-7xl mx-auto px-6 text-white">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        Serra da Leba
+      </h1>
+      <p class="text-lg md:text-2xl max-w-2xl">
+        Um dos cartões-postais mais icónicos de Angola, famoso pelas suas curvas
+        espetaculares e vistas deslumbrantes.
+      </p>
     </div>
   </div>
-  <!-- Previous Slide -->
-  <button type="button" class="carousel-prev start-5 max-sm:start-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
-    <span class="icon-[tabler--chevron-left] size-5 cursor-pointer"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <!-- Next Slide -->
-   <button type="button" class="carousel-next end-5 max-sm:end-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
-    <span class="icon-[tabler--chevron-right] size-5"></span>
-    <span class="sr-only">Next</span>
-  </button>
-</div>
+</section>
 
-{{!-- Galeria --}}
-<div class="bg-base-100 py-8 sm:py-16 lg:py-24">
-    <div class="mx-auto max-w-[60%] px-4 sm:px-6 lg:px-8">
-      <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
-        <h2 class="text-base-content text-2xl font-semibold md:text-4xl lg:text-6xl">
-          <span class="relative z-3 font-bold">
-            Explore our
-            <span
-              class="from-primary absolute start-0 bottom-1 -z-1 h-0.5 w-full bg-gradient-to-r to-transparent to-80%"
-              aria-hidden="true"
-            ></span>
-          </span>
-          Gallery
-        </h2>
-        <p class="text-base-content/80 text-3xl">
-          Explore our gallery to learn more about our amazing products and their features.
+<!-- CONTEÚDO PRINCIPAL -->
+<section class="py-20 bg-base-200">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 px-6">
+
+    <!-- COLUNA PRINCIPAL -->
+    <div class="lg:col-span-2 space-y-10">
+
+      <!-- SOBRE O DESTINO -->
+      <div class="bg-white rounded-3xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">Sobre o destino</h2>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          A Serra da Leba localiza-se na província do Namibe e é conhecida pela sua
+          estrada sinuosa, considerada uma das mais belas de África. O local
+          oferece vistas panorâmicas incríveis, clima fresco e contacto direto
+          com a natureza.
         </p>
       </div>
-{{#each lugares}}
-      <div class="grid gap-6 md:grid-cols-2">
-        <div>
-          <img
-            src="{{image.image1}}"
-            alt="Coastal cliffs and ocean view"
-            class="rounded-box aspect-5/4 min-h-121.75 object-cover"
-          />
-        </div>
 
-        <div class="grid grid-cols-2 gap-6">
-          <img
-            src="{{image.image2}}"
-            alt="Silhouettes on beach"
-            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
-          />
-          <img
-            src="{{image.image3}}"
-            alt="Snowy mountain peaks"
-            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
-          />
-          <img
-            src="{{image.image4}}"
-            alt="Rolling green hills"
-            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
-          />
-          <img
-            src="{{image.image5}}"
-            alt="Sunset landscape"
-            class="rounded-box aspect-5/4 min-h-57.75 object-cover"
-          />
-        </div>
-{{/each}}
-     
+      <!-- GALERIA -->
+      <div class="bg-white rounded-3xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold mb-6">Galeria</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <img src="/img/pub/pub- (7).jpg" class="rounded-xl object-cover h-48 w-full">
+          <img src="/img/pub/pub- (6).jpg" class="rounded-xl object-cover h-48 w-full">
+          <img src="/img/pub/pub- (2).jpg" class="rounded-xl object-cover h-48 w-full">
+          <img src="/img/pub/pub- (3).jpg" class="rounded-xl object-cover h-48 w-full">
+          <img src="/img/pub/pub- (4).jpg" class="rounded-xl object-cover h-48 w-full">
+          <img src="/img/pub/pub- (5).jpg" class="rounded-xl object-cover h-48 w-full">
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
-    <div class="mx-auto max-w-[60%] px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="relative mx-auto mb-12 w-fit sm:mb-16 lg:mb-24">
-        <h2 class="text-base-content text-2xl font-bold md:text-3xl lg:text-4xl">localização</h2>
-        <span
-          class="from-primary/40 to-primary/5 absolute start-0 top-9 h-1 w-full rounded-full bg-gradient-to-r"
-        ></span>
+      <!-- ATIVIDADES -->
+      <div class="bg-white rounded-3xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">Atividades</h2>
+        <ul class="space-y-3 text-lg text-slate-600">
+          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Trilhas e caminhadas</li>
+          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span>Fotografia panorâmica</li>
+          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Observação da natureza</li>
+          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Passeios turísticos guiados</li>
+        </ul>
       </div>
 
-      <div class="grid items-center gap-12 lg:grid-cols-2">
-    
-     <div class="fui-map rounded-2xl shadow-lg h-full w-full border border-gray-300">
-      <iframe
-        class="w-full h-full"
-        src="https://www.google.com/maps?q=Luanda&output=embed">
-      </iframe>
+      <!-- MAPA -->
+      <div class="bg-white rounded-3xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold mb-4">Localização</h2>
+
+        <iframe
+          class="w-full h-80 rounded-2xl"
+          src="https://www.google.com/maps?q=Serra+da+Leba&output=embed"
+          loading="lazy"
+        ></iframe>
+      </div>
+
     </div>
-        <div>
-           {{#each lugares}} 
-          <!-- Section Title -->
-          <h3 class="text-base-content mb-6 text-2xl font-semibold">{{nome}}</h3>
-          <p class="text-base-content/80 mb-10 text-lg font-medium">
-         {{descricao}} 
-          </p>
-      {{/each}}
-          <!-- Contact Info Grid -->
-          <div class="grid gap-6 md:grid-cols-2">
-            <!-- Office Hours -->
-            <div class="card shadow-none">
-              <div class="card-body items-center gap-3">
-                <div class="avatar avatar-placeholder">
-                  <div class="border-primary/20 text-primary w-9 rounded-full border">
-                    <span class="icon-[tabler--clock] text-primary size-6"></span>
-                  </div>
-                </div>
-                <h4 class="text-base-content text-lg font-medium">Office Hours</h4>
-                <div class="text-center">
-                  <p class="text-base-content/80">Monday-Friday</p>
-                  <p class="text-base-content/80">8:00 am to 5:00 pm</p>
-                </div>
-              </div>
-            </div>
 
-            <!-- Our Address -->
-            <div class="card shadow-none">
-              <div class="card-body items-center gap-3">
-                <div class="avatar avatar-placeholder">
-                  <div class="border-primary/20 text-primary w-9 rounded-full border">
-                    <span class="icon-[tabler--map-pin] text-primary size-6"></span>
-                  </div>
-                </div>
-                <h4 class="text-base-content text-lg font-medium">Our Address</h4>
-                <address class="text-base-content/80 text-center not-italic">
-                  802 Pension Rd,Maine
-                  <br />
-                  96812, USA
-                </address>
-              </div>
-            </div>
+    <!-- SIDEBAR -->
+    <aside class="space-y-8">
 
-            <!-- Office 2 -->
-            <div class="card shadow-none">
-              <div class="card-body items-center gap-3">
-                <div class="avatar avatar-placeholder">
-                  <div class="border-primary/20 text-primary w-9 rounded-full border">
-                    <span class="icon-[tabler--briefcase] text-primary size-6"></span>
-                  </div>
-                </div>
-                <h4 class="text-base-content text-lg font-medium">Office 2</h4>
-                <address class="text-base-content/80 text-center not-italic">
-                  802 Pension Rd,Maine
-                  <br />
-                  96812, USA
-                </address>
-              </div>
-            </div>
+      <!-- CARD DE RESERVA -->
+      <div class="bg-white rounded-3xl shadow-xl p-8 sticky top-24">
+        <h3 class="text-2xl font-bold mb-4">Reservar visita</h3>
 
-            <!-- Get in Touch -->
-            <div class="card shadow-none">
-              <div class="card-body items-center gap-3">
-                <div class="avatar avatar-placeholder">
-                  <div class="border-primary/20 text-primary w-9 rounded-full border">
-                    <span class="icon-[tabler--phone] text-primary size-6"></span>
-                  </div>
-                </div>
-                <h4 class="text-base-content text-lg font-medium">Get in Touch</h4>
-                <div class="text-center">
-                  <p class="text-base-content/80">+1-316-688-5685</p>
-                  <p class="text-base-content/80">+1-316-477-0169</p>
-                </div>
-              </div>
-            </div>
+        <form class="space-y-4">
+          <div>
+            <label class="font-medium">Data</label>
+            <input type="date" class="input w-full mt-2">
           </div>
-        </div>
+
+          <div>
+            <label class="font-medium">Número de pessoas</label>
+            <input type="number" class="input w-full mt-2" min="1" value="1">
+          </div>
+
+          <button class="btn btn-success openPagamento">
+            Reservar agora
+          </button>
+        </form>
+      </div>
+
+      <!-- INFORMAÇÕES RÁPIDAS -->
+      <div class="bg-white rounded-3xl shadow-xl p-8">
+        <h3 class="text-2xl font-bold mb-4">Informações</h3>
+
+        <ul class="space-y-3 text-slate-600">
+          <li class="flex gap-2">
+            <span class="icon-[tabler--map-pin-filled] bg-red-600 size-6"></span>
+            <strong> Província:</strong> Namibe
+          </li>
+          <li class="flex gap-2">
+            <span class="icon-[tabler--alarm] size-6"></span>
+            <strong> Duração:</strong> 1 dia
+          </li>
+          <li class="flex gap-2">
+            <span class="icon-[tabler--sunset-2] bg-yellow-300 size-6"></span>
+            <strong>Melhor época:</strong> Maio a Setembro
+          </li>
+          <li class="flex gap-2">
+            <span class="icon-[tabler--car] size-6 bg-red-700"></span>
+            <strong>Acesso:</strong> Estrada asfaltada
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <h2 class="text-4xl font-bold mb-4">
+      Pronto para viver esta experiência?
+    </h2>
+    <p class="text-lg mb-8">
+      Reserve agora a sua visita à Serra da Leba e descubra uma das paisagens mais
+      impressionantes de Angola.
+    </p>
+    <a href="/reservar/serra-da-leba" class="btn btn-outline btn-lg text-white">
+      Fazer reserva
+    </a>
+  </div>
+</section>
+
+
+<!-- MODAL PAGAMENTO -->
+<div id="paymentModal"
+  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 openPagamento">
+
+  <div class="bg-white w-full max-w-lg left-1/3 translate-1/6 rounded-3xl shadow-2xl p-8 relative">
+
+    <!-- FECHAR -->
+    <button onclick="closePayment()"
+      class="absolute close top-4 right-4 btn btn-sm btn-circle btn-ghost">✕</button>
+
+    <h2 class="text-3xl font-bold mb-6 flex items-center gap-2">
+      <span class="icon-[tabler--credit-card] size-8 bg-amber-500"></span>
+      Pagamento
+    </h2>
+
+    <!-- RESUMO -->
+    <div class="border rounded-xl p-4 mb-6 bg-base-200">
+      <div class="flex justify-between mb-2">
+        <span>Destino</span>
+        <strong>Serra da Leba</strong>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Pessoas</span>
+        <strong id="qtdPessoas">1</strong>
+      </div>
+      <div class="flex justify-between mb-2">
+        <span>Preço por pessoa</span>
+        <strong>25.000 Kz</strong>
+      </div>
+      <hr class="my-3">
+      <div class="flex justify-between text-xl font-bold">
+        <span>Total</span>
+        <span id="totalValor">25.000 Kz</span>
       </div>
     </div>
+
+    <!-- MÉTODO DE PAGAMENTO -->
+    <h3 class="font-semibold mb-3">Método de pagamento</h3>
+
+    <div class="space-y-3">
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="pay" checked>
+        <span class="icon-[tabler--credit-card] size-6 bg-amber-600"> </span>
+        Multicaixa Express
+      </label>
+
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input type="radio" name="pay">
+        <span>🏦 Transferência Bancária</span>
+      </label>
+    </div>
+
+    <!-- COMPROVATIVO -->
+    <div class="mt-5">
+      <label class="font-medium">Comprovativo de pagamento</label>
+      <label for="file"
+        class="mt-2 flex items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 cursor-pointer">
+        <span class="icon-[tabler--upload] size-6"></span>
+        Enviar comprovativo
+      </label>
+      <input id="file" type="file" class="hidden">
+    </div>
+
+    <button class="btn btn-success btn-lg w-full mt-6">
+      Confirmar pagamento
+    </button>
+
   </div>
+</div>

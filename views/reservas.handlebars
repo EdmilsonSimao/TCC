@@ -1,0 +1,147 @@
+<!-- DASHBOARD ADMIN -->
+<div class="min-h-screen bg-slate-100 flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-slate-900 text-white hidden md:flex flex-col">
+    <div class="p-6 text-center border-b border-slate-700">
+      <h2 class="text-2xl font-bold">Admin Panel</h2>
+      <p class="text-sm text-slate-400">Turismo Angola</p>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2">
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--dashboard] size-6"></span> Dashboard</a>
+      <a class="btn btn-ghost justify-start w-full text-white"><span class="icon-[tabler--map-pin-filled] bg-white size-6"></span> Destinos</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--hause] size-6"></span> Reservas</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--user] size-6"></span> Usuários</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--credit-card] size-6"></span> Pagamentos</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--star] size-6"></span> Avaliações</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--settings] size-6"></span> Configurações</a>
+    </nav>
+
+    <div class="p-4 border-t border-slate-700">
+      <button class="btn btn-error btn-outline w-full">Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="flex-1">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Dashboard</h1>
+
+      <div class="flex items-center gap-4">
+        <span class="text-slate-600">Admin</span>
+        <div class="avatar">
+          <div class="w-10 rounded-full">
+            <img src="/img/users/admin.jpg" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CARDS -->
+    <section class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-sm text-slate-500">Usuários</h3>
+        <p class="text-3xl font-bold mt-2">1.245</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-sm text-slate-500">Destinos</h3>
+        <p class="text-3xl font-bold mt-2">38</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-sm text-slate-500">Reservas</h3>
+        <p class="text-3xl font-bold mt-2">412</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <h3 class="text-sm text-slate-500">Receita</h3>
+        <p class="text-3xl font-bold mt-2">AKZ 12.450.000</p>
+      </div>
+
+    </section>
+
+    <!-- TABELAS -->
+    <section class="p-6 grid lg:grid-cols-2 gap-6">
+
+      <!-- RESERVAS -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h2 class="text-xl font-bold mb-4">Últimas Reservas</h2>
+
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Destino</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>João Miguel</td>
+                <td>Serra da Leba</td>
+                <td><span class="badge badge-success">Confirmado</span></td>
+              </tr>
+              <tr>
+                <td>Ana Silva</td>
+                <td>Mussulo</td>
+                <td><span class="badge badge-warning">Pendente</span></td>
+              </tr>
+              <tr>
+                <td>Carlos M.</td>
+                <td>Kalandula</td>
+                <td><span class="badge badge-error">Cancelado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- USUÁRIOS -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h2 class="text-xl font-bold mb-4">Novos Usuários</h2>
+
+        <ul class="space-y-4">
+          <li class="flex justify-between items-center">
+            <span>Maria Costa</span>
+            <button class="btn btn-xs btn-outline">Ver</button>
+          </li>
+          <li class="flex justify-between items-center">
+            <span>Pedro Lucas</span>
+            <button class="btn btn-xs btn-outline">Ver</button>
+          </li>
+          <li class="flex justify-between items-center">
+            <span>Sandra P.</span>
+            <button class="btn btn-xs btn-outline">Ver</button>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- AVALIAÇÕES -->
+    <section class="p-6">
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h2 class="text-xl font-bold mb-4">Avaliações Recentes</h2>
+
+        <div class="space-y-4">
+          <div class="border p-4 rounded-xl">
+            <strong>Serra da Leba</strong> ⭐⭐⭐⭐⭐
+            <p class="text-slate-600">Experiência incrível!</p>
+          </div>
+
+          <div class="border p-4 rounded-xl">
+            <strong>Ilha do Mussulo</strong> ⭐⭐⭐⭐☆
+            <p class="text-slate-600">Muito bom, recomendo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>

@@ -13,6 +13,11 @@
     background-position: center;
     background-size: cover;
 }
+.tur{
+    background-image: url("./img/turismo.jpg");
+    background-position: center;
+    background-size: cover;
+}
 
 
 .cont{
@@ -29,7 +34,12 @@
     margin-right: -16px;
 
 }
-
+.bg{
+    background-color: #020b11e5;
+}
+.bg2{
+    background-color: #020b11de;
+}
 
 /* ==========================
    LOGIN PAGE - CSS COMENTADO

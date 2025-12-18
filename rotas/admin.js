@@ -6,6 +6,10 @@ route.get("/", (req, res)=>{
     res.render("home")
 })
 
+route.get("/info", (req, res)=>{
+    res.render("detalhes")
+})
+
 route.get("/info/:nome", (req, res)=>{
   const pesquisa =  req.params.nome
       const lugar = [
@@ -303,8 +307,126 @@ route.get("/sobre", (req, res)=>{
 route.get("/servicos", (req, res)=>{
     res.render("servicos")
 })
-route.get("/texte", (req, res)=>{
-    res.render("texte")
+route.get("/destinos", (req, res)=>{
+    res.render("dest")
+})
+
+route.get("/tur",(req, res)=>{
+  
+ const search = req.body
+console.log(search)
+    const lugar = [
+            {
+        categoria:"hotel",
+        nome: "Hotel Continental",
+        image:{
+            image1:"./img/hotel-continental/hotel-Continental.jpg",
+            image2:"./img/hotel-continental/continental-1",
+            image3:"./img/hotel-continental/continental-2",
+            image4:"./img/hotel-continental/continental-3",
+            image5:"./img/hotel-continental/continental-4",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+        {
+        categoria:"hotel",
+        nome: "Hotel Presidente",
+        image:{
+            image1:"./img/hotel-presidente/hotelpresidente.jpg",
+            image2:"./img/hotel-continental/continental-1",
+            image3:"./img/hotel-continental/continental-2",
+            image4:"./img/hotel-continental/continental-3",
+            image5:"./img/hotel-continental/continental-4",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+        {
+        categoria:"hotel",
+        nome: "Hotel Epic-Sana",
+        image:{
+            image1:"./img/Epic-sana/epic_sana.jpg",
+            image2:"./img/hotel-continental/continental-1",
+            image3:"./img/hotel-continental/continental-2",
+            image4:"./img/hotel-continental/continental-3",
+            image5:"./img/hotel-continental/continental-4",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+        {
+        categoria:"hotel", 
+        nome: "Hotel Continental",
+        image:{
+            image1:"./img/hotel-continental/hotel-Continental.jpg",
+            image2:"./img/hotel-continental/continental-1",
+            image3:"./img/hotel-continental/continental-2",
+            image4:"./img/hotel-continental/continental-3",
+            image5:"./img/hotel-continental/continental-4",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+        {
+        categoria:"hotel",
+        nome: "Hotel Continental",
+        image:{
+            image1:"./img/hotel-continental/hotel-Continental.jpg",
+            image2:"./img/hotel-continental/continental-1",
+            image3:"./img/hotel-continental/continental-2",
+            image4:"./img/hotel-continental/continental-3",
+            image5:"./img/hotel-continental/continental-4",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    }, {
+        categoria:"praia",
+        nome: "Praia do Mussulo",
+        image:{
+            image1:"./img/praia/mussulo.jpg",
+            image2:"./img/praia/b",
+            image3:"./img/praia/",
+            image4:"./img/praia/",
+            image5:"./img/praia/",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+        {
+        categoria:"praia",
+        nome: "Baia de Luanda",
+        image:{
+            image1:"./img/praia/Baia.jpg",
+            image2:"./img/praia/b",
+            image3:"./img/praia/",
+            image4:"./img/praia/",
+            image5:"./img/praia/",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    },
+
+          {
+        categoria:"praia",
+        nome: "Praia de Cacuaco",
+        image:{
+            image1:"./img/praia/Kalandula.jpg",
+            image2:"./img/praia/b",
+            image3:"./img/praia/",
+            image4:"./img/praia/",
+            image5:"./img/praia/",
+        },
+        descricao:". O Hotel Continental tem 83 quartos, entre os quais 8 suites (4 seniores e 4 juniores) e 2 quartos para clientes com mobilidade reduzida"
+    }
+    ]
+
+    res.render("turismo/tur", {lugares: lugar})
+})
+
+route.get("/perfil", (req, res)=>{
+    res.render("perfil")
+})
+
+route.get("/pagamento", (req, res)=>{
+    res.render("pagamento")
+})
+
+route.get("/dashboard", (req, res)=>{
+    res.render("reservas")
 })
 
 

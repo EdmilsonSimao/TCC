@@ -1,242 +1,353 @@
-<div class="container mx-auto ">
-     <h2 class="text-center text-4xl font-bold pt-20">Nosso Serviços</h3>
-      <p class="intersect:motion-preset-focus md:py-10 w-[800px] text-center mx-auto lg:text-lg  intersect:motion-delay-[1400ms]">
-      Trabalhamos com rigor na melhoria dos processos, assegurando comunicação clara, informações precisas e atendimento eficiente. 
-      O nosso compromisso é garantir que cada etapa da sua jornada seja conduzida com profissionalismo, segurança e qualidade,
-        mantendo a excelência que você merece.
+<!-- ================= HERO SERVIÇOS ================= -->
+<section class="relative h-[45vh] w-full bg-slate-900 overflow-hidden">
+  <img src="/img/pub/pub- (2).jpg"
+       class="absolute inset-0 h-full w-full object-cover opacity-40">
+
+  <div class="relative z-10 flex h-full items-center justify-center text-center px-6">
+    <div class="max-w-3xl text-white">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Nossos Serviços
+      </h1>
+      <p class="text-lg text-white/90">
+        Soluções completas para tornar a sua viagem inesquecível
       </p>
-    <div class="">
-
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:my-10">
-        {{!-- item hotel 1--}}
-      <div class="stats  intersect:motion-preset-slide-left bg-slate-700 hotel intersect:motion-ease-spring-bouncier max-sm:w-full lg:w-120">
-        
-           <div class="stat flex justify-center">
-                <div class="">
-                   <div class="avatar avatar-placeholder">
-                      <div class="bg-slate-400 text-error size-12 rounded-full">
-                      <span class="icon-[tabler--home] bg-black size-10"></span>
-                      </div>
-                  </div>
-                    <div class="stat-value mb-1 lg:text-lg text-amber-50">Hotel</div>
-                    <div class="stat-title md:text-xl lg:text-sm text-amber-50">Reserve Estadia</div>
-                </div>
-                <div class="rounded-2xl">
-                  <img src="/img/hotel.png" class="rounded-2xl" alt="">
-                </div>
-                 <button class="btn btn-success absolute lg:text-sm bottom-6 right-17 xl:w-40 ">Reservar</button>
-           </div>
-      </div>
-
-      <div class="stats  intersect:motion-preset-slide-left bg-slate-700 hotel intersect:motion-ease-spring-bouncier max-sm:w-full lg:w-120">
-           <div class="stat flex justify-center">
-                <div class="">
-                   <div class="avatar avatar-placeholder">
-                      <div class="bg-slate-400 text-error size-12 rounded-full">
-                      <span class="icon-[tabler--car] bg-black size-10"></span>
-                      </div>
-                  </div>
-                    <div class="stat-value mb-1 lg:text-lg text-amber-50">Turismo</div>
-                    <div class="stat-title md:text-xl lg:text-sm text-amber-50">Reserve Estadia</div>
-                </div>
-                <div class="bg-white rounded-2xl">
-                  <img src="/img/about.jpg" class="bg-white rounded-2xl" alt="">
-                </div>
-                 <button class="btn btn-success lg:text-sm absolute bottom-6 right-17 xl:w-40">Reservar</button>
-           </div>
-      </div>
-
-      <div class="stats  intersect:motion-preset-slide-left bg-slate-700 hotel intersect:motion-ease-spring-bouncier max-sm:w-full lg:w-120">
-           <div class="stat flex justify-center">
-                <div class="">
-                   <div class="avatar avatar-placeholder">
-                      <div class="bg-slate-400 text-error size-12 rounded-full">
-                      <span class="icon-[tabler--car] bg-black size-10"></span>
-                      </div>
-                  </div>
-                    <div class="stat-value mb-1 lg:text-lg text-amber-50">Restaurante</div>
-                    <div class="stat-title md:text-xl lg:text-sm text-amber-50">Reserve Estadia</div>
-                </div>
-                <div class="bg-white rounded-2xl">
-                  <img src="/img/carro.png" alt="">
-                </div>
-                 <button class="btn btn-success absolute lg:text-sm bottom-6 right-17 xl:w-40">Reservar</button>
-           </div>
-      </div>
-      
-    </div>
-    </div>
-</div>
-
-<div class="py-8 sm:py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div
-        id="multi-slide"
-        data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2 } }'
-        class="relative flex w-full gap-12 max-lg:flex-col md:gap-16 lg:items-center lg:gap-24"
-      >
-        <div>
-          <div class="space-y-4">
-            <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Feedback dos clientes</h2>
-          </div>
-          <div class="mt-10 flex gap-4">
-            <button
-              class="btn btn-square btn-sm carousel-prev btn-primary carousel-disabled:opacity-100 carousel-disabled:btn-outline relative hover:text-white"
-              disabled="disabled"
-            >
-              <span class="icon-[tabler--arrow-left] size-5"></span>
-            </button>
-            <button
-              class="btn btn-square btn-sm carousel-next btn-primary carousel-disabled:opacity-100 carousel-disabled:btn-outline relative hover:text-white"
-            >
-              <span class="icon-[tabler--arrow-right] size-5"></span>
-            </button>
-          </div>
-        </div>
-        <div class="carousel rounded-box">
-          <div class="carousel-body gap-6 opacity-0">
-            <!-- Slide 1 -->
-            <div class="carousel-slide">
-              <div class="card card-border hover:border-primary transition-border h-full shadow-none duration-300">
-                <!-- Star Rating -->
-                <div class="card-body gap-5">
-                  <!-- User Info -->
-                  <div class="flex items-center gap-3">
-                    <div class="avatar">
-                      <div class="size-10 rounded-full">
-                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-17.png" alt="Craig Bator" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="text-base-content font-medium">Craig Bator</h4>
-                      <p class="text-base-content/80 text-sm">
-                        CEO & Co Founder at
-                        <span class="text-base-content font-semibold">Zendesk</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-1">
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                  </div>
-                  <!-- Content -->
-                  <p class="text-base-content/80">
-                    FlyonUI has made designing my web applications effortless. The components are easy to customize and
-                    integrate seamlessly!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-slide">
-              <div class="card card-border hover:border-primary transition-border h-full shadow-none duration-300">
-                <!-- Star Rating -->
-                <div class="card-body gap-5">
-                  <!-- User Info -->
-                  <div class="flex items-center gap-3">
-                    <div class="avatar">
-                      <div class="size-10 rounded-full">
-                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-5.png" alt="Craig Bator" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="text-base-content font-medium">Martin Dorwart</h4>
-                      <p class="text-base-content/80 text-sm">
-                        Product manager at
-                        <span class="text-base-content font-semibold">Orbit</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-1">
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-half-filled] text-warning size-6 shrink-0"></span>
-                  </div>
-                  <!-- Content -->
-                  <p class="text-base-content/80">
-                    With FlyonUI, I can easily track my investments and see how they.re performing in real-time.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-slide">
-              <div class="card card-border hover:border-primary transition-border h-full shadow-none duration-300">
-                <!-- Star Rating -->
-                <div class="card-body gap-5">
-                  <!-- User Info -->
-                  <div class="flex items-center gap-3">
-                    <div class="avatar">
-                      <div class="size-10 rounded-full">
-                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-3.png" alt="Alexandra Lee" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="text-base-content font-medium">Alexandra Lee</h4>
-                      <p class="text-base-content/80 text-sm">
-                        Lead Developer at
-                        <span class="text-base-content font-semibold">TechNova</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-1">
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                  </div>
-                  <!-- Content -->
-                  <p class="text-base-content/80">
-                    FlyonUI's components saved us so much time! The responsive designs and intuitive interface made our
-                    development process faster and more efficient.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="carousel-slide">
-              <div class="card card-border hover:border-primary transition-border h-full shadow-none duration-300">
-                <!-- Star Rating -->
-                <div class="card-body gap-5">
-                  <!-- User Info -->
-                  <div class="flex items-center gap-3">
-                    <div class="avatar">
-                      <div class="size-10 rounded-full">
-                        <img src="https://cdn.flyonui.com/fy-assets/avatar/avatar-12.png" alt="Jason Wu" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="text-base-content font-medium">Jason Wu</h4>
-                      <p class="text-base-content/80 text-sm">
-                        Product Designer at
-                        <span class="text-base-content font-semibold">InnovateX</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex gap-1">
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                    <span class="icon-[tabler--star-filled] text-warning size-6 shrink-0"></span>
-                  </div>
-                  <!-- Content -->
-                  <p class="text-base-content/80">
-                    FlyonUI’s design library helped us scale our UI design efforts while maintaining a consistent,
-                    professional look. Couldn’t have asked for a better tool!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+</section>
+
+<!-- ================= INTRO ================= -->
+<section class="py-20 px-6 bg-base-200">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-lg text-slate-600">
+      Trabalhamos com rigor, profissionalismo e dedicação para garantir conforto,
+      segurança e qualidade em cada etapa da sua jornada.
+    </p>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="pb-24 px-6 bg-base-200">
+  <div class="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+    <!-- Hotel -->
+    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+      <img src="/img/hotel.png"
+           class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+      <div class="p-6 text-center">
+        <span class="icon-[tabler--home] size-10 text-success mx-auto"></span>
+        <h3 class="text-2xl font-bold mt-4">Hospedagem</h3>
+        <p class="text-slate-600 mt-2">
+          Reservas em hotéis confortáveis e cuidadosamente selecionados.
+        </p>
+        <a href="/reservar-hotel" class="btn btn-success mt-6">
+          Reservar hotel
+        </a>
+      </div>
+    </div>
+
+    <!-- Turismo -->
+    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+      <img src="/img/about.jpg"
+           class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+      <div class="p-6 text-center">
+        <span class="icon-[tabler--map] size-10 text-success mx-auto"></span>
+        <h3 class="text-2xl font-bold mt-4">Turismo & Passeios</h3>
+        <p class="text-slate-600 mt-2">
+          Visitas guiadas aos melhores destinos turísticos do país.
+        </p>
+        <a href="/destinos" class="btn btn-success mt-6">
+          Explorar destinos
+        </a>
+      </div>
+    </div>
+
+    <!-- Restaurante -->
+    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+      <img src="/img/restaurante.jpg"
+           class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+      <div class="p-6 text-center">
+        <span class="icon-[tabler--chef-hat] size-10 text-success mx-auto"></span>
+        <h3 class="text-2xl font-bold mt-4">Gastronomia</h3>
+        <p class="text-slate-600 mt-2">
+          Experiências gastronómicas únicas com sabores autênticos.
+        </p>
+        <a href="/img/restaurante.jpg" class="btn btn-success mt-6">
+          Reservar restaurante
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMOÇÕES E OFERTAS -->
+<section class="bg-base-200 py-16">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- TÍTULO -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Promoções & Ofertas Especiais
+      </h2>
+      <p class="mt-4 text-base-content/70 max-w-2xl mx-auto">
+        Aproveite oportunidades exclusivas para viver experiências incríveis
+        pelos melhores destinos de Angola.
+      </p>
+    </div>
+
+    <!-- GRID DE OFERTAS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- OFERTA 1 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/destinos/mussulo.jpg" alt="Ilha do Mussulo" class="h-56 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-error gap-1">
+            <span class="icon-[tabler--discount-2] size-4"></span>
+            -20%
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title">Ilha do Mussulo</h3>
+
+          <div class="flex items-center gap-2 text-sm text-base-content/70">
+            <span class="icon-[tabler--map-pin] size-4"></span>
+            Luanda
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            Pacote especial com transporte, alimentação e atividades à beira-mar.
+          </p>
+
+          <!-- PREÇO -->
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-lg font-bold text-primary">45.000 Kz</span>
+            <span class="line-through text-sm text-base-content/50">56.000 Kz</span>
+          </div>
+
+          <div class="card-actions justify-between items-center mt-6">
+            <div class="flex items-center gap-1 text-warning text-sm">
+              <span class="icon-[tabler--clock] size-4"></span>
+              Oferta por tempo limitado
+            </div>
+
+            <a href="/reservar/mussulo" class="btn btn-primary btn-sm">
+              Reservar agora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OFERTA 2 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/destinos/Kalandula.jpg" alt="Quedas de Kalandula" class="h-56 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-error gap-1">
+            <span class="icon-[tabler--discount-2] size-4"></span>
+            -15%
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title">Quedas de Kalandula</h3>
+
+          <div class="flex items-center gap-2 text-sm text-base-content/70">
+            <span class="icon-[tabler--map-pin] size-4"></span>
+            Malanje
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            Viagem ecológica com guia especializado e estadia inclusa.
+          </p>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-lg font-bold text-primary">68.000 Kz</span>
+            <span class="line-through text-sm text-base-content/50">80.000 Kz</span>
+          </div>
+
+          <div class="card-actions justify-between items-center mt-6">
+            <div class="flex items-center gap-1 text-warning text-sm">
+              <span class="icon-[tabler--clock] size-4"></span>
+              Últimas vagas
+            </div>
+
+            <a href="/reservar/kalandula" class="btn btn-primary btn-sm">
+              Reservar agora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OFERTA 3 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/pub/pub- (2).jpg" alt="Fenda da Tundavala" class="h-56 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-error gap-1">
+            <span class="icon-[tabler--discount-2] size-4"></span>
+            -25%
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title">Fenda da Tundavala</h3>
+
+          <div class="flex items-center gap-2 text-sm text-base-content/70">
+            <span class="icon-[tabler--map-pin] size-4"></span>
+            Huíla
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            Experiência única com trilhas, mirantes e hospedagem local.
+          </p>
+
+          <div class="flex items-center gap-3 mt-4">
+            <span class="text-lg font-bold text-primary">52.000 Kz</span>
+            <span class="line-through text-sm text-base-content/50">70.000 Kz</span>
+          </div>
+
+          <div class="card-actions justify-between items-center mt-6">
+            <div class="flex items-center gap-1 text-warning text-sm">
+              <span class="icon-[tabler--clock] size-4"></span>
+              Oferta especial da semana
+            </div>
+
+            <a href="/reservar/tundavala" class="btn btn-primary btn-sm">
+              Reservar agora
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FEEDBACK -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">
+      O que dizem os nossos clientes
+    </h2>
+
+    <!-- Mantém aqui o teu carousel de feedback -->
+  <section class="py-20 bg-base-200">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <h2 class="text-3xl font-bold mb-6">Avaliações dos clientes</h2>
+
+    <!-- FORM -->
+    <form class="bg-white p-6 rounded-3xl shadow-xl mb-10 space-y-4 formAvaliar">
+
+      <input type="text" placeholder="Seu nome"
+        class="input w-full"  id="nomeAvaliar" required>
+
+      <select class="select w-full" id="selecaoAvaliar">
+        <option>
+        <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+        1
+        </option>
+        <option> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          2
+        </option>
+        <option>
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+         <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          3
+        </option>
+        <option>
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+           4
+          </option>
+        <option selected>
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          5</option>
+      </select>
+
+      <textarea class="textarea w-full"
+        placeholder="Conte-nos sua experiência", id="textoAvaliar"></textarea>
+
+      <button type="submit" class="btn btn-primary avaliar">
+        Enviar avaliação
+      </button>
+
+    </form>
+
+    
+
+    <!-- LISTA DE AVALIAÇÕES -->
+    <div class="space-y-6 avaliacao">
+
+      <div class="bg-white p-6 rounded-3xl shadow">
+        <div class="flex justify-between mb-2">
+          <strong>Maria Fernandes</strong>
+          <div class="flex gap-1">
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          </div>
+        </div>
+        <p class="text-slate-600">
+          Experiência incrível! A vista da Serra da Leba é simplesmente
+          deslumbrante. Recomendo muito.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-3xl shadow">
+        <div class="flex justify-between mb-2">
+          <strong>João Miguel</strong>
+          <div class="flex gap-1"> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
+          <span class="size-4 bg-amber-400 icon-[tabler--star]"></span> 
+          </div>
+        </div>
+        <p class="text-slate-600">
+          Organização excelente e atendimento profissional.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="bg-success text-white py-20 text-center px-6">
+  <h2 class="text-3xl md:text-5xl font-bold mb-6">
+    Pronto para a sua próxima experiência?
+  </h2>
+
+  <p class="text-lg mb-8">
+    Deixe-nos cuidar de cada detalhe da sua viagem.
+  </p>
+
+  <a href="/contacto" class="btn btn-outline btn-lg text-white border-white">
+    Fale connosco
+  </a>
+</section>

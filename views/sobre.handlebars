@@ -1,186 +1,335 @@
-{{!-- <div class="card w-full sobre bg-slate-700 grid place-items-center grid-cols-[1fr]">
-    <div class="text-amber-50">
-        <h1 class="md:text-7xl text-4xl py-10">Sobre nós</h1>
-    </div>
-  
-</div> --}}
-{{!-- informaç]oes sobre a impresa --}}
-<section class="sobre conatiner md:flex md:justify-center gap-10 p-10 mt-20">
-    <div class="md:w-100">
-        <img class="w-full rounded-r-[40%]" src="/img/viagem.jpg" alt="">
-    </div>
-    <div class="md:w-200">
-        <h3 class="py-20 pb-5 md:text-4xl text-3xl font-bold">Quem Somos?</h3>
-        <p class="text-justify ">A <span class="font-medium md:text-xl">EMPIRE YOUNG</span> é uma empresa dedicada a proporcionar experiências completas no setor de turismo e hospitalidade. 
-            Nosso objetivo é oferecer aos utilizadores um 
-            acesso simples, seguro e rápido a serviços essenciais 
-            para uma viagem confortável e inesquecível.
-        </p>
-        <br>
-        <p class="text-justify ">
-            A <span class="font-medium text-sm md:text-xl">EMPIRE YOUNG</span> estabelece parcerias com hotéis confiáveis, garantindo que os turistas encontrem acomodações de qualidade, com conforto, segurança e boa localização.
+<section class="relative h-[60vh] w-full overflow-hidden">
+  <img src="/img/about.jpg" class="absolute inset-0 h-full w-full object-cover" />
 
-        </p>
-            <button class="btn btn-primary mt-5 md:text-2xl"><a href="/contacto">Contacte-nos</a></button>
-    </div>
+  <div class="absolute inset-0 bg-black/60"></div>
 
+  <div class="relative z-10 flex h-full items-center justify-center text-center px-6">
+    <div class="max-w-3xl text-white">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        Sobre Nós
+      </h1>
+      <p class="text-lg md:text-2xl text-white/90">
+        Transformamos viagens em experiências inesquecíveis
+      </p>
+    </div>
+  </div>
 </section>
 
-<div class="md:w-full md:flex justify-center gap-6">
-    {{!-- card História  --}}
-    <div class="card sm:max-w-sm md:max-w-100 bg-gray-100 mb-15">
-      <div class="m-5 p-2 bg-gray-300 w-20  rounded-2xl">
-        <span class="icon-[tabler--bulb]  bg-cyan-800 size-15"></span>
-      </div>
-      <div class="card-header">
-        <h5 class="card-title font-medium text-3xl">Nossa História</h5>
-      </div>
-      <div class="card-body">
-        <p class="bg-gray-100 rounded-2xl text-lg text-justify
-        ">Discover the unique benefits and features we offer. Dive deeper to learn how our solutions can enhance your experience and meet your needs effectively.</p>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        Quem Somos
+      </h2>
+
+      <p class="text-lg text-slate-600 mb-4">
+        A <strong>EMPIRE YOUNG</strong> é uma empresa dedicada a proporcionar experiências completas no setor de turismo e hospitalidade. Nosso objetivo é oferecer aos utilizadores um acesso simples, seguro e rápido a serviços essenciais para uma viagem confortável e inesquecível.
+
+      </p>
+
+      <p class="text-lg text-slate-600">
+        Conectamos viajantes a destinos únicos, cultura local, natureza exuberante e momentos que ficam para sempre.
+      </p>
+    </div>
+
+    <img src="/img/viagem.jpg"
+      class="rounded-3xl shadow-xl object-cover h-96 w-full" />
+  </div>
+</section>
+
+<section class="bg-slate-50 py-20 px-6">
+  <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-3">
+
+    <div class="card shadow-lg rounded-2xl">
+      <div class="card-body text-center">
+        <span class="icon-[tabler--target] size-10 mx-auto text-success"></span>
+        <h3 class="text-2xl font-bold mt-4">Missão</h3>
+        <p class="text-slate-600">
+          Proporcionar experiências turísticas seguras, autênticas e inesquecíveis.
+        </p>
       </div>
     </div>
 
-{{!-- Card visão --}}
-<div class="card sm:max-w-sm md:max-w-100 bg-gray-100 mb-15">
-  <div class="m-5 p-2 bg-gray-300 w-20 rounded-2xl">
-       <span class="icon-[tabler--eye]  bg-cyan-800 size-15"></span>
+    <div class="card shadow-lg rounded-2xl">
+      <div class="card-body text-center">
+        <span class="icon-[tabler--eye] size-10 mx-auto text-success"></span>
+        <h3 class="text-2xl font-bold mt-4">Visão</h3>
+        <p class="text-slate-600">
+          Ser referência no turismo nacional e internacional.
+        </p>
       </div>
-  <div class="card-header">
-    <h5 class="card-title font-medium text-3xl">Nossa Visão</h5>
-  </div>
+    </div>
 
-  <div class="card-body">
-    <p class="bg-gray-100 rounded-2xl text-lg text-justify">Facilitar o acesso a serviços de viagem, conectando turistas a hotéis, restaurantes e experiências turísticas de forma prática e integrada, usando uma plataforma moderna e eficiente.
-    </p>
-  </div>
-</div>
-
-{{!-- card Metas --}}
-<div class="card sm:max-w-sm md:max-w-100 bg-gray-100 mb-15">
-  <div class="m-5 p-2  bg-gray-300 w-20 rounded-2xl">
-        <span class="icon-[tabler--target-arrow] bg-cyan-800 size-15"></span>
+    <div class="card shadow-lg rounded-2xl">
+      <div class="card-body text-center">
+        <span class="icon-[tabler--heart] size-10 mx-auto text-success"></span>
+        <h3 class="text-2xl font-bold mt-4">Valores</h3>
+        <p class="text-slate-600">
+          Confiança, sustentabilidade, qualidade e paixão por viajar.
+        </p>
       </div>
-  <div class="card-header">
-    <h5 class="card-title font-medium text-3xl">Nossa Missão</h5>
+    </div>
+
   </div>
-  <div class="card-body">
-    <p class="bg-gray-100 rounded-2xl text-lg text-justify">Ser referência no setor de turismo digital, oferecendo uma experiência completa que combina tecnologia, conforto e cultura</p>
-  </div>
-</div>
+</section>
 
-</div>
+<!-- SEÇÃO NOSSO TIME -->
+<section class="bg-base-200 py-16">
+  <div class="max-w-7xl mx-auto px-4">
 
-<div class="card-group md:flex md:justify-center md:mx-auto bg-slate-700 md:w-[65%] pl-15 mt-10 rounded-2xl text-amber-50 text-xl text-center">
+    <!-- TÍTULO -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Nosso Time
+      </h2>
+      <p class="mt-4 text-base-content/70 max-w-2xl mx-auto">
+        Conheça a equipe dedicada que trabalha todos os dias para oferecer experiências
+        turísticas seguras, autênticas e inesquecíveis.
+      </p>
+    </div>
 
-  <div class="card-body p-8">
-    <h3 class="text-5xl">10+</h3>  
-    <p class="card-text">
-      Anos de experiências 
-    </p>
-  </div>
+    <!-- GRID DO TIME -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-  <div class="card-body p-8">
-    <h3 class="text-5xl">30k+</h3>  
-    <p class="card-text">
-      cliente Avaliados
-    </p>
-  </div>
+      <!-- MEMBRO 1 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <figure class="px-6 pt-6">
+          <img
+            src="/img/homem.png"
+            alt="Diretor Executivo"
+            class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-primary"
+          />
+        </figure>
 
-  <div class="card-body p-8">
-    <h3 class="text-5xl">100+</h3>  
-    <p class="card-text">
-      Reservas diárias 
-    </p>
-  </div>
+        <div class="card-body">
+          <h3 class="text-lg font-semibold">Carlos Manuel</h3>
+          <p class="text-sm text-primary font-medium">Diretor Executivo</p>
 
-  <div class="card-body p-8">
-    <h3 class="text-5xl">20k+</h3>  
-    <p class="card-text">
-      Clientes Satisfeitos
-    </p>
-  </div>
+          <p class="text-sm text-base-content/70 mt-3">
+            Responsável pela visão estratégica e crescimento sustentável da empresa.
+          </p>
 
-</div>
-
-
-{{!-- Parcerias --}}
-<div class="w-full mx-auto my-25   bg-slate-700 text-amber-50">
-
-    <h2 class="font-bold text-4xl text-center py-15">Nossos Team</h2>
-
-    <div class="md:flex md:justify-center mx-auto md:gap-8 pb-15">
-         <div class="card p-4 my-6 bg-slate-600">
-          <div class="card hover:shadow-sm sm:max-w-[100px] md:max-w-sm justify-center rounded-[50%] border border-amber-50 mt-4 ">
-                <figure class="bg-blue-200 rounded-[50%] shadow-2xl">
-                    <img src="/img/homem.png" alt="Shoes" class="transition-transform duration-500 group-hover:scale-110  md:w-70" />
-                </figure>
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title text-amber-50">Card title</h5> 
-                <p class="card-text font-medium text-gray-800">CEO</p>   
-            <div class="flex h-5 gap-4 m-2  justify-center  border-0 border-t pt-2">
-                <a href="#" class="link" aria-label="Github Link">
-                    <span class="icon-[tabler--brand-whatsapp] size-6 bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="Facebook Link">
-                    <span class="icon-[tabler--brand-facebook] size-6  bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="X Link">
-                    <span class="icon-[tabler--brand-linkedin] size-6  bg-gray-900"></span>
-                </a>
-            </div>         
+          <!-- REDES -->
+          <div class="flex justify-center gap-4 mt-4">
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-facebook] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-instagram] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-linkedin] size-5"></span>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="card p-4 my-6 bg-slate-600">
-          <div class="card group hover:shadow-sm sm:max-w-sm rounded-[50%] mt-4 border border-amber-70">
-              <figure class="bg-cyan-200 rounded-[50%]">
-                  <img src="/img/homem.png" alt="Shoes" class="transition-transform duration-500 group-hover:scale-110 md:w-70" />
-              </figure>
-          </div>
-          <div class="card-body text-center">
-                <h5 class="card-title text-amber-50">Card title</h5>
-                <p class="card-text font-medium text-gray-800">Agent Tur</p>
-              <div class="flex h-5 gap-3 m-2 justify-center border-0 border-t pt-2">
-                
-                <a href="#" class="link" aria-label="Github Link">
-                    <span class="icon-[tabler--brand-whatsapp] size-6  bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="Facebook Link">
-                    <span class="icon-[tabler--brand-facebook] size-6  bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="X Link">
-                    <span class="icon-[tabler--brand-linkedin] size-6  bg-gray-900"></span>
-                </a>
-             </div>
+      <!-- MEMBRO 2 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <figure class="px-6 pt-6">
+          <img
+            src="/img/homem.png"
+            alt="Gestora de Operações"
+            class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-primary"
+          />
+        </figure>
+
+        <div class="card-body">
+          <h3 class="text-lg font-semibold">Ana Silva</h3>
+          <p class="text-sm text-primary font-medium">Gestora de Operações</p>
+
+          <p class="text-sm text-base-content/70 mt-3">
+            Coordena reservas, logística e qualidade dos serviços turísticos.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-4">
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-facebook] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-instagram] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-linkedin] size-5"></span>
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="card p-4 my-6 bg-slate-600">
-          <div class="card group hover:shadow-sm sm:max-w-sm rounded-[50%] mt-4 border border-amber-50">
-            <figure class="bg-blue-200 rounded-[50%]">
-                  <img src="/img/homem.png" alt="Shoes" class="transition-transform duration-500 group-hover:scale-110 md:w-70" />
-            </figure>
+      <!-- MEMBRO 3 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <figure class="px-6 pt-6">
+          <img
+            src="/img/homem.png"
+            alt="Guia Turístico"
+            class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-primary"
+          />
+        </figure>
+
+        <div class="card-body">
+          <h3 class="text-lg font-semibold">João Pedro</h3>
+          <p class="text-sm text-primary font-medium">Guia Turístico</p>
+
+          <p class="text-sm text-base-content/70 mt-3">
+            Especialista em turismo cultural e ecológico em várias regiões de Angola.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-4">
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-facebook] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-instagram] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-linkedin] size-5"></span>
+            </a>
           </div>
-            <div class="card-body text-center">
-               <h5 class="card-title text-amber-50 ">Card title</h5>
-               <p class="card-text font-medium text-gray-800">CEO</p>
-
-              <div class="flex h-5 gap-4 m-2 justify-center  border-0 border-t pt-2">
-                <a href="#" class="link" aria-label="Github Link">
-                    <span class="icon-[tabler--brand-whatsapp] size-6  bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="Facebook Link">
-                    <span class="icon-[tabler--brand-facebook] size-6  bg-gray-900"></span>
-                </a>
-                <a href="#" class="link" aria-label="X Link">
-                    <span class="icon-[tabler--brand-linkedin] size-6  bg-gray-900"></span>
-                </a>
-              </div>
-            </div>
         </div>
-     </div>
-</div>
+      </div>
 
+      <!-- MEMBRO 4 -->
+      <div class="card bg-white shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <figure class="px-6 pt-6">
+          <img
+            src="/img/homem.png"
+            alt="Atendimento ao Cliente"
+            class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-primary"
+          />
+        </figure>
 
+        <div class="card-body">
+          <h3 class="text-lg font-semibold">Maria Fernandes</h3>
+          <p class="text-sm text-primary font-medium">Atendimento ao Cliente</p>
+
+          <p class="text-sm text-base-content/70 mt-3">
+            Apoia clientes antes, durante e após cada experiência turística.
+          </p>
+
+          <div class="flex justify-center gap-4 mt-4">
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-facebook] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-instagram] size-5"></span>
+            </a>
+            <a href="#" class="text-base-content hover:text-primary transition">
+              <span class="icon-[tabler--brand-linkedin] size-5"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO DE ESTATÍSTICAS -->
+<section class="py-16 bg-base-200">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <!-- TÍTULO -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold">
+        Nossos Resultados
+      </h2>
+      <p class="mt-4 text-base-content/70 max-w-2xl mx-auto">
+        Números que refletem a confiança, a experiência e a satisfação dos nossos clientes ao longo dos anos.
+      </p>
+    </div>
+
+    <!-- CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- ITEM 1 -->
+      <div class="card bg-slate-800 text-amber-50 shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <div class="card-body items-center gap-4">
+          <span class="icon-[tabler--calendar-time] size-12 text-amber-400"></span>
+          <h3 class="text-4xl font-bold">10+</h3>
+          <p class="text-base text-amber-100">
+            Anos de Experiência
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="card bg-slate-800 text-amber-50 shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <div class="card-body items-center gap-4">
+          <span class="icon-[tabler--users] size-12 text-amber-400"></span>
+          <h3 class="text-4xl font-bold">30k+</h3>
+          <p class="text-base text-amber-100">
+            Clientes Avaliados
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="card bg-slate-800 text-amber-50 shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <div class="card-body items-center gap-4">
+          <span class="icon-[tabler--calendar-check] size-12 text-amber-400"></span>
+          <h3 class="text-4xl font-bold">100+</h3>
+          <p class="text-base text-amber-100">
+            Reservas Diárias
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="card bg-slate-800 text-amber-50 shadow-xl hover:shadow-2xl transition-all duration-300 text-center">
+        <div class="card-body items-center gap-4">
+          <span class="icon-[tabler--thumb-up] size-12 text-amber-400"></span>
+          <h3 class="text-4xl font-bold">20k+</h3>
+          <p class="text-base text-amber-100">
+            Clientes Satisfeitos
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 max-w-7xl mx-auto">
+  <h2 class="text-3xl md:text-5xl font-bold text-center mb-14">
+    Por que escolher-nos?
+  </h2>
+
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+
+    <div class="text-center">
+      <span class="icon-[tabler--map] size-10 text-success mx-auto"></span>
+      <h3 class="font-bold text-xl mt-4">Destinos exclusivos</h3>
+    </div>
+
+    <div class="text-center">
+      <span class="icon-[tabler--shield-check] size-10 text-success mx-auto"></span>
+      <h3 class="font-bold text-xl mt-4">Segurança garantida</h3>
+    </div>
+
+    <div class="text-center">
+      <span class="icon-[tabler--users] size-10 text-success mx-auto"></span>
+      <h3 class="font-bold text-xl mt-4">Guias especializados</h3>
+    </div>
+
+    <div class="text-center">
+      <span class="icon-[tabler--star] size-10 text-success mx-auto"></span>
+      <h3 class="font-bold text-xl mt-4">Avaliações excelentes</h3>
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-success text-white py-20 text-center px-6">
+  <h2 class="text-3xl md:text-5xl font-bold mb-6">
+    Vamos explorar juntos?
+  </h2>
+
+  <p class="text-lg mb-8">
+    Descubra destinos incríveis e viva experiências únicas connosco.
+  </p>
+
+  <a href="/contacto" class="btn btn-outline btn-lg text-white border-white">
+    Fale connosco
+  </a>
+</section>

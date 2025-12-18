@@ -1,243 +1,339 @@
-<div class="continer mt-[-20px]">
-{{!--Barra de pesquisa--}}
+<section class="relative h-screen w-full overflow-hidden">
 
-<div class="card w-full">
-<form action="/pesquisa" method="post">
-  <div class="card-body bg-slate-800 flex justify-around">
-    <div class="input input-lg h-10  flex  md:max-w-[60%] mx-auto">
-    <span class="icon-[tabler--search] text-base-content/80 my-auto size-6 shrink-0"></span>
-    <input type="search" class="p-2" placeholder="pesquisar hotel, praia ou restaurantes..." name="pesquisa" id="pesquisa"/>
-    <label class="sr-only" for="kbdInput">Pesquise aqui o seu próximo destino</label>
-    </span>
-      <button class="md:w-30 btn h-10 mb-20 text-md btn-primary bot">pesquisar</button>
-  </div>
-</form>
+  <!-- Carousel -->
+  <div id="auto-play"
+    data-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay": true, "speed": 4000 }'
+    class="absolute inset-0">
 
-</div>
+    <div class="carousel h-full w-full">
+      <div class="carousel-body h-full opacity-0">
 
-     <!-- CARROSSEL HTML -->
-        <section class="carousel lg:h-150">
-            <!-- Slide 1 -->
-            <div class="slide">
-                <img src="/img/destino1.jpg" alt="Praia de Cabo Ledo">
-                <div class="caption">Praia de Cabo Ledo</div>
-            </div>
-
-
-            <!-- Slide 2 -->
-            <div class="slide">
-                <img class="image" src="/img/destino2.jpg" alt="Luanda City Tour">
-                <div class="caption">Luanda City Tour</div>
-            </div>
-
-
-            <!-- Slide 3 -->
-            <div class="slide">
-                <img class="image" src="/img/destino3.jpg" alt="Serra da Leba">
-                <div class="caption">Serra da Leba</div>
-            </div>
-
-            <!-- Slide 4 -->
-
-            <div class="slide">
-                <img class="image" src="/img/destino4.jpg" alt="Praia de Cabo Ledo">
-                <div class="caption">Praia de Cabo Ledo</div>
-            </div>
-
-
-            <!-- Slide 5 -->
-            <div class="slide">
-                <img class="image" src="/img/destino5.jpg" alt="Luanda City Tour">
-                <div class="caption">Luanda City Tour</div>
-            </div>
-
-
-            <!-- Slide 6 -->
-            <div class="slide">
-                <img class="image" src="/img/destino6.jpg" alt="Serra da Leba">
-                <div class="caption">Serra da Leba</div>
-            </div>
-
-
-            <!-- Slide 7 -->
-
-            <div class="slide">
-                <img class="image" src="/img/destino7.jpg" alt="Praia de Cabo Ledo">
-                <div class="caption">Praia de Cabo Ledo</div>
-            </div>
-
-
-            <!-- Slide 8 -->
-            <div class="slide">
-                <img class="image" src="/img/destino8.jpg" alt="Luanda City Tour">
-                <div class="caption">Luanda City Tour</div>
-            </div>
-
-
-            <!-- Slide 9 -->
-            <div class="slide">
-                <img class="image" src="/img/destino9.jpg" alt="Serra da Leba">
-                <div class="caption">Serra da Leba</div>
-            </div>
-
-
-
-  <button type="button" class="carousel-prev start-5 max-sm:start-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
-    <span class="icon-[tabler--chevron-left] size-5 cursor-pointer"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <!-- Next Slide -->
-   <button type="button" class="carousel-next end-5 max-sm:end-3 carousel-disabled:opacity-50 size-9.5 bg-base-100 flex items-center justify-center rounded-full shadow-base-300/20 shadow-sm">
-    <span class="icon-[tabler--chevron-right] size-5"></span>
-    <span class="sr-only">Next</span>
-  </button>
-        </section>
-
-
-        <!-- Liga o CSS -->
-    
-
-
-
-
-
-</div>
-
-<div class="bg-base-100 py-8 sm:py-16 lg:py-20">
-    <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-8 ">
-      <!-- Section Header -->
-      <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
-        <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-5xl">Visite os lugares mais populares.</h2>
-        <p class="text-base-content/80 text-3xl">
-      Explore novos destinos, delicie-se com a culinária local e mergulhe em diversas culturas.
-        </p>
-      </div>
-      <!-- Blog Grid -->
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Blog Card 1 -->
-        <div class="card card-border shadow-none">
-          <figure>
-            <img src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-36.png" alt="Modern house" />
-          </figure>
-          <div class="card-body gap-3">
-            <h5 class="card-title text-xl">Laws of Transfer of Immovable Property</h5>
-            <p class="mb-5">
-              Experience the charm of this lovely and cozy apartment, featuring warm decor and inviting spaces, perfect
-              for relaxation and comfort, ideal for your next getaway.
-            </p>
-            <div class="card-actions">
-              <a href="/info/hotel Epic-Sana" class="btn btn-primary btn-gradient">
-                saber mais
-                <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-              </a>
-            </div>
-          </div>
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino1.jpg" class="h-full w-full object-cover scale-105" />
         </div>
-        <!-- Blog Card 2 -->
-          <div class="card card-border shadow-none">
-            <figure>
-              <img src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-37.png" alt="Traditional house" />
-            </figure>
-            <div class="card-body gap-3">
-              <h5 class="card-title text-xl">Thane Development Plan 2026 & Master Plan</h5>
-              <p class="mb-5">
-                Discover a unique nook in the heart of the city, offering convenience and access to attractions. Stylishly
-                designed, it provides a comfortable retreat.
-              </p>
-              <div class="card-actions">
-                <a href="/info/hotel Continental" class="btn btn-primary btn-gradient">
-                  saber mais
-                  <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Blog Card 3 -->
-          <div class="card card-border shadow-none">
-            <figure>
-              <img
-                src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-38.png"
-                alt="Modern house with pool"
-              />
-            </figure>
-            <div class="card-body gap-3">
-              <h5 class="card-title text-xl">What is a Property Sale Agreement?</h5>
-              <p class="mb-5">
-                Welcome to this charming independent house bedroom, featuring a spacious layout and cozy furnishings.
-                Enjoy abundant natural light and peaceful.
-              </p>
-              <div class="card-actions">
-                <a href="/info/hotel Presidente" class="btn btn-primary btn-gradient">
-                saber mais
-                  <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-                </a>
-              </div>
-            </div>
-          </div>
 
-           <!-- Blog Card 1 -->
-        <div class="card card-border shadow-none">
-          <figure>
-            <img src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-36.png" alt="Modern house" />
-          </figure>
-          <div class="card-body gap-3">
-            <h5 class="card-title text-xl">Laws of Transfer of Immovable Property</h5>
-            <p class="mb-5">
-              Experience the charm of this lovely and cozy apartment, featuring warm decor and inviting spaces, perfect
-              for relaxation and comfort, ideal for your next getaway.
-            </p>
-            <div class="card-actions">
-              <a href="/info/hotel Epic-Sana" class="btn btn-primary btn-gradient">
-                saber mais
-                <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-              </a>
-            </div>
-          </div>
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino2.jpg" class="h-full w-full object-cover scale-105" />
         </div>
-        <!-- Blog Card 2 -->
-          <div class="card card-border shadow-none">
-            <figure>
-              <img src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-37.png" alt="Traditional house" />
-            </figure>
-            <div class="card-body gap-3">
-              <h5 class="card-title text-xl">Thane Development Plan 2026 & Master Plan</h5>
-              <p class="mb-5">
-                Discover a unique nook in the heart of the city, offering convenience and access to attractions. Stylishly
-                designed, it provides a comfortable retreat.
-              </p>
-              <div class="card-actions">
-                <a href="/info/hotel  Presidente" class="btn btn-primary btn-gradient">
-                  saber mais
-                  <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Blog Card 3 -->
-          <div class="card card-border shadow-none">
-            <figure>
-              <img
-                src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/blog/blog-38.png"
-                alt="Modern house with pool"
-              />
-            </figure>
-            <div class="card-body gap-3">
-              <h5 class="card-title text-xl">What is a Property Sale Agreement?</h5>
-              <p class="mb-5">
-                Welcome to this charming independent house bedroom, featuring a spacious layout and cozy furnishings.
-                Enjoy abundant natural light and peaceful.
-              </p>
-              <div class="card-actions">
-                <a href="/info/hotel Continental" class="btn btn-primary btn-gradient">
-                saber mais
-                  <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
-                </a>
-              </div>
-            </div>
-          </div>
 
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino3.jpg" class="h-full w-full object-cover scale-105" />
         </div>
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino4.jpg" class="h-full w-full object-cover scale-105" />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino5.jpg" class="h-full w-full object-cover scale-105" />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img src="./img/destinos/destino7.jpg" class="h-full w-full object-cover scale-105" />
+        </div>
+
       </div>
     </div>
   </div>
 
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 flex h-full items-center justify-center text-center px-6">
+    <div class="max-w-4xl">
+
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+        Descubra Angola como nunca antes
+      </h1>
+
+      <p class="text-lg md:text-2xl text-white/90 mb-10">
+        Experiências autênticas, destinos únicos e memórias inesquecíveis
+      </p>
+
+      <div class="flex gap-4 justify-center">
+        <a href="/destinos">
+        <button class="btn btn-success btn-lg">
+          Explorar destinos
+        </button>
+        </a>
+        <button class="btn btn-outline btn-lg text-white border-white">
+          Ver pacotes
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-prev absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2">
+    <span class="icon-[tabler--chevron-left] size-6"></span>
+  </button>
+
+  <button class="carousel-next absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2">
+    <span class="icon-[tabler--chevron-right] size-6"></span>
+  </button>
+
+</section>
+
+<!-- ================= SEARCH ================= -->
+<section class="relative -mt-20 z-20 px-4">
+  <form class="bg-white shadow-xl rounded-2xl p-6 max-w-6xl mx-auto grid gap-4 md:grid-cols-5">
+
+    <input type="text" placeholder="Destino"
+      class="input input-bordered md:col-span-2" />
+
+    <input type="date" class="input input-bordered" />
+    <input type="date" class="input input-bordered" />
+
+    <button class="btn btn-success">
+      Pesquisar
+    </button>
+
+  </form>
+</section>
+
+<!-- ================= EXPERIÊNCIAS ================= -->
+<section class="py-24 px-6 bg-slate-50">
+
+  <h2 class="text-3xl md:text-5xl font-bold text-center mb-14">
+    Experiências inesquecíveis
+  </h2>
+
+  <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+
+    <!-- Card -->
+    <div class="group relative overflow-hidden rounded-3xl shadow-lg">
+      <img src="./img/mussulo.jpg"
+        class="h-96 w-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-2xl font-bold">Ilha do Mussulo</h3>
+        <p class="opacity-90">Praias e lazer</p>
+       <a href="/info">
+        <button class="btn btn-success btn-sm mt-4">
+          Ver detalhes
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="group relative overflow-hidden rounded-3xl shadow-lg">
+      <img src="./img/pub/pub- (10).jpg"
+        class="h-96 w-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-2xl font-bold">Fortaleza de São Miguel</h3>
+        <p class="opacity-90">História e cultura</p>
+      <a href="/info">
+        <button class="btn btn-success btn-sm mt-4">
+          Ver detalhes
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="group relative overflow-hidden rounded-3xl shadow-lg">
+      <img src="./img/pub/pub- (6).jpg"
+        class="h-96 w-full object-cover transition-transform duration-500 group-hover:scale-110">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
+      <div class="absolute bottom-0 p-6 text-white">
+        <h3 class="text-2xl font-bold">Quedas de Calandula</h3>
+        <p class="opacity-90">Natureza e aventura</p>
+      <a href="/info">
+        <button class="btn btn-success btn-sm mt-4">
+          Ver detalhes
+        </button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEÇÃO DE NOTÍCIAS -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- TÍTULO -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">
+          Notícias & Atualizações do Turismo
+        </h2>
+        <p class="mt-3 text-base-content/70 max-w-2xl">
+          Fique por dentro das novidades, investimentos e eventos que impulsionam o turismo em Angola.
+        </p>
+      </div>
+
+      <a href="/#" class="btn btn-outline btn-primary mt-6 md:mt-0">
+        Ver todas as notícias
+      </a>
+    </div>
+
+    <!-- GRID DE NOTÍCIAS -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- NOTÍCIA 1 -->
+      <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/investidor.jpg" alt="Turismo em Luanda" class="h-52 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-primary gap-1">
+            <span class="icon-[tabler--news] size-4"></span>
+            Atualidade
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title text-lg">
+            Luanda reforça investimentos no turismo urbano
+          </h3>
+
+          <div class="flex items-center gap-4 text-sm text-base-content/60">
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--calendar] size-4"></span>
+              10 Jun 2025
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--map-pin] size-4"></span>
+              Luanda
+            </div>
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            Novos projetos visam modernizar a oferta turística da capital, apostando em cultura, lazer e gastronomia.
+          </p>
+
+          <div class="card-actions justify-between items-center mt-4">
+            <div class="flex items-center gap-1 text-primary text-sm">
+              <span class="icon-[tabler--eye] size-4"></span>
+              {{!-- 1.240 visualizações --}}
+            </div>
+
+            <a href="/noticias/luanda-investimentos" class="btn btn-sm btn-primary">
+              Ler mais
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NOTÍCIA 2 -->
+      <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/kalandula investimento.jpg" alt="Quedas de Kalandula" class="h-52 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-secondary gap-1">
+            <span class="icon-[tabler--leaf] size-4"></span>
+            Ecoturismo
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title text-lg">
+            Kalandula recebe projeto de preservação ambiental
+          </h3>
+
+          <div class="flex items-center gap-4 text-sm text-base-content/60">
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--calendar] size-4"></span>
+              02 Jun 2025
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--map-pin] size-4"></span>
+              Malanje
+            </div>
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            A iniciativa visa proteger o ecossistema local e incentivar o turismo sustentável na região.
+          </p>
+
+          <div class="card-actions justify-between items-center mt-4">
+            <div class="flex items-center gap-1 text-primary text-sm">
+              <span class="icon-[tabler--eye] size-4"></span>
+              {{!-- 980 visualizações --}}
+            </div>
+
+            <a href="/#" class="btn btn-sm btn-primary">
+              Ler mais
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NOTÍCIA 3 -->
+      <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+        <figure class="relative">
+          <img src="/img/visite mussulo.jpg" alt="Ilha do Mussulo" class="h-52 w-full object-cover">
+
+          <span class="absolute top-4 left-4 badge badge-accent gap-1">
+            <span class="icon-[tabler--beach] size-4"></span>
+            Eventos
+          </span>
+        </figure>
+
+        <div class="card-body">
+          <h3 class="card-title text-lg">
+            Ilha do Mussulo recebe festival turístico-cultural
+          </h3>
+
+          <div class="flex items-center gap-4 text-sm text-base-content/60">
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--calendar] size-4"></span>
+              28 Mai 2025
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="icon-[tabler--map-pin] size-4"></span>
+              Luanda
+            </div>
+          </div>
+
+          <p class="text-sm text-base-content/70">
+            Música, gastronomia e atividades náuticas marcam o evento que atrai turistas nacionais e estrangeiros.
+          </p>
+
+          <div class="card-actions justify-between items-center mt-4">
+            <div class="flex items-center gap-1 text-primary text-sm">
+              <span class="icon-[tabler--eye] size-4"></span>
+              {{!-- 1.540 visualizações --}}
+            </div>
+
+            <a href="/noticias/festival-mussulo" class="btn btn-sm btn-primary">
+              Ler mais
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="bg-success text-white py-20 text-center px-6">
+  <h2 class="text-3xl md:text-5xl font-bold mb-6">
+    Pronto para a sua próxima aventura?
+  </h2>
+
+  <p class="text-lg mb-8">
+    Reserve hoje e viva experiências únicas
+  </p>
+<a href="/servicos">
+  <button class="btn btn-outline text-white border-white btn-lg">
+    Começar agora
+  </button></a>
+</section>

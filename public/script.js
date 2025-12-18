@@ -1,107 +1,74 @@
-import "flyonui/flyonui"
-import "flyonui/dist/accordion"
+// import "flyonui/flyonui"
+// import "flyonui/dist/accordion"
+
+const abrir = document.querySelector(".openPagamento")
+const avaliacao = document.querySelector(".avaliacao")
+const nomeAvaliar = document.querySelector("#nomeAvaliar")
+const textoAvaliar = document.querySelector("#textoAliacao")
+const selecaoAvaliar = document.querySelector("#selecaoAaliacao")
 
 
-    var map = new Datamap({
-        element: document.getElementById('container'),
-        fills: {
-            HIGH: '#afafaf',
-            LOW: '#123456',
-            MEDIUM: 'blue',
-            UNKNOWN: 'rgb(0,0,0)',
-            defaultFill: 'green'
-        },
-        data: {
-            IRL: {
-                fillKey: 'LOW',
-                numberOfThings: 2002
-            },
-            USA: {
-                fillKey: 'MEDIUM',
-                numberOfThings: 10381
-            }
-        },
-        geographyConfig: {
-            popupTemplate: function(geo, data) {
-                return ['<div class="hoverinfo"><strong>',
-                        'Number of things in ' + geo.properties.name,
-                        ': ' + data.numberOfThings,
-                        '</strong></div>'].join('');
-            }
-        }
-    });
 
+    // abrir.addEventListener("click", (e)=>{
+    //     e.preventDefault()
+    //    console.log(e.target)
+    //      openPayment(2)
 
-    var bombMap = new Datamap({
-    element: document.getElementById('container'),
-    scope: 'world',
-    geographyConfig: {
-        popupOnHover: false,
-        highlightOnHover: false
-    },
-    fills: {
-        'USA': '#1f77b4',
-        'RUS': '#9467bd',
-        'PRK': '#ff7f0e',
-        'PRC': '#2ca02c',
-        'IND': '#e377c2',
-        'GBR': '#8c564b',
-        'FRA': '#d62728',
-        'PAK': '#7f7f7f',
-        defaultFill: '#EDDC4E'
-    },
-    data: {
-        'RUS': {fillKey: 'RUS'},
-        'PRK': {fillKey: 'PRK'},
-        'PRC': {fillKey: 'PRC'},
-        'IND': {fillKey: 'IND'},
-        'GBR': {fillKey: 'GBR'},
-        'FRA': {fillKey: 'FRA'},
-        'PAK': {fillKey: 'PAK'},
-        'USA': {fillKey: 'USA'}
-    }
-});
+    //     //  if(e.target.classList.contains("close") || e.target.classList.contains("openPagamento")
+    //     // ){
+    //     //   closePayment()
+    //     //  }
 
-     var bombs = [{
-        name: 'Joe 4',
-        radius: 25,
-        yield: 400,
-        country: 'USSR',
-        fillKey: 'RUS',
-        significance: 'First fusion weapon test by the USSR (not "staged")',
-        date: '1953-08-12',
-        latitude: 50.07,
-        longitude: 78.43
-      },{
-        name: 'RDS-37',
-        radius: 40,
-        yield: 1600,
-        country: 'USSR',
-        fillKey: 'RUS',
-        significance: 'First "staged" thermonuclear weapon test by the USSR (deployable)',
-        date: '1955-11-22',
-        latitude: 50.07,
-        longitude: 78.43
+    // })
 
-      },{
-        name: 'Tsar Bomba',
-        radius: 75,
-        yield: 50000,
-        country: 'USSR',
-        fillKey: 'RUS',
-        significance: 'Largest thermonuclear weapon ever tested—scaled down from its initial 100 Mt design by 50%',
-        date: '1961-10-31',
-        latitude: 73.482,
-        longitude: 54.5854
+   function openPayment(pessoas) {
+        document.getElementById("paymentModal").classList.remove("hidden")
+        document.getElementById("qtdPessoas").innerText = pessoas
+        document.getElementById("totalValor").innerText = (25000 * pessoas) + " Kz"
       }
-    ];
-//draw bubbles for bombs
-bombMap.bubbles(bombs, {
-    popupTemplate: function (geo, data) {
-            return ['<div class="hoverinfo">' +  data.name,
-            '<br/>Payload: ' +  data.yield + ' kilotons',
-            '<br/>Country: ' +  data.country + '',
-            '<br/>Date: ' +  data.date + '',
-            '</div>'].join('');
-    }
-});
+
+
+  function closePayment() {
+    document.getElementById("paymentModal").classList.add("hidden")
+  }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+ const avaliacao = document.querySelector(".avaliacao")
+const nomeAvaliar = document.querySelector("#nomeAvaliar")
+const textoAvaliar = document.querySelector("#textoAvaliar")
+const selecaoAvaliar = document.querySelector("#selecaoAaliacao")
+const formAvaliacao = document.querySelector(".formAvaliar")
+
+formAvaliacao.addEventListener("submit",(e)=>{
+  e.preventDefault()
+
+    const divMain = document.createElement("div")
+    divMain.classList.add("bg-white", "p-6", "rounded-3xl","shadow")
+
+    const div = document.createElement("div")
+    div.classList.add("flex", "justify-between", "mb-2")
+
+    const strong = document.createElement("strong")
+    strong.innerHTML= nomeAvaliar.value
+
+    const divStar = document.createElement("div")
+    divStar.classList.add("flex", "gap-1")
+
+    const p = document.createElement("p")
+    p.classList.add("text-slate-600")
+     p.innerHTML= textoAvaliar.value
+
+
+    avaliacao.appendChild(divMain)
+    divMain.appendChild(div)
+    div.appendChild(strong)
+    div.appendChild(divStar)
+    divMain.appendChild(p)
+    
+
+  })
+})

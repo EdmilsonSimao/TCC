@@ -1,0 +1,152 @@
+<section class="tur h-screen bg-slate-700"><div class="bg h-full"></div></section>
+
+<div class="absolute pesq top-[40%] left-1/2 -translate-x-1/2 w-full max-w-screen-md">
+ 
+    <h2 class="lg:text-2xl text-center text-green-50 m-3">Experiências turísticas autênticas e inesquecíveis</h2>
+    
+     <form class="lg:w-200 card mx-auto formPes" action="">
+        <div class="md:flex md:flex-wrap lg:flex-nowrap gap-4">
+            <div class=" p-4">
+                <label>
+                    <span class="icon-[tabler--search]"></span>
+                    Destino
+                 </label>
+                <input type="text" class="input"required placeholder="Luanda, fortaleza..." />
+            </div>
+            <div class=" p-4">
+                <label>
+                    <span class="icon-[tabler--calendar]"></span>
+                    Check in
+                    </label>
+                <input type="date" class="input" required/>
+            </div>
+            <div class=" p-4">
+                <label>
+                    <span class="icon-[tabler--calendar]"></span>
+                    check out
+                    </label>
+                <input type="date" class="input" required/>
+            </div>
+            <div class=" p-4">
+                <label>
+                    <span class="icon-[tabler--user-filled]"></span>
+                    Número de Pessoas
+                    </label>
+                <input type="number" class="input" required placeholder="1, 2, 3..." />
+            </div>
+        </div>
+   <button  type="submit" class="max-auto btnPes mt-10 m-4 btn btn-success">Pesquisar</button>
+    </form>     
+</div>
+
+<div class="grid-cols-1 w-full md:w-[100%] hidden listP lg:grid-cols-3 lg:justify-around mt-15 lg:mx-auto lg:justify-items-center">
+ 
+{{#each lugares}}
+<div class="card md:m-5 intersect:motion-scale-in-0 intersect:motion-opacity-in-0 intersect:motion-blur-in-[5px] intersect:motion-ease-spring-smooth intersect-half origin-bottom-right sm:max-w-sm md:max-w-xl" >
+  <figure><img class=" object-cover h-80" src="{{image.image1}}" alt="headphone" /></figure>
+  <div class="card-body">
+    <h3 class="card-title mb-2.5 text-4xl">{{nome}}</h5>
+    <p class="mb-4  text-xl">A perfect balance of exhilarating high-fidelity audio and the effortless magic of Airpods.</p>
+    <div class="card-actions">
+       <a href="/info/{{nome}}">
+      <button class="btn btn-primary intersect:motion-delay-[400ms] intersect:motion-ease-spring-bouncy intersect:motion-scale-in-0 text-2xl" >
+        saber mais 
+      </button>
+      </a>
+      <div >
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <span class="size-8 bg-amber-400 icon-[tabler--star-filled]"></span>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+</div>
+
+<div class="w-full h-full bg2 top-0 table absolute mx-auto close px-5">
+    <div class="card absolute  top-[10%] left-1/2 -translate-x-1/2 md:w-200 w-full max-w-screen-1">
+        <div class="card-body">
+            <h2 class="card-title flex gap-2">
+                <span class="icon-[tabler--credit-card] bg-amber-800 size-10"></span>
+               <p> Pagamento - Pacote Turismo</p>
+            </h2>
+            <div class="card p-4 border border-slate-900">
+                <h3  class="text-lg font-medium text-primary ">Detalhes da reserva</h3>
+
+                <div class="flex justify-between my-1.5">
+                    <h3 class="font-medium">Tipo de Reserva</h3>
+                    <div> <p>50.00kz</p></div>
+                </div>
+                <div class="flex justify-between my-1.5">
+                    <h3 class="font-medium">Local:</h3>
+                    <div> <p>50.00kz</p></div>
+                </div>
+                <div class="flex justify-between my-1.5">
+                    <h3 class="font-medium">Data:</h3>
+                    <div> <p>50.00kz</p></div>
+                </div>
+                <div class="flex justify-between my-1.5">
+                    <h3 class="font-medium">Duração:</h3>
+                    <div> <p>50.00kz</p></div>
+                </div>
+                <div class="flex justify-between my-1.5">
+                    <h3 class="font-medium">Numero de Pessoas</h3>
+                    <div> <p>50.00kz</p></div>
+                </div>
+
+
+                <hr class="my-3">
+                <div class="flex justify-between">
+                    <h3 class="font-bold text-lg">Total</h3>
+                    <div> <p>50.00kz</p></div>
+                   
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <div class="card-body  rounded-2xl   bg-slate-900 m-3">
+            <h2 class="text-primary text-lg">Instruções de Pagamento</h2>
+            <div class="card-header p-3 bg-slate-950 text-white shadow-2xl rounded-2xl">
+                <p class="text-slate-400">IBAN</p>
+                <p class="md:text-xl">0005.0000.0822.5504.1011.5</p>
+            </div>
+        </div>
+        <div class="card-body rounded-2xl   bg-slate-900 m-3">
+            <h2 class="text-primary text-lg">Numero de Telefone(via Express)</h2>
+            <div class="card-header p-3 text-white bg-slate-950 rounded-2xl shadow-2xl">
+                <p class="text-slate-400">IBAN</p>
+                <p class="md:text-xl">929778512</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body border-dashed border-2 m-4 text-center">
+                <label for="comprovativo"
+                    class="flex flex-col items-center cursor-pointer gap-2">
+
+                    <span class="icon-[tabler--upload] size-8"></span>
+                    <span>Enviar comprovativo</span>
+
+                </label>
+
+                <input 
+                    type="file" 
+                    id="comprovativo"
+                    class="hidden"
+                    accept="image/*,.pdf"
+                >
+            </div>
+            
+            <div class="m-4 flex justify-between">
+                <button class="btn btn-error md:w-60 cancel">Cancelar</button>
+                <button class="btn btn-success md:w-60 confirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<!-- HERO PERFIL -->
+<section class="bg-gradient-to-r from-slate-800 to-slate-900 py-16">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+
+    <div class="avatar">
+      <div class="w-32 rounded-full ring ring-success ring-offset-base-100 ring-offset-4">
+        <img src="/img/users/user-1.jpg" alt="Usuário">
+      </div>
+    </div>
+
+    <div class="text-white text-center md:text-left">
+      <h1 class="text-4xl font-bold">João Miguel</h1>
+      <p class="text-slate-300 mt-2">joao@email.com</p>
+      <p class="mt-2 text-sm text-slate-400">
+        Membro desde • 2024
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTEÚDO -->
+<section class="py-16 bg-base-200">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-10">
+
+    <!-- SIDEBAR -->
+    <aside class="bg-white rounded-3xl shadow-xl p-6 space-y-4 h-fit">
+
+      <button class="btn btn-ghost justify-start w-full">📄 Minhas Reservas</button>
+      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--star]"></span> Avaliações</button>
+      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--credit-card]"></span> Pagamentos</button>
+      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--settings]"></span> Configurações</button>
+      <button class="btn btn-error btn-outline w-full mt-6">Sair</button>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="lg:col-span-2 space-y-10">
+
+      <!-- RESERVAS -->
+      <div class="bg-white rounded-3xl shadow-xl p-6">
+        <h2 class="text-2xl font-bold mb-4">Minhas Reservas</h2>
+
+        <div class="space-y-4">
+
+          <!-- ITEM -->
+          <div class="flex flex-col md:flex-row justify-between gap-4 card p-4 rounded-xl">
+            <div>
+              <h3 class="font-semibold">Serra da Leba</h3>
+              <p class="text-sm text-slate-500">Data: 15/08/2025</p>
+              <p class="text-sm text-slate-500">Pessoas: 2</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="badge badge-success">Confirmado</span>
+              <button class="btn btn-sm btn-outline">Ver</button>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col md:flex-row justify-between gap-4 card  p-4 rounded-xl">
+            <div>
+              <h3 class="font-semibold">Ilha do Mussulo</h3>
+              <p class="text-sm text-slate-500">Data: 02/09/2025</p>
+              <p class="text-sm text-slate-500">Pessoas: 4</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="badge badge-warning">Pendente</span>
+              <button class="btn btn-sm btn-outline">Pagar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- AVALIAÇÕES -->
+      <div class="bg-white rounded-3xl shadow-xl p-6">
+        <h2 class="text-2xl font-bold mb-4">Minhas Avaliações</h2>
+
+        <div class="space-y-4">
+
+          <div class="card p-4 rounded-xl">
+            <div class="flex justify-between mb-2">
+              <strong>Serra da Leba</strong>
+                <div >
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                </div>
+            </div>
+            <p class="text-slate-600">
+              Lugar incrível, experiência inesquecível.
+            </p>
+          </div>
+
+          <div class="card  p-4 rounded-xl">
+            <div class="flex justify-between mb-2">
+              <strong>Ilha do Mussulo</strong>
+               <div >
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                    <span class="size-5 bg-amber-400 icon-[tabler--star-filled]"></span>
+                </div>
+            </div>
+            <p class="text-slate-600">
+              Ótimo atendimento e paisagem maravilhosa.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      {{!-- <!-- CONFIGURAÇÕES -->
+      <div class="bg-white rounded-3xl shadow-xl p-6">
+        <h2 class="text-2xl font-bold mb-4">Configurações</h2>
+
+        <form class="space-y-4">
+          <input type="text" class="input w-full" placeholder="Nome">
+          <input type="email" class="input w-full" placeholder="Email">
+          <button class="btn btn-primary">Salvar alterações</button>
+        </form>
+      </div> --}}
+
+    </main>
+
+  </div>
+</section>
