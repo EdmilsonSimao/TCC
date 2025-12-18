@@ -7,7 +7,7 @@ route.get("/", (req, res)=>{
 })
 
 route.get("/info", (req, res)=>{
-    res.render("detalhes")
+    res.render("turismo/destinos")
 })
 
 route.get("/info/:nome", (req, res)=>{
@@ -89,7 +89,7 @@ route.get("/info/:nome", (req, res)=>{
     console.log(pesquisa)
 const pesquisar = lugar.filter(lugar => lugar.nome.startsWith(pesquisa))
 console.log(pesquisar)
- res.render("info", {lugares: pesquisar})
+ res.render("turismo/info", {lugares: pesquisar})
 
 })
 
@@ -308,7 +308,7 @@ route.get("/servicos", (req, res)=>{
     res.render("servicos")
 })
 route.get("/destinos", (req, res)=>{
-    res.render("dest")
+    res.render("turismo/destinos")
 })
 
 route.get("/tur",(req, res)=>{
@@ -426,7 +426,10 @@ route.get("/pagamento", (req, res)=>{
 })
 
 route.get("/dashboard", (req, res)=>{
-    res.render("reservas")
+    res.render("dashboard")
+})
+route.get("/hospedagem", (req, res)=>{
+    res.render("hoteis/hospedagem")
 })
 
 

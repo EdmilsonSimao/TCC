@@ -1,0 +1,159 @@
+<!-- HERO -->
+<section class="relative bg-slate-800 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-24 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold">
+      Hospedagens em Angola
+    </h1>
+    <p class="mt-4 max-w-2xl text-white/80 text-center">
+      Descubra hotéis, lodges, pousadas e resorts em todas as províncias de Angola.
+      Conforto, segurança e preços especiais.
+    </p>
+
+    <!-- BUSCA -->
+    <div class="mt-10 bg-white rounded-xl p-6 shadow-xl grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div>
+        <label class="text-sm text-gray-600">Destino</label>
+        <input type="text" placeholder="Ex: Luanda, Benguela" class="input input-bordered w-full">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-600">Check-in</label>
+        <input type="date" class="input input-bordered w-full">
+      </div>
+
+      <div>
+        <label class="text-sm text-gray-600">Check-out</label>
+        <input type="date" class="input input-bordered w-full">
+      </div>
+
+      <div class="flex items-end">
+        <button class="btn btn-primary w-full">
+          <span class="icon-[tabler--search] size-5"></span>
+          Procurar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<section class="py-20 bg-base-200">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
+
+    <!-- FILTROS -->
+    <aside class="bg-white p-6 rounded-xl shadow-md h-fit">
+      <h3 class="font-semibold text-lg mb-4">Filtrar hospedagem</h3>
+
+      <div class="space-y-4">
+        <div>
+          <h4 class="font-medium mb-2">Tipo</h4>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> Hotel
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> Lodge
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> Pousada
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> Resort
+          </label>
+        </div>
+
+        <div>
+          <h4 class="font-medium mb-2">Preço por noite</h4>
+          <input type="range" min="20000" max="150000" class="range range-primary">
+          <div class="flex justify-between text-sm text-base-content/70">
+            <span>20.000 Kz</span>
+            <span>150.000 Kz</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-medium mb-2">Avaliação</h4>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> 4 estrelas ou mais
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="checkbox" class="checkbox checkbox-sm"> 3 estrelas ou mais
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- LISTA DE HOSPEDAGENS -->
+    <div>
+      <h2 class="text-2xl font-bold mb-8">
+        Hospedagens disponíveis
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <!-- CARD HOSPEDAGEM -->
+        <div class="card bg-white shadow-xl hover:shadow-2xl transition">
+          <figure class="relative">
+            <img src="/img/hospedagem/hotel-luanda.jpg" class="h-56 w-full object-cover" alt="">
+            <span class="badge badge-error absolute top-4 left-4">
+              -15%
+            </span>
+          </figure>
+
+          <div class="card-body">
+            <h3 class="card-title">Hotel Atlântico</h3>
+
+            <div class="flex items-center gap-2 text-sm text-base-content/70">
+              <span class="icon-[tabler--map-pin] size-4"></span>
+              Luanda
+            </div>
+
+            <div class="flex items-center gap-1 text-warning mt-2">
+              <span class="icon-[tabler--star-filled] size-4"></span>
+              <span class="icon-[tabler--star-filled] size-4"></span>
+              <span class="icon-[tabler--star-filled] size-4"></span>
+              <span class="icon-[tabler--star-filled] size-4"></span>
+              <span class="icon-[tabler--star-half-filled] size-4"></span>
+              <span class="text-sm text-base-content/60 ml-2">(320)</span>
+            </div>
+
+            <p class="text-sm text-base-content/70 mt-2">
+              Hotel moderno com vista para o mar, café da manhã incluso e Wi-Fi gratuito.
+            </p>
+
+            <div class="flex items-center gap-3 mt-4">
+              <span class="text-xl font-bold text-primary">38.000 Kz</span>
+              <span class="line-through text-sm text-base-content/50">45.000 Kz</span>
+              <span class="text-sm text-base-content/60">/ noite</span>
+            </div>
+
+            <div class="card-actions justify-between mt-6">
+              <a href="/destino/hotel-atlantico" class="btn btn-outline btn-sm">
+                Ver detalhes
+              </a>
+              <a href="/reservar/hotel-atlantico" class="btn btn-primary btn-sm">
+                Reservar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DUPLICAR CARDS PARA OUTRAS PROVÍNCIAS -->
+        <!-- Benguela, Huíla, Namibe, Malanje, Cabinda, etc -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="bg-slate-800 py-16 text-white text-center">
+  <h2 class="text-3xl font-bold">
+    Não encontrou a hospedagem ideal?
+  </h2>
+  <p class="mt-4 text-white/80">
+    Entre em contacto connosco e ajudamos a encontrar a melhor opção para a sua viagem.
+  </p>
+  <a href="/contacto" class="btn btn-primary mt-6">
+    Falar com suporte
+  </a>
+</section>
