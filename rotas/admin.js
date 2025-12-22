@@ -97,9 +97,7 @@ route.get("/destino", (req, res)=>{
     res.render("destino")
 })
 
-route.get("/login", (req, res)=>{
-    res.render("login")
-})
+
 
 route.get("/pesquisar", (req, res)=>{
 

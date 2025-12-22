@@ -1,80 +1,35 @@
-/* ============================================
-main.js - Script principal do site
---------------------------------------------
-• Controla o menu mobile
-• Controla o carrossel
-• Controla tabs, animações e validações básicas
-• Pode ser usado para todo o site
-============================================ */
+
+ const avaliacao = document.querySelector(".avaliacao")
+const nomeAvaliar = document.querySelector("#nomeAvaliar")
+const textoAvaliar = document.querySelector("#textoAvaliar")
+const selecaoAvaliar = document.querySelector("#selecaoAaliacao")
+const formAvaliacao = document.querySelector(".formAvaliar")
+
+formAvaliacao.addEventListener("submit",(e)=>{
+  e.preventDefault()
+
+    const divMain = document.createElement("div")
+    divMain.classList.add("bg-white", "p-6", "rounded-3xl","shadow")
+
+    const div = document.createElement("div")
+    div.classList.add("flex", "justify-between", "mb-2")
+
+    const strong = document.createElement("strong")
+    strong.innerHTML= nomeAvaliar.value
+
+    const divStar = document.createElement("div")
+    divStar.classList.add("flex", "gap-1")
+
+    const p = document.createElement("p")
+    p.classList.add("text-slate-600")
+     p.innerHTML= textoAvaliar.value
 
 
-// ==========================
-// MENU MOBILE
-// ==========================
-const menuBtn = document.querySelector('.menu-btn');
-const navMenu = document.querySelector('.nav-menu');
+    avaliacao.appendChild(divMain)
+    divMain.appendChild(div)
+    div.appendChild(strong)
+    div.appendChild(divStar)
+    divMain.appendChild(p)
+    
 
-
-// Abrir / Fechar menu
-menuBtn?.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
-
-
-// Fechar menu ao clicar num link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-    });
-});
-
-
-// ==========================
-// CARROSSEL DE IMAGENS
-// ==========================
-let slideIndex = 0;
-function iniciarCarrossel() {
-    const slides = document.querySelectorAll('.slide');
-
-
-    if (slides.length > 0) {
-        slides.forEach(slide => slide.style.display = 'none');
-
-
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
-
-
-        if (slides.length > 0) slides[slideIndex - 1].style.display = 'block';
-
-
-    }
-    setTimeout(iniciarCarrossel, 3500); // muda a imagem cada 3.5s
-}
-
-
-// Iniciar carrossel ao carregar página
-window.addEventListener('load', iniciarCarrossel);
-
-
-// ==========================
-// VALIDAÇÃO SIMPLES DO FORMULÁRIO DE CONTATO
-// ==========================
-function validarContato() {
-    const nome = document.getElementById('nome');
-    const email = document.getElementById('email');
-    const msg = document.getElementById('mensagem');
-
-
-    if (!nome.value || !email.value || !msg.value) {
-        alert("Por favor, preencha todos os campos.");
-        return false;
-    }
-
-
-    alert("Mensagem enviada com sucesso!");
-    return true;
-}
-
-
+  })

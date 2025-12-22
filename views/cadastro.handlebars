@@ -1,0 +1,109 @@
+  {{#each erros}}
+  <div class="alert alert-error shadow-lg max-w-5xl mx-auto mb-4">
+    <div>
+      <span class="icon-[tabler--alert-circle] size-5"></span>
+      <span>{{texto}}</span>
+    </div>
+  </div>
+  {{else}}
+{{/each}}
+
+<section class="min-h-screen bg-base-200 flex items-center justify-center px-4">
+  <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+    <!-- IMAGEM / INFORMAÇÃO -->
+    <div class="hidden md:flex flex-col justify-center p-10 bg-slate-800 text-white">
+      <h2 class="text-3xl font-bold mb-4">
+        Crie a sua conta
+      </h2>
+      <p class="text-white/80 mb-6">
+        Cadastre-se para reservar hospedagens, acompanhar viagens, avaliar destinos
+        e receber ofertas exclusivas em Angola.
+      </p>
+
+      <ul class="space-y-4 text-white/80">
+        <li class="flex items-center gap-3">
+          <span class="icon-[tabler--rosette-discount-check-filled] bg-blue-600 size-5 text-primary"></span>
+          Reservas rápidas e seguras
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="icon-[tabler--rosette-discount-check-filled] bg-blue-600 size-5 text-primary"></span>
+          Histórico de viagens
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="icon-[tabler--rosette-discount-check-filled] bg-blue-600 size-5 text-primary"></span>
+          Avaliações e favoritos
+        </li>
+      </ul>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="p-8 md:p-12">
+      <h3 class="text-2xl font-bold mb-6 text-center md:hidden">
+        Criar conta
+      </h3>
+
+      <form id="registerForm" class="space-y-4" action="/addUsers" method="post">
+ 
+        <div>
+          <label class="label">Nome completo</label>
+          <input type="text" id="nome" name="nome" class="input input-bordered w-full" placeholder="Seu nome" required>
+        </div>
+
+        <div>
+          <label class="label">E-mail</label>
+          <input type="email" id="email" name="email" class="input input-bordered w-full" placeholder="email@exemplo.com" required>
+        </div>
+
+        <div>
+            <label class="label">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" class="input input-bordered w-full" placeholder="+244 9xx xxx xxx" required>
+       </div>
+
+        <div class="flex gap-2">
+          <div>
+            <label class="label">País</label>
+            <input type="text" class="input input-bordered w-full" id="pais" name="pais" placeholder="Angola" required>
+          </div>
+          <div>
+            <label class="label">Data nascimento</label>
+            <input type="date" class="input input-bordered w-full" id="data_nascimento" name="data_nascimento" placeholder="10/04/..." required>
+          </div>
+        </div>
+         <div>
+            <label class="label">Genero</label><br>
+            <input type="radio" id="genero" name="genero" value="M" checked > Homem
+            <input type="radio" id="genero1" name="genero" value="F" > Mulher
+        </div>
+     
+        <div>
+          <label class="label">Senha</label>
+          <input type="password" name="senha" class="input input-bordered w-full" placeholder="Mínimo 8 caracteres" required>
+        </div>
+
+        <div>
+          <label class="label">Confirmar senha</label>
+          <input type="password" name="confirmar_senha" class="input input-bordered w-full" required>
+        </div>
+
+        {{!-- <div class="flex items-center gap-2 text-sm">
+          <input type="checkbox" class="checkbox checkbox-sm" required>
+          <span>
+            Concordo com os
+            <a href="/termos" class="link link-primary">Termos e Condições</a>
+          </span>
+        </div> --}}
+
+        <button type="submit" class="btn btn-primary w-full mt-4">
+          Criar conta
+        </button>
+
+        <p class="text-center text-sm text-base-content/70 mt-4">
+          Já tem conta?
+          <a href="/login" class="link link-primary font-medium">Entrar</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+</section>
