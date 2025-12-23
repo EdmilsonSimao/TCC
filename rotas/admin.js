@@ -1,6 +1,8 @@
 const express = require("express")
 const route = express.Router()
 const {logado} = require("../controls/helpers")
+const {checkReservas} = require("../controls/controlsUsers")
+const {addReserva} = require("../models/reservas")
 
 route.get("/", (req, res)=>{
     res.render("home")
@@ -530,6 +532,15 @@ route.get("/hospedagem", (req, res)=>{
 
 route.get("/pesquisa", (req, res)=>{
     res.send("Psquisas")
+})
+
+route.post("/reserva", checkReservas, (req, res)=>{
+    try{
+        addReserva(req.body)
+        }
+    catch(err){
+        console.log("Não foi possivel adicionar a reserva "+ err)
+    }
 })
 
 

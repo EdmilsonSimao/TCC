@@ -111,7 +111,8 @@ router.post("/login", validarLogin, (req, res, next)=>{
 })
 
 router.get("/logout", (req, res)=>{
-   req.logout()
+   req.logOut()
+   req.flash("success", "Sessão Terminada")
    res.redirect("/")
 })
 
