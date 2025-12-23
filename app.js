@@ -7,6 +7,8 @@ const routeUser = require("./rotas/routerUser")
 const path = require("path")
 const flash = require('connect-flash')
 const session  = require('express-session')
+const passport = require("passport")
+require("./controls/auth")(passport)
 
 // configuracao da session
 app.use(session({
@@ -14,6 +16,9 @@ app.use(session({
     resave:true,
     saveUninitialized:true
 }))
+app.use(passport.initialize())
+app.use(passport.session())
+
 // config mensagem flash
 app.use(flash())
 
@@ -21,6 +26,8 @@ app.use(flash())
 app.use((req,res,next)=>{
     res.locals.success_msg = req.flash("success_msg")
     res.locals.error_msg = req.flash("error_msg")
+    res.locals.error = req.flash("error")
+    res.locals.user = req.user || null
     next()
 })
 

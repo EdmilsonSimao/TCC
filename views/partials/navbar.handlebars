@@ -1,15 +1,21 @@
 <div class="md:h-20 mb-5">
   <nav class="navbar rounded-box shadow-base-300/20 shadow-sm p-4 bg-gray-900">
-    <div class="navbar-start">
+    <div class="navbar-start flex items-center gap-2">
       <a class="link link-neutral text-xl font-bold no-underline text-amber-50" href="#">
        <img class="w-15 rounded-[50%]" src="./img/logo.jpg" alt="">
       </a>
+       {{#if user.admin}}
+       <ul class="text-amber-50 ml-3 border-l-2 pl-3">
+        <li><a href="/dashboard">Dashboard</a></li>
+        </ul>
+      {{else}}
+      {{/if}}
     </div>
     <div class="navbar-center max-md:hidden text-amber-50">
       <ul class="menu menu-horizontal gap-2 p-0 text-base  rtl:ml-20">
         <li class="text-amber-50"><a href="/">Home</a></li>
         <li class="text-amber-50"><a href="/sobre">Sobre</a></li>
-        <li class="text-amber-50"><a href="servicos">Servicos</a></li>
+        <li class="text-amber-50"><a href="/servicos">Servicos</a></li>
         <li class="text-amber-50"><a href="/contacto">Contactos</a></li>
       </ul>
     </div>
@@ -22,11 +28,17 @@
         <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-60" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-default">
           <li><a class="dropdown-item" href="/">Home</a></li>
           <li><a class="dropdown-item" href="/sobre">Sobre</a></li>
-          <li><a class="dropdown-item" href="servicos">Servicos</a></li>
+          <li><a class="dropdown-item" href="/servicos">Servicos</a></li>
           <li><a class="dropdown-item" href="/contacto">Contactos</a></li>
         </ul>
       </div>
+      {{#if user}}
+      <a class="btn btn-primary rounded-[50%] p-2" href="/perfil">
+        <span class="icon-[tabler--user] size-6"></span>
+      </a>
+      {{else}}
       <a class="btn btn-primary" href="/login">Login</a>
+      {{/if}}
     </div>
   </nav>
 </div>

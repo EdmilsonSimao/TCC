@@ -30,20 +30,22 @@
 <section class="pb-24 bg-base-200 px-6">
   <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
-    <!-- LUANDA -->
+   {{#each lugares}}
     <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
-      <img src="/img/destinos/1maio.jpg"
+      <img src="{{image.image1}}"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
-        <h3 class="text-2xl font-bold">Luanda</h3>
+        <h3 class="text-2xl font-bold">{{nome}}</h3>
         <p class="text-slate-600 mt-2">
-          Capital vibrante com praias, vida noturna e património cultural.
+          {{descricao}}
         </p>
         <a href="/info/1" class="btn btn-success mt-5">
           Ver detalhes
         </a>
       </div>
     </div>
+    
+{{else}}
 
     <!-- CALANDULA -->
     <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
@@ -118,8 +120,8 @@
           Ver detalhes
         </a>
       </div>
-    </div>
-
+    </div> -
+{{/each}}
   </div>
 </section>
 

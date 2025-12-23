@@ -4452,6 +4452,9 @@
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
+  .ml-3 {
+    margin-left: calc(var(--spacing) * 3);
+  }
   .status {
     display: inline-block;
     aspect-ratio: 1 / 1;
@@ -7391,6 +7394,10 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
+  }
   .no-focus {
     &:focus, &:focus-within {
       --tw-border-style: none;
@@ -8638,6 +8645,9 @@
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
+  }
+  .pl-3 {
+    padding-left: calc(var(--spacing) * 3);
   }
   .text-center {
     text-align: center;

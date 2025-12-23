@@ -2,6 +2,7 @@ const express= require ("express")
 const  {addUser, deleteUser, getUser, updateUser, userOn}= require("../models/users")
 const {checkUsers, validarLogin} = require("../controls/controlsUsers")
 const bcrypt = require ("bcryptjs")
+const passport = require("passport")
 
 const router = express.Router()
 // listar usuariso
@@ -67,7 +68,8 @@ router.post("/addUsers", checkUsers, async (req, res) => {
       genero: genero,
       telefone: telefone,
       pais: pais,
-      senha: hash
+      senha: hash,
+      admin: 1
     };
 
     await addUser(userData);
@@ -99,11 +101,18 @@ router.get("/login", (req, res)=>{
 })
 
 // processar login
-router.post("/login", validarLogin, (req, res)=>{
-   const {email, password} = req.body;
+router.post("/login", validarLogin, (req, res, next)=>{
+   passport.authenticate("local", {
+      successRedirect:"/perfil",
+      failureRedirect:"/cadastro",
+      failureFlash:true
+   })(req, res, next)
 
-   res.redirect("/perfil")
+})
 
+router.get("/logout", (req, res)=>{
+   req.logout()
+   res.redirect("/")
 })
 
 
