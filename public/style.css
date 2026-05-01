@@ -1,3 +1,25 @@
+.detalheReserva, .minhaReserva{
+    height: 100vh;
+}
+
 .comecar{
     background: #1b375b;
+}
+
+.corBotao{
+    background-color: rgb(92, 92, 248);
+}
+ 
+.jo{
+    background-color: blueviolet;
+}
+.linda{
+    background-color: blue;
+}
+.jlo{
+    color: black;
+}
+.PE{
+    background-color: pink;
+    color: brown;
 }

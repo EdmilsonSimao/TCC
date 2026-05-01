@@ -1,0 +1,122 @@
+  {{#each erros}}
+  <div class="alert alert-error shadow-lg max-w-5xl mx-auto mb-4">
+    <div>
+      <span class="icon-[tabler--alert-circle] size-5"></span>
+      <span>{{texto}}</span>
+    </div>
+  </div>
+  {{else}}
+  {{/each}}
+
+  {{#each success_msg}}
+  <div class="alert alert-success shadow-lg max-w-5xl mx-auto mb-4">
+    <div>
+      <span class="icon-[tabler--check-circle] size-5"></span>
+      <span>{{texto}}</span>
+    </div>
+  </div>
+  {{/each}}
+
+<section class="min-h-screen bg-base-200 px-6 py-10">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- TÍTULO -->
+    <div class="mb-8 flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-bold">Atualizar Reserva</h1>
+        <p class="text-base-content/70">
+          Gerencie os detalhes da reserva do cliente
+        </p>
+      </div>
+
+      <a href="/perfil" class="btn btn-outline">
+        <span class="icon-[tabler--arrow-left] size-5"></span>
+        Voltar
+      </a>
+    </div>
+
+    <!-- CARD -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- DADOS DO CLIENTE -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold mb-2">Cliente</h3>
+
+        <div class="flex items-center gap-4">
+          <div class="avatar">
+            <div class="size-12 rounded-full">
+              <img src="/img/user.png" alt="Cliente">
+            </div>
+          </div>
+          <div>
+            <p class="font-medium">{{reserva.cliente}}</p>
+            <p class="text-sm text-base-content/70">{{reserva.email_cliente}}</p>
+            <p class="text-sm text-base-content/70">{{reserva.telefone_client}}</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div>
+          <p class="text-sm text-base-content/70">{{reserva.destino}}</p>
+          <p class="font-medium">Hotel Baía Azul – Luanda</p>
+        </div>
+
+        <div>
+          <p class="text-sm text-base-content/70">Código da Reserva</p>
+          <p class="font-mono font-medium">#RSV-2025-0012</p>
+        </div>
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <form id="updateReserva" class="space-y-5" action="/updateReservas/{{reserva.id}}" method="POST">
+
+        <h3 class="text-xl font-semibold">Detalhes da Reserva</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="label">Check-in</label>
+           <input 
+             type="date" id="checkin" name="check_in" class="input input-bordered w-full"  value="{{reserva.data_checkin}}">
+          </div>
+
+          <div>
+            <label class="label">Check-out</label>
+            <input type="date" id="check_out" name="check_out" class="input input-bordered w-full" value="{{reserva.data_checkout}}">
+          </div>
+        </div>
+
+        <div>
+          <label class="label">Status da Reserva</label>
+          <select id="status" name="status" class="select select-bordered w-full">
+            <option selected value="{{reserva.status}}">{{reserva.status}}</option>
+            <option value="Confirmada">Confirmada</option>
+            <option value="Cancelada">Cancelada</option>
+            <option value="Concluída">Concluída</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="label">Valor Total (AOA)</label>
+          <input type="number" class="input input-bordered w-full" value="120000">
+        </div>
+
+        <div>
+          <label class="label">Observações</label>
+          <textarea class="textarea textarea-bordered w-full" rows="4">
+Pagamento confirmado via transferência bancária.
+          </textarea>
+        </div>
+
+        <!-- AÇÕES -->
+        <div class="flex flex-wrap gap-4 pt-4">
+          <button type="submit" class="btn btn-primary">
+            Atualizar Reserva
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+

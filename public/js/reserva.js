@@ -1,18 +1,23 @@
    
-document.querySelector("#openPagamento").addEventListener("submit", (e)=>{
-        e.preventDefault()
-         console.log(e.target)
-         openPayment(2)
+// document.querySelector("#openPagamento").addEventListener("submit", (e)=>{
+//         e.preventDefault()
+//          console.log(e.target)
+//          openPayment(2)
 
-         if(e.target.classList === "close"  || e.target.classList.contains("openPagamento")
-        ){
-          closePayment()
-         }
+//          if(e.target.classList === "close"  || e.target.classList.contains("openPagamento")
+//         ){
+//           closePayment()
+//          }
 
 
-    })
+//     })
 
-       function openPayment(pessoas) {
+
+function openPagamento() {
+
+        paymentModal.classList.remove('hidden');
+        paymentModal.classList.add('flex');
+
         document.getElementById("paymentModal").classList.remove("hidden")
        const npessoas = document.getElementById("nPessoas").value
        const desc = document.querySelector("#qtdPessoas")
@@ -20,6 +25,12 @@ document.querySelector("#openPagamento").addEventListener("submit", (e)=>{
        const check_out = document.querySelector("#check_out")
        const dataEntrada = document.querySelector("#dataEntrada")
        const dataSaida = document.querySelector("#dataSaida")
+
+      // Definindo os valores dos campos ocultos 
+
+        document.getElementById('hiddenCheckIn').value = check_in.value;
+        document.getElementById('hiddenCheckOut').value = check_out.value;
+        document.getElementById('hiddenPessoas').value = npessoas;
 
         dataEntrada.innerHTML = new Date(check_in.value).toLocaleDateString('pt-PT')
         dataSaida.innerHTML = new Date(check_out.value).toLocaleDateString('pt-PT')
@@ -31,3 +42,8 @@ document.querySelector("#openPagamento").addEventListener("submit", (e)=>{
   function closePayment() {
     document.getElementById("paymentModal").classList.add("hidden")
   }
+
+//   document.getElementById("updateReserva").addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   alert("Reserva atualizada com sucesso!");
+// });

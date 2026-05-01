@@ -1,0 +1,94 @@
+<div class=" text-dark font-sans">
+
+  <!-- HERO -->
+  <section class="relative h-[85vh] bg-cover bg-center"
+    style="background-image: url('/img/praia/praia_capa.jpg');">
+
+    <div class="absolute inset-0 bg-black/60 flex flex-col justify-center items-center text-center px-4">
+      <h1 class="text-4xl md:text-6xl text-amber-50 font-bold flex items-center gap-3">
+        <span></span> {{praia.[0].nome}}
+      </h1>
+      <p class="mt-4 text-lg md:text-xl max-w-2xl text-gray-200">
+        {{praia.[0].descricao}}
+      </p>
+    </div>
+  </section>
+
+
+  <div class="max-w-6xl mx-auto px-6 py-16 space-y-24">
+
+    <!-- SOBRE -->
+    <section>
+      <h2 class="text-3xl font-bold mb-6 flex items-center gap-2 text-black">
+        <i class="fas fa-cloud"></i>
+        Sobre a Região
+      </h2>
+
+      <p class="text-lg leading-relaxed text-gray-300">
+        <p>Localizada no litoral de Angola, a Praia  é conhecida por suas águas azul-turquesa e 
+          areia branca. A região oferece excelente infraestrutura turística com hotéis, 
+          restaurantes e passeios ecológicos.</p>
+      </p>
+    </section>
+
+
+    <!-- GALERIA -->
+    <section>
+      <h2 class="text-3xl font-bold mb-6 flex items-center gap-2 text-black">
+        <i class="fas fa-image"></i>
+        Galeria
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        {{#each praia.[0].image}}
+          <img 
+            src="{{this}}" 
+            class="rounded-xl h-48 w-full object-cover hover:scale-105 transition duration-300 shadow-lg">
+        {{/each}}
+      </div>
+    </section>
+
+
+    <!-- ATIVIDADES -->
+    <section>
+      <h2 class="text-3xl font-bold mb-6 flex items-center gap-2 text-sky-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 4v16m8-8H4"/>
+        </svg>
+        Atividades
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 text-lg text-gray-600">
+        <div class="flex items-center gap-3">
+           Passeios de barco
+        </div>
+        <div class="flex items-center gap-3">
+           Mergulho e snorkel
+        </div>
+        <div class="flex items-center gap-3">
+          Trilhas ecológicas
+        </div>
+        <div class="flex items-center gap-3">
+           Restaurantes à beira-mar
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES -->
+    <section>
+      <h2 class="text-3xl font-bold mb-6 text-sky-600">
+        Informações Úteis
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 text-gray-600 text-lg">
+        <p> Melhor época: Setembro a Março</p>
+        <p> Temperatura média: 28°C</p>
+        <p> Aeroporto mais próximo: 40km</p>
+        <p> Moeda: Real (R$)</p>
+      </div>
+    </section>
+
+  </div>
+
+</div>

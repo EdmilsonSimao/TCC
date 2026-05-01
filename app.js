@@ -32,7 +32,24 @@ app.use((req,res,next)=>{
 })
 
 //cponfiguracoes do handlebars
-app.engine("handlebars", engine({defaultLayout:"main"}))
+app.engine("handlebars", engine({defaultLayout:"main",
+      helpers: {
+    ifEquals(a, b, options) {
+      return a == b ? options.fn(this) : options.inverse(this);
+    },
+          times(n, block) {
+        let accum = ""
+        for (let i = 0; i < n; i++) {
+          accum += block.fn(i)
+        }
+        return accum
+      }
+
+    
+    }
+
+
+}))
 app.set("view engine", "handlebars")
 
 // body parser

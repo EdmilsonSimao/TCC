@@ -1,0 +1,102 @@
+<!-- HERO -->
+<section class="relative h-[60vh] bg-black">
+  <img src="./img/restaurantes/bar_conves/bar_conves (1).jpg" class="absolute inset-0 w-full h-full object-cover opacity-50">
+  <div class="relative z-10 flex items-center justify-center h-full text-center">
+    <div>
+      <h1 class="text-4xl md:text-6xl font-bold text-white">
+        Sabores de Angola
+      </h1>
+      <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
+        Descubra a riqueza da gastronomia angolana — dos pratos tradicionais aos restaurantes mais sofisticados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<section class="max-w-7xl mx-auto px-4 py-10">
+  <div class="flex flex-wrap gap-3 justify-center">
+    <button class="btn btn-outline">Todos</button>
+    <button class="btn btn-outline">Tradicional</button>
+    <button class="btn btn-outline">Familiar</button>
+    <button class="btn btn-outline">Premium</button>
+    <button class="btn btn-outline">Luxo</button>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section class="max-w-7xl mx-auto px-4 pb-20">
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+    {{#each restaurantes}}
+    <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition">
+
+      <!-- Imagem -->
+      <figure class="h-56 overflow-hidden">
+        <img src="{{imagem.image1}}" class="w-full h-full object-cover">
+      </figure>
+
+      <div class="card-body space-y-3">
+
+        <!-- Nome -->
+        <h2 class="card-title text-xl">
+          <span class="icon-[tabler--chef-hat] size-5"></span>
+          {{nome}}
+        </h2>
+
+        <!-- Tipo -->
+        <span class="badge {{tipoClass}}">
+          {{tipo}}
+        </span> 
+
+        <!-- Local -->
+        <p class="text-sm text-gray-500">
+          <span class="icon-[tabler--map-pin] size-4"></span>
+          {{localizacao}}
+        </p>
+
+        <!-- Pratos -->
+        <div class="space-y-1 text-sm">
+          <p class="font-semibold">Pratos em destaque:</p>
+          <ul class="list-disc list-inside">
+            {{#each pratos}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- Preço -->
+        <p class="font-semibold text-primary">
+          Média: {{preco_medio}} Kz
+        </p>
+
+        <!-- Ações -->
+        <div class="card-actions justify-between items-center">
+          <div class="flex">
+            {{#times avaliacao}}
+              <span class="icon-[tabler--star-filled] text-warning size-5"></span>
+            {{/times}}
+          </div>
+
+          <a href="/restaurantes/{{id}}" class="botao btn btn-sm btn-primary">
+            Ver detalhes
+          </a>
+        </div>
+
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-success comecar text-primary-content py-16 text-center">
+  <h2 class="text-3xl font-bold">Experimente a verdadeira culinária angolana</h2>
+  <p class="mt-4 max-w-xl mx-auto">
+    Desde restaurantes tradicionais até experiências gastronómicas de luxo.
+  </p>
+  <a href="/reservar-mesa" class="btn btn-outline mt-6">
+    Reservar mesa
+  </a>
+</section>

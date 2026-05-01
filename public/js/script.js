@@ -33,3 +33,22 @@ formAvaliacao.addEventListener("submit",(e)=>{
     
 
   })
+
+  // Toastify para mensagens de toast
+const toastMessage = new URLSearchParams(window.location.search).get('toast');
+if (window.toastMessage) {
+  let text = "";
+
+  if (toastMessage === "nenhum_resultado") {
+    text = "Nenhum resultado encontrado.";
+  }
+
+  Toastify({
+    text: text,
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    backgroundColor: "#dc2626", // vermelho
+    close: true
+  }).showToast();
+}

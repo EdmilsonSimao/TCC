@@ -62,7 +62,8 @@ console.log(validar)
   }
 
   if (erro.length > 0) {
-    return res.render("login", { erros: erro });
+    req.flash("error", { texto: "Por favor, insira um email válido." })
+    return res.redirect("/login");
   } 
   next();
   }catch(erro){
@@ -70,18 +71,24 @@ console.log(validar)
   }
 }
 
+//Middleware verificar dados de reservas
+
  const checkReservas = (req, res, next) => {
   const erro = [];
   const {
     check_in,
     check_out,
-    n_pessoas
+    pessoas,
+    id
   } = req.body;
 
-   if(!req.isAuthenticated()){
-        req.flash("error_msg", "voce não está autenticado")
-        res.redirect("/info/1")
-     }
+  console.log(req.isAuthenticated())
+
+  if(!req.isAuthenticated()){
+      console.log(typeof(parseInt(id)))
+        req.flash("error_msg", { texto: "Precisa fazer o login para proceder com a reserva." })
+        return res.redirect(`info/${req.body.id}`);
+    }
 
   if (!check_in) {
     erro.push({ texto: "A data de check-in é obrigatória." });
@@ -89,14 +96,17 @@ console.log(validar)
   if (!check_out) {
     erro.push({ texto: "A data de check-out é obrigatória." });
   }
-  if (!n_pessoas || n_pessoas <= 0) {
+  if (!pessoas || pessoas <= 0) {
     erro.push({ texto: "O número de pessoas deve ser maior que zero." });
   }
+
   if (erro.length > 0) {
-    return res.render("info", { erros: erro });
+    req.flash("error_msg",Error)
+    return res.redirect(`info/${req.body.id}`);
   }
 
   next();
+   
  }
 
 module.exports ={

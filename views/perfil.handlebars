@@ -4,7 +4,7 @@
 
     <div class="avatar">
       <div class="w-32 rounded-full ring ring-success ring-offset-base-100 ring-offset-4">
-        <img src="/img/users/user-1.jpg" alt="Usuário">
+        <img src="/img/user.png" alt="Usuário">
       </div>
     </div>
 
@@ -26,10 +26,10 @@
     <!-- SIDEBAR -->
     <aside class="bg-white rounded-3xl shadow-xl p-6 space-y-4 h-fit">
 
-      <button class="btn btn-ghost justify-start w-full">📄 Minhas Reservas</button>
-      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--star]"></span> Avaliações</button>
-      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--credit-card]"></span> Pagamentos</button>
-      <button class="btn btn-ghost justify-start w-full"><span class="icon-[tabler--settings]"></span> Configurações</button>
+      <a href="/user/minhaReserva"><button class="btn btn-ghost justify-start w-full my-1">📄 Minhas Reservas</button></a>
+      <a href="/minhaAvaliacao"><button class="btn btn-ghost justify-start w-full my-1"><span class="icon-[tabler--star]"></span> Avaliações</button></a>
+     <a href=""> <button class="btn btn-ghost justify-start w-full my-1"><span class="icon-[tabler--credit-card]"></span> Pagamentos</button></a>
+     <a href=""><button class="btn btn-ghost justify-start w-full my-1"><span class="icon-[tabler--settings]"></span> Configurações</button></a>
      <a href="/logout"><button class="btn btn-error btn-outline w-full mt-6">Sair</button></a> 
 
     </aside>
@@ -42,20 +42,34 @@
         <h2 class="text-2xl font-bold mb-4">Minhas Reservas</h2>
 
         <div class="space-y-4">
-
+         {{#each reservas}}
           <!-- ITEM -->
           <div class="flex flex-col md:flex-row justify-between gap-4 card p-4 rounded-xl">
+          
             <div>
-              <h3 class="font-semibold">Serra da Leba</h3>
-              <p class="text-sm text-slate-500">Data: 15/08/2025</p>
-              <p class="text-sm text-slate-500">Pessoas: 2</p>
+              <h3 class="font-semibold">Destino: {{destino}}</h3>
+              <p class="text-sm text-slate-500">Data: {{data_checkin}}</p>
+              <p class="text-sm text-slate-500">Pessoas: {{n_pessoas}}</p>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="badge badge-success">Confirmado</span>
-              <button class="btn btn-sm btn-outline">Ver</button>
-            </div>
-          </div>
+           
+         <div class="flex items-center gap-3">
+          {{#ifEquals status "Confirmada"}}
+            <span class="badge badge-success">{{status}}</span>
 
+          {{else ifEquals status "Cancelada"}}
+            <span class="badge badge-error">{{status}}</span>
+
+          {{else ifEquals status "pendente"}}
+            <span class="badge badge-warning">{{status}}</span>
+
+          {{else}}
+            <span class="badge badge-info">{{status}}</span>
+          {{/ifEquals}}
+
+          <a href="/updateReserva/{{id}}"><button class="btn btn-sm btn-outline">Ver</button></a>
+        </div>
+          </div>
+        {{/each}}
           <!-- ITEM -->
           <div class="flex flex-col md:flex-row justify-between gap-4 card  p-4 rounded-xl">
             <div>

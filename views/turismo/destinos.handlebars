@@ -1,6 +1,6 @@
 <!-- ================= HERO DESTINOS ================= -->
 <section class="relative h-[50vh] bg-slate-900 overflow-hidden">
-  <img src="/img/pub/pub- (9).jpg"
+  <img src="/img/destinos/destino5.jpg"
        class="absolute inset-0 w-full h-full object-cover opacity-40">
 
   <div class="relative z-10 flex items-center justify-center h-full text-center px-6">
@@ -31,7 +31,7 @@
   <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
    {{#each lugares}}
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition">
       <img src="{{image.image1}}"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
@@ -39,7 +39,11 @@
         <p class="text-slate-600 mt-2">
           {{descricao}}
         </p>
-        <a href="/info/1" class="btn btn-success mt-5">
+        {{#ifEquals  categoria "praia e lazer"}}
+        <a href="/praia/{{id}}" class="btn btn-success mt-5">
+        {{else}}
+         <a href="/info/{{id}}" class="btn btn-success mt-5">
+        {{/ifEquals}}
           Ver detalhes
         </a>
       </div>
@@ -48,7 +52,7 @@
 {{else}}
 
     <!-- CALANDULA -->
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-xl transition">
       <img src="/img/destinos/Kalandula.jpg"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
@@ -56,14 +60,14 @@
         <p class="text-slate-600 mt-2">
           Uma das maiores e mais impressionantes quedas de água de África.
         </p>
-        <a href="/info/1" class="btn btn-success mt-5">
+        <a href="/info/{{id}}" class="btn btn-success mt-5">
           Ver detalhes
         </a>
       </div>
     </div>
 
     <!-- MUSEU DA ESCRAVATURA -->
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-xl transition">
       <img src="/img/pub/pub- (10).jpg"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
@@ -78,7 +82,7 @@
     </div>
 
     <!-- DESERTO DO NAMIBE -->
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-xl transition">
       <img src="/img/destino8.jpg"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
@@ -93,7 +97,7 @@
     </div>
 
     <!-- ILHA DO MUSSULO -->
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-xl transition">
       <img src="/img/praia/mussulo.jpg"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">
@@ -108,7 +112,7 @@
     </div>
 
     <!-- SERRA DA LEBA -->
-    <div class="group bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition">
+    <div class="group bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-xl transition">
       <img src="/img/destinos/serraLeba (1).jpg"
            class="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-105">
       <div class="p-6">

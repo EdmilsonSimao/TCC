@@ -1,0 +1,46 @@
+<section class="detalheReserva max-w-4xl mx-auto px-4 py-12">
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body space-y-4">
+
+      <h2 class="card-title text-2xl">
+        <span class="icon-[tabler--building] size-6"></span>
+        {{reserva.destino}}
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-4 text-sm">
+        <p><strong>Check-in:</strong> {{reserva.data_checkin}}</p>
+        <p><strong>Check-out:</strong> {{reserva.data_checkout}}</p>
+        <p><strong>Nº Pessoas:</strong> {{reserva.n_pessoas}}</p>
+        <p><strong>Status:</strong>
+          {{#ifEquals reserva.status "Confirmada"}}
+            <span class="badge badge-success">{{reserva.status}}</span>
+
+          {{else ifEquals reserva.status "Cancelada"}}
+            <span class="badge badge-error">{{reserva.status}}</span>
+
+          {{else ifEquals reserva.status "pendente"}}
+            <span class="badge badge-warning">{{reserva.status}}</span>
+
+          {{else}}
+            <span class="badge badge-info">{{reserva.status}}</span>
+          {{/ifEquals}}
+        </p>
+      </div>
+
+      <hr>
+
+      <div class="flex justify-end gap-3">
+        {{#ifEquals reserva.status "pendente"}}
+          <a href="/reservas/editar/{{reserva.id}}" class="btn btn-warning btn-sm">
+            Alterar
+          </a>
+        {{/ifEquals}}
+
+        <a href="/user/minhaReserva" class="btn btn-outline btn-sm">
+          Voltar
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

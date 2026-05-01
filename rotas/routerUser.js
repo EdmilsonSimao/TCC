@@ -43,8 +43,11 @@ router.put("/updateusers/:id", async(req, res)=>{
 })
 
 // pagina de cadastro
-router.get("/cadastro", (req, res)=>{
-   res.render("cadastro")
+router.get("/cadastro",  (req, res)=>{
+   res.render("cadastro",{
+    layout: "clean",
+    title: "Login"
+  })
 })
 // adicionar usuario
 router.post("/addUsers", checkUsers, async (req, res) => {
@@ -97,23 +100,29 @@ router.delete("/deleteusers/:id", async(req, res)=>{
 })
 // pagina de login
 router.get("/login", (req, res)=>{
-    res.render("login")
+    res.render("login",{
+    layout: "clean",
+    title: "Login"
+  },)
 })
 
 // processar login
 router.post("/login", validarLogin, (req, res, next)=>{
    passport.authenticate("local", {
-      successRedirect:"/perfil",
+      successRedirect:"/",
       failureRedirect:"/cadastro",
       failureFlash:true
    })(req, res, next)
 
 })
-
+// logout
 router.get("/logout", (req, res)=>{
-   req.logOut()
-   req.flash("success", "Sessão Terminada")
-   res.redirect("/")
+  req.logout(function (err) {
+    if (err) { return next(err); }
+
+    req.flash("success", "Sessão terminada com sucesso");
+    return res.redirect("/");
+      });
 })
 
 

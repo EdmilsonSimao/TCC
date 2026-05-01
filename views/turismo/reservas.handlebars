@@ -1,0 +1,123 @@
+  {{#each erros}}
+  <div class="alert alert-error shadow-lg max-w-5xl mx-auto mb-4">
+    <div>
+      <span class="icon-[tabler--alert-circle] size-5"></span>
+      <span>{{texto}}</span>
+    </div>
+  </div>
+  {{else}}
+  {{/each}}
+
+  {{#each success_msg}}
+  <div class="alert alert-success shadow-lg max-w-5xl mx-auto mb-4">
+    <div>
+      <span class="icon-[tabler--check-circle] size-5"></span>
+      <span>{{texto}}</span>
+    </div>
+  </div>
+  {{/each}}
+
+  <div class="min-h-screen bg-slate-100 flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-slate-900 text-white hidden md:flex flex-col h-dvh">
+    <div class="p-6 text-center border-b border-slate-700">
+      <h2 class="text-2xl font-bold">Admin Panel</h2>
+      <p class="text-sm text-slate-400">Turismo Angola</p>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2">
+      <a class="btn btn-ghost justify-start w-full text-white PE"> <span class="icon-[tabler--dashboard] size-6 PE"></span> Dashboard</a>
+      <a class="btn btn-ghost justify-start w-full text-white"><span class="icon-[tabler--map-pin-filled] bg-white size-6"></span> Destinos</a>
+      <a href="/allReservas" class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--hause] size-6"></span> Reservas</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--user] size-6"></span> Usuários</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--credit-card] size-6"></span> Pagamentos</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--star] size-6"></span> Avaliações</a>
+      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--settings] size-6"></span> Configurações</a>
+    </nav>
+
+    <div class="p-4 border-t border-slate-700">
+      <a href="/logout"><button class="btn btn-error btn-outline w-full">Sair</button></a>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="flex-1">
+
+  <section class="container mx-auto">
+
+   <h1 class="text-center my-20 text-2xl font-bold">Todas as reservas</h1>
+  
+  <div class="border-base-content/25 w-full rounded-lg border mx-auto p-4">
+  <div class="flex justify-between p-4">
+    {{!-- filtro --}}
+    <div class="flex gap-3">
+      <p>Filtrar por:</p>
+      <div class="dropdown relative inline-flex">
+          <button id="dropdown-default" type="button" class="dropdown-toggle btn btn-outline btn-secondary font-normal" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown" >
+            <span class="icon-[tabler--clock]"></span>
+            Last 30 days
+            <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-open:opacity-100 hidden min-w-10" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-default" >
+            <li><a class="dropdown-item" href="javascript:void(0)">Data</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">Confirmada</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">Canceladas</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)">Pendentes</a></li>
+          </ul>
+      </div>
+    </div>
+    {{!-- pesquisar --}}
+    <div class="flex">
+      <p>Pesquisar clientes</p>
+        <div class="input max-w-xs mb-6">
+        <span class="icon-[tabler--search] text-base-content/80 my-auto me-3 size-5 shrink-0"></span>
+        <input type="search" class="grow" placeholder="Search" id="leadingIconDefault" />
+      </div>
+    </div>
+  
+    </div>
+  {{!-- tabela --}}
+  <div class="h-96 overflow-x-auto">
+    <table class="table-pin-rows table">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Destino</th>
+          <th >Pessoas</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each reservas}}
+        <!-- row -->
+        <tr>
+          <td>{{cliente}}</td>
+          <td>{{destino}}</td>
+          <td>{{n_pessoas}}</td>
+          {{#ifEquals  status "Confirmada"}}
+          <td><span class="badge badge-soft badge-success text-xs">{{status}}</span></td>
+          {{else ifEquals status "pendente"}}
+          <td><span class="badge badge-soft badge-info text-xs jlo">{{status}}</span></td>
+          {{else ifEquals status "Cancelada"}}
+          <td><span class="badge badge-soft badge-warning text-xs">{{status}}</span></td>
+          {{else ifEquals status "Concluída"}}
+            <td><span class="badge badge-soft decoration-1 badge-warning text-xs">{{status}}</span></td>
+          {{/ifEquals}}
+          <td>{{data_checkin}}</td>
+          <td>
+            <a href="/updateReserva/{{id}}"><button class="btn btn-circle btn-text btn-sm" aria-label="Action button"><span class="icon-[tabler--pencil] size-5"></span></button></a>
+            <a href="/deleteReserva/{{id}}"><button class="btn btn-circle btn-text btn-sm" aria-label="Action button"><span class="icon-[tabler--trash] size-5"></span></button></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </section>
+
+</main>
+</div>
