@@ -1,4 +1,4 @@
-<!-- DASHBOARD ADMIN -->
+
 <div class="min-h-screen bg-slate-100 flex">
 
   <!-- SIDEBAR -->
@@ -9,13 +9,27 @@
     </div>
 
     <nav class="flex-1 p-4 space-y-2">
-      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--dashboard] size-6"></span> Dashboard</a>
-      <a class="btn btn-ghost justify-start w-full text-white"><span class="icon-[tabler--map-pin-filled] bg-white size-6"></span> Destinos</a>
-      <a href="/allReservas" class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--hause] size-6"></span> Reservas</a>
-      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--user] size-6"></span> Usuários</a>
-      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--credit-card] size-6"></span> Pagamentos</a>
-      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--star] size-6"></span> Avaliações</a>
-      <a class="btn btn-ghost justify-start w-full text-white"> <span class="icon-[tabler--settings] size-6"></span> Configurações</a>
+      <a href="/dashboard" class="btn btn-ghost justify-start w-full text-white {{#if activeDashboard}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--dashboard] size-5"></span> Dashboard
+      </a>
+      <a href="/addDestino" class="btn btn-ghost justify-start w-full text-white {{#if activeDestinos}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--map-pin-filled] size-5"></span> Destinos
+      </a>
+      <a href="/allReservas" class="btn btn-ghost justify-start w-full text-white {{#if activeReservas}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--calendar] size-5"></span> Reservas
+      </a>
+      <a href="/users" class="btn btn-ghost justify-start w-full text-white {{#if activeUsuarios}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--user] size-5"></span> Usuários
+      </a>
+      <a href="/admin/pagamentos" class="btn btn-ghost justify-start w-full text-white {{#if activePagamentos}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--credit-card] size-5"></span> Pagamentos
+      </a>
+      <a href="/admin/avaliacoes" class="btn btn-ghost justify-start w-full text-white {{#if activeAvaliacoes}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--star] size-5"></span> Avaliações
+      </a>
+      <a href="/admin/configuracoes" class="btn btn-ghost justify-start w-full text-white {{#if activeConfiguracoes}}bg-white/10{{/if}}">
+        <span class="icon-[tabler--settings] size-5"></span> Configurações
+      </a>
     </nav>
 
     <div class="p-4 border-t border-slate-700">
@@ -24,135 +38,256 @@
   </aside>
 
   <!-- CONTEÚDO -->
-  <main class="flex-1">
+  <main class="flex-1 overflow-y-auto">
 
     <!-- HEADER -->
-    <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <header class="bg-white shadow px-6 py-4 flex justify-between items-center sticky top-0 z-10">
       <h1 class="text-2xl font-bold">Dashboard</h1>
-
       <div class="flex items-center gap-4">
-        <span class="text-slate-600">Admin</span>
+        <!-- Notificações -->
+        <div class="indicator cursor-pointer">
+          <span class="indicator-item badge badge-error badge-xs"></span>
+          <span class="icon-[tabler--bell] size-6 text-slate-500"></span>
+        </div>
+        <span class="text-slate-600 text-sm">Angola</span>
         <div class="avatar">
-          <div class="w-10 rounded-full">
+          <div class="w-10 rounded-full ring ring-indigo-400 ring-offset-1">
             <img src="/img/users/admin.jpg" />
           </div>
         </div>
       </div>
     </header>
 
-    <!-- CARDS -->
+    <!-- KPI CARDS -->
     <section class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-sm text-slate-500">Usuários</h3>
-        <p class="text-3xl font-bold mt-2">1.245</p>
+      <div class="bg-white p-6 rounded-2xl shadow border-l-4 border-indigo-500">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-sm text-slate-500">Usuários</h3>
+            <p class="text-3xl font-bold mt-1" id="kpi-users">{{stats.totalUsuarios}}</p>
+          </div>
+          <span class="icon-[tabler--users] size-8 text-indigo-400"></span>
+        </div>
+        <p class="text-xs text-green-600 mt-3">↑ {{stats.variacaoUsuarios}}% este mês</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-sm text-slate-500">Destinos</h3>
-        <p class="text-3xl font-bold mt-2">38</p>
+      <div class="bg-white p-6 rounded-2xl shadow border-l-4 border-sky-500">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-sm text-slate-500">Destinos</h3>
+            <p class="text-3xl font-bold mt-1">{{stats.totalDestinos}}</p>
+          </div>
+          <span class="icon-[tabler--map-pin] size-8 text-sky-400"></span>
+        </div>
+        <p class="text-xs text-green-600 mt-3">↑ {{stats.novosDestinos}} novos</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-sm text-slate-500">Reservas</h3>
-        <p class="text-3xl font-bold mt-2">412</p>
+      <div class="bg-white p-6 rounded-2xl shadow border-l-4 border-amber-500">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-sm text-slate-500">Reservas</h3>
+            <p class="text-3xl font-bold mt-1" id="kpi-reservas">{{stats.totalReservas}}</p>
+          </div>
+          <span class="icon-[tabler--calendar-check] size-8 text-amber-400"></span>
+        </div>
+        <p class="text-xs text-green-600 mt-3">↑ {{stats.variacaoReservas}}% este mês</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-sm text-slate-500">Receita</h3>
-        <p class="text-3xl font-bold mt-2">AKZ 12.450.000</p>
+      <div class="bg-white p-6 rounded-2xl shadow border-l-4 border-emerald-500">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="text-sm text-slate-500">Receita</h3>
+            <p class="text-2xl font-bold mt-1">AKZ {{stats.receita}}</p>
+          </div>
+          <span class="icon-[tabler--coin] size-8 text-emerald-400"></span>
+        </div>
+        <p class="text-xs text-green-600 mt-3">↑ {{stats.variacaoReceita}}% este mês</p>
+      </div>
+
+    </section>
+
+    <!-- GRÁFICO + TOP DESTINOS -->
+    <section class="px-6 pb-6 grid lg:grid-cols-2 gap-6">
+
+      <!-- Gráfico -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Reservas por mês</h2>
+          <a href="/admin/reservas" class="text-xs text-indigo-500 hover:underline">Ver tudo →</a>
+        </div>
+        <div class="relative w-full h-52">
+          <canvas id="chartReservas"></canvas>
+        </div>
+      </div>
+
+      <!-- Top Destinos -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h2 class="text-lg font-bold mb-4">Destinos mais reservados</h2>
+        <div class="space-y-3">
+          {{#each dadosDashboard.topDestinos}}
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-slate-700">{{this.nome}}</span>
+              <span class="text-slate-500 font-medium">{{this.total}}</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-2">
+              <div class="h-2 rounded-full transition-all duration-700"
+                   style="width:{{this.percentagem}}%; background:{{this.cor}};"></div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
       </div>
 
     </section>
 
     <!-- TABELAS -->
-    <section class="p-6 grid lg:grid-cols-2 gap-6">
+    <section class="px-6 pb-6 grid lg:grid-cols-2 gap-6">
 
-      <!-- RESERVAS -->
+      <!-- Reservas -->
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Últimas Reservas</h2>
-
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Últimas Reservas</h2>
+          <a href="/admin/reservas" class="text-xs text-indigo-500 hover:underline">Todas →</a>
+        </div>
         <div class="overflow-x-auto">
-          <table class="table w-full">
+          <table class="table w-full text-sm">
             <thead>
-              <tr>
+              <tr class="text-slate-500 text-xs">
                 <th>Cliente</th>
                 <th>Destino</th>
+                <th>Data</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>João Miguel</td>
-                <td>Serra da Leba</td>
-                <td><span class="badge badge-success linda">Confirmado</span></td>
+              {{#each dadosDashboard.ultimasReservas}}
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="font-medium">{{this.cliente}}</td>
+                <td class="text-slate-600">{{this.destino}}</td>
+                <td class="text-slate-400 text-xs">{{this.data}}</td>
+                <td>
+                  {{#if (eq this.status "Confirmado")}}
+                    <span class="badge badge-success badge-sm">Confirmado</span>
+                  {{else if (eq this.status "Pendente")}}
+                    <span class="badge badge-warning badge-sm">Pendente</span>
+                  {{else}}
+                    <span class="badge badge-error badge-sm">Cancelado</span>
+                  {{/if}}
+                </td>
               </tr>
-              <tr>
-                <td>Ana Silva</td>
-                <td>Mussulo</td>
-                <td><span class="badge badge-warning">Pendente</span></td>
-              </tr>
-              <tr>
-                <td>Carlos M.</td>
-                <td>Kalandula</td>
-                <td><span class="badge badge-error">Cancelado</span></td>
-              </tr>
+              {{/each}}
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- USUÁRIOS -->
+      <!-- Novos Usuários -->
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Novos Usuários</h2>
-
-        <ul class="space-y-4">
-          <li class="flex justify-between items-center">
-            <span>Maria Costa</span>
-            <button class="btn btn-xs btn-outline">Ver</button>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Novos Usuários</h2>
+          <a href="/admin/usuarios" class="text-xs text-indigo-500 hover:underline">Ver todos →</a>
+        </div>
+        <ul class="space-y-3">
+          {{#each dadosDashboard.novosUsuarios}}
+          <li class="flex justify-between items-center py-2 border-b border-slate-50 last:border-0">
+            <div class="flex items-center gap-3">
+              <div class="avatar placeholder">
+                <div class="rounded-full w-9 text-xs font-bold"
+                     style="background:{{this.bgCor}};color:{{this.textCor}};">
+                  <span>{{this.iniciais}}</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-sm font-medium">{{this.nome}}</p>
+                <p class="text-xs text-slate-400">{{this.data}}</p>
+              </div>
+            </div>
+            <a href="/admin/usuarios/{{this.id}}">
+              <button class="btn btn-xs btn-outline">Ver</button>
+            </a>
           </li>
-          <li class="flex justify-between items-center">
-            <span>Pedro Lucas</span>
-            <button class="btn btn-xs btn-outline">Ver</button>
-          </li>
-          <li class="flex justify-between items-center">
-            <span>Sandra P.</span>
-            <button class="btn btn-xs btn-outline">Ver</button>
-          </li>
+          {{/each}}
         </ul>
       </div>
 
     </section>
 
     <!-- AVALIAÇÕES -->
-    <section class="p-6">
+    <section class="px-6 pb-6">
       <div class="bg-white rounded-2xl shadow p-6">
-        <h2 class="text-xl font-bold mb-4">Avaliações Recentes</h2>
-
-        <div class="space-y-4">
-          <div class="border p-4 rounded-xl">
-            <strong>Serra da Leba</strong>   
-           <div class="flex gap-1"> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Avaliações Recentes</h2>
+          <a href="/admin/avaliacoes" class="text-xs text-indigo-500 hover:underline">Ver todas →</a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {{#each dadosDashboard.avaliacoes}}
+          <div class="border border-slate-100 p-4 rounded-xl hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-start mb-2">
+              <strong class="text-sm">{{this.destino}}</strong>
+              <div class="flex gap-0.5">
+                {{#times this.estrelas}}
+                  <span class="icon-[tabler--star-filled] size-4 text-amber-400"></span>
+                {{/times}}
+                {{#times this.estrelasVazias}}
+                  <span class="icon-[tabler--star] size-4 text-slate-300"></span>
+                {{/times}}
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm">{{this.comentario}}</p>
+            <p class="text-xs text-slate-400 mt-2">— {{this.autor}}</p>
           </div>
-            <p class="text-slate-600">Experiência incrível!</p>
-          </div>
-
-          <div class="border p-4 rounded-xl">
-              <strong>Ilha do Mussulo</strong>   
-             <div class="flex gap-1"> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star-filled]"></span> 
-          <span class="size-4 bg-amber-400 icon-[tabler--star]"></span> 
-          </div>
-            <p class="text-slate-600">Muito bom, recomendo.</p>
-          </div>
+          {{/each}}
         </div>
       </div>
     </section>
 
   </main>
 </div>
+
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  // Gráfico
+  new Chart(document.getElementById('chartReservas'), {
+    type: 'bar',
+    data: {
+      labels: {{{json dadosDashboard.graficoMeses.labels}}},
+      datasets: [{
+        label: 'Reservas',
+        data: {{{json dadosDashboard.graficoMeses.dados}}},
+        backgroundColor: '#6366f1',
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { color: '#94a3b8', font: { size: 11 }, maxTicksLimit: 5 }, beginAtZero: true }
+      }
+    }
+  });
+
+  // Animação KPI
+  function animateKPI(id, end) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const dur = 900;
+    const t0 = performance.now();
+    (function step(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(end * p).toLocaleString('pt-PT');
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  setTimeout(() => {
+    animateKPI('kpi-users',    {{dadosDashboard.stats.totalUsuarios}});
+    animateKPI('kpi-reservas', {{dadosDashboard.stats.totalReservas}});
+  }, 200);
+</script>

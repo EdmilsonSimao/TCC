@@ -47,6 +47,33 @@ const getReservas = async(id)=>{
       res.render("erro ao Buscar reservas")
     }
 }
+const limitReservas = async(id)=>{
+    try {
+        
+  console.log("usuario com id :"+id)
+ const [reservas] = await db.execute(`
+  SELECT 
+    reserva.id,                             
+    reserva.destino,
+    reserva.data_checkin,
+    reserva.data_checkout,
+    reserva.status,
+    reserva.n_pessoas,
+    users.nome AS cliente,
+    users.telefone AS telefone_cliente,
+    users.email AS email_cliente
+  FROM reserva
+  INNER JOIN users ON reserva.id_user = users.id
+  WHERE users.id = ? order by reserva.id desc limit 5
+`, [id]);
+  return reservas;
+    } catch (error) {
+
+      res.render("erro ao Buscar reservas")
+    }
+}
+
+
 
 const getReservaId = async(id, id_user)=>{
     try {
@@ -139,5 +166,6 @@ module.exports = {
   allReservas,
   updateReserva,
   getReservaId,
-  deleteReserva
+  deleteReserva,
+  limitReservas
 };

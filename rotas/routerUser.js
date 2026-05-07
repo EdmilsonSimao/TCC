@@ -3,6 +3,7 @@ const  {addUser, deleteUser, getUser, updateUser, userOn}= require("../models/us
 const {checkUsers, validarLogin} = require("../controls/controlsUsers")
 const bcrypt = require ("bcryptjs")
 const passport = require("passport")
+const { logado } = require("../controls/helpers")
 
 const router = express.Router()
 // listar usuariso
@@ -18,12 +19,31 @@ router.get("/users", async(req, res)=>{
 })
 
 // listar usuario por id
-router.get("/users/:id", async(req, res)=>{
+router.get("/users/:id", logado, async(req, res)=>{
     
     const id = req.params.id
      try{
        const users = await userOn(id)
-       users.length != 0 ? res.status(200).json(users) : res.json({message:"Este usuario não existe!"})
+      //formartar dados do usuário
+        function formatDateLocal(date) {
+            const d = new Date(date)
+            const year = d.getFullYear()
+            const month = String(d.getMonth() + 1).padStart(2, "0")
+            const day = String(d.getDate()).padStart(2, "0")
+            return `${day}/${month}/${year}`
+            }
+
+       const user = {
+        id:users[0].id,
+        nome: users[0].nome, 
+        data_nascimento: formatDateLocal(users[0].data_nascimento), 
+        email:users[0].email,
+        telefone: users[0].telefone,
+        pais:users[0].pais,
+        genero:users[0].genero
+      }
+      console.log(user.data_nascimento)
+      res.render("updateUsers", {usuario:user})
      }catch(err){
         res.json({message:"Não conseguimos listar os Usuario! "+ err})
      }
@@ -31,11 +51,12 @@ router.get("/users/:id", async(req, res)=>{
 })
 
 // actualizar usuario
-router.put("/updateusers/:id", async(req, res)=>{
+router.post("/updateusers/:id", logado, async(req, res)=>{
 
      try{
        const users = await updateUser(req.body, req.params.id)
-        res.status(200).json({message:"Usuario actualizado com sucesso!"})
+       console.log(users)
+        res.render("users", {usuarios:users})
      }catch(err){
         res.json({message:"Não conseguimos actualizar este Usuario! "+ err})
      }
@@ -88,7 +109,7 @@ router.post("/addUsers", checkUsers, async (req, res) => {
 });
 
 // deletar usuario
-router.delete("/deleteusers/:id", async(req, res)=>{
+router.get("/deleteusers/:id", logado, async(req, res)=>{
    
      try{
        const users = await deleteUser(req.params.id)

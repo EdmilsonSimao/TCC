@@ -1,272 +1,505 @@
-  {{#each error_msg}}
-  <div class="alert alert-error shadow-lg max-w-5xl mx-auto mb-4">
-    <div>
-      <span class="icon-[tabler--alert-circle] size-5"></span>
-      <span>{{texto}}</span>
-    </div>
-  </div>
-  {{else}}
-  {{/each}}
+{{#each error_msg}}
+<div class="alert alert-error shadow-lg max-w-5xl mx-auto mb-4 mt-4">
+  <span class="icon-[tabler--alert-circle] size-5"></span>
+  <span>{{texto}}</span>
+</div>
+{{/each}}
 
-  {{#each success_msg}}
-  <div class="alert alert-success shadow-lg max-w-5xl mx-auto mb-4">
-    <div>
-      <span class="icon-[tabler--check-circle] size-5"></span>
-      <span>{{texto}}</span>
-    </div>
-  </div>
-  {{/each}}
+{{#each success_msg}}
+<div class="alert alert-success shadow-lg max-w-5xl mx-auto mb-4 mt-4">
+  <span class="icon-[tabler--check-circle] size-5"></span>
+  <span>{{texto}}</span>
+</div>
+{{/each}}
 
-<!-- HERO DO DESTINO -->
-<section class="relative h-[70vh] bg-cover bg-center"
+<!-- HERO -->
+<section class="relative h-[80vh] bg-cover bg-center"
   style="background-image: url('{{lugares.image.image1}}');">
-  
-  <div class="absolute inset-0 bg-black/60"></div>
 
-  <div class="relative z-10 h-full flex items-center">
-    <div class="max-w-7xl mx-auto px-6 text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      {{lugares.nome}}
-      </h1>
-      <p class="text-lg md:text-2xl max-w-2xl">
-        Um dos cartões-postais mais icónicos de Angola, famoso pelas suas curvas
-        espetaculares e vistas deslumbrantes.
-      </p>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+  <div class="absolute top-6 left-6 z-10">
+    <span class="badge badge-primary badge-lg px-4 py-3 text-sm font-medium shadow-lg">
+      <span class="icon-[tabler--tag] size-4 mr-1"></span>
+      {{lugares.categoria}}
+    </span>
+  </div>
+
+  <div class="relative z-10 h-full flex items-end pb-16">
+    <div class="max-w-7xl mx-auto px-6 w-full text-white">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">{{lugares.nome}}</h1>
+      <div class="flex flex-wrap items-center gap-4 text-slate-300 text-sm">
+        <span class="flex items-center gap-1">
+          <span class="icon-[tabler--map-pin] size-4"></span> Angola
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="icon-[tabler--star-filled] size-4 text-amber-400"></span>
+          4.8 · 128 avaliações
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="icon-[tabler--eye] size-4"></span>
+          Destino em destaque
+        </span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTEÚDO PRINCIPAL -->
-<section class="py-20 bg-base-200">
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12 px-6">
+<section class="py-16 bg-base-200">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-10 px-6">
 
     <!-- COLUNA PRINCIPAL -->
-    <div class="lg:col-span-2 space-y-10">
+    <div class="lg:col-span-2 space-y-8">
 
-      <!-- SOBRE O DESTINO -->
-      <div class="bg-white rounded-md shadow-xl p-8">
-        <h2 class="text-3xl font-bold mb-4">Sobre o destino</h2>
-        <p class="text-lg text-slate-600 leading-relaxed">
-          A Serra da Leba localiza-se na província do Namibe e é conhecida pela sua
-          estrada sinuosa, considerada uma das mais belas de África. O local
-          oferece vistas panorâmicas incríveis, clima fresco e contacto direto
-          com a natureza.
-        </p>
+      <!-- SOBRE -->
+      <div class="bg-base-100 rounded-2xl shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+          <span class="icon-[tabler--info-circle] size-6 text-primary"></span>
+          Sobre o destino
+        </h2>
+        <p class="text-base-content/70 leading-relaxed text-base">{{lugares.descricao}}</p>
       </div>
 
       <!-- GALERIA -->
-      <div class="bg-white rounded-md shadow-xl p-8">
-        <h2 class="text-3xl font-bold mb-6">Galeria</h2>
-       
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="bg-base-100 rounded-2xl shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <span class="icon-[tabler--photo] size-6 text-primary"></span>
+          Galeria
+        </h2>
+        <div class="mb-3">
+          <img id="img-principal" src="{{lugares.image.image1}}"
+            class="w-full h-72 object-cover rounded-xl transition-all duration-300" />
+        </div>
+        <div class="grid grid-cols-4 gap-2">
           {{#each lugares.image}}
-          <img src="{{this}}" class="rounded-xl object-cover h-48 w-full">
+          <img src="{{this}}"
+            onclick="document.getElementById('img-principal').src='{{this}}'"
+            class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 hover:ring-2 ring-primary transition-all duration-200" />
           {{/each}}
         </div>
       </div>
 
       <!-- ATIVIDADES -->
-      <div class="bg-white rounded-md shadow-xl p-8">
-        <h2 class="text-3xl font-bold mb-4">Atividades</h2>
-        <ul class="space-y-3 text-lg text-slate-600">
-          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Trilhas e caminhadas</li>
-          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span>Fotografia panorâmica</li>
-          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Observação da natureza</li>
-          <li><span class="icon-[tabler--rosette-discount-check-filled] bg-green-600"></span> Passeios turísticos guiados</li>
-        </ul>
+      <div class="bg-base-100 rounded-2xl shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <span class="icon-[tabler--flame] size-6 text-primary"></span>
+          Atividades
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-base-200">
+            <span class="icon-[tabler--walk] size-5 text-success"></span>
+            <span class="text-sm font-medium">Trilhas e caminhadas</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-base-200">
+            <span class="icon-[tabler--camera] size-5 text-success"></span>
+            <span class="text-sm font-medium">Fotografia panorâmica</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-base-200">
+            <span class="icon-[tabler--leaf] size-5 text-success"></span>
+            <span class="text-sm font-medium">Observação da natureza</span>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-base-200">
+            <span class="icon-[tabler--map] size-5 text-success"></span>
+            <span class="text-sm font-medium">Passeios guiados</span>
+          </div>
+        </div>
       </div>
- <section class="bg-white rounded-md shadow-xl p-8">
-      <h2 class="text-3xl font-bold mb-6 text-sky-600">
-        Informações Úteis
-      </h2>
 
-      <div class="grid md:grid-cols-2 gap-6 text-gray-600 text-lg">
-        <p> Melhor época: Setembro a Março</p>
-        <p> Temperatura média: 28°C</p>
-        <p> Aeroporto mais próximo: 40km</p>
-        <p> Moeda: Real (R$)</p>
+      <!-- INFORMAÇÕES ÚTEIS -->
+      <div class="bg-base-100 rounded-2xl shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <span class="icon-[tabler--bulb] size-6 text-primary"></span>
+          Informações Úteis
+        </h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-center gap-3 p-4 bg-base-200 rounded-xl">
+            <span class="icon-[tabler--calendar-event] size-6 text-primary"></span>
+            <div>
+              <p class="text-xs text-base-content/50">Melhor época</p>
+              <p class="text-sm font-semibold">Setembro a Março</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-base-200 rounded-xl">
+            <span class="icon-[tabler--temperature] size-6 text-orange-500"></span>
+            <div>
+              <p class="text-xs text-base-content/50">Temperatura média</p>
+              <p class="text-sm font-semibold">28°C</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-base-200 rounded-xl">
+            <span class="icon-[tabler--plane] size-6 text-sky-500"></span>
+            <div>
+              <p class="text-xs text-base-content/50">Aeroporto mais próximo</p>
+              <p class="text-sm font-semibold">40 km</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-base-200 rounded-xl">
+            <span class="icon-[tabler--coin] size-6 text-emerald-500"></span>
+            <div>
+              <p class="text-xs text-base-content/50">Moeda</p>
+              <p class="text-sm font-semibold">Kwanza (AKZ)</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-
-
-
-
 
       <!-- MAPA -->
-      <div class="bg-white rounded-md shadow-xl p-8">
-        <h2 class="text-3xl font-bold mb-4">Localização</h2>
-
+      <div class="bg-base-100 rounded-2xl shadow-md p-8">
+        <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+          <span class="icon-[tabler--map-2] size-6 text-primary"></span>
+          Localização
+        </h2>
         <iframe
-          class="w-full h-80 rounded-2xl"
+          class="w-full h-72 rounded-xl border-0"
           src="{{lugares.mapa}}"
-          loading="lazy"
-        ></iframe>
+          loading="lazy">
+        </iframe>
       </div>
 
     </div>
 
     <!-- SIDEBAR -->
-    <aside class="space-y-8">
+    <aside class="space-y-6">
 
-      <!-- CARD DE RESERVA -->
-      <div class="bg-white rounded-md shadow-xl p-8 sticky top-24 ">
-        <h3 class="text-2xl font-bold mb-4">Reservar visita</h3>
+      <!-- CARD RESERVA -->
+      <div class="bg-base-100 rounded-2xl shadow-md p-6 sticky top-24">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-xl font-bold">Reservar visita</h3>
+          <span class="text-success font-bold text-sm">
+            25.000 AKZ
+            <span class="text-base-content/40 font-normal text-xs">/pessoa</span>
+          </span>
+        </div>
+        <div class="divider my-3"></div>
 
-        <form id="openPagamento" class="space-y-4">
+        <div class="space-y-4">
           <div>
-            <label class="font-medium">Data check_in</label>
-            <input type="date" id="check_in"  class="input w-full mt-2">
+            <label class="text-sm font-medium mb-1 block">
+              <span class="icon-[tabler--calendar-event] size-4 inline mr-1"></span>Check-in
+            </label>
+            <input type="date" id="check_in" class="input input-bordered w-full" />
+          </div>
+          <div>
+            <label class="text-sm font-medium mb-1 block">
+              <span class="icon-[tabler--calendar-check] size-4 inline mr-1"></span>Check-out
+            </label>
+            <input type="date" id="check_out" class="input input-bordered w-full" />
+          </div>
+          <div>
+            <label class="text-sm font-medium mb-1 block">
+              <span class="icon-[tabler--users] size-4 inline mr-1"></span>Número de pessoas
+            </label>
+            <input type="number" id="nPessoas" class="input input-bordered w-full" min="1" value="1" />
           </div>
 
-          <div>
-            <label class="font-medium">Data check_out</label>
-            <input type="date" id="check_out" class="input w-full mt-2">
+          <!-- Pré-total -->
+          <div class="bg-base-200 rounded-xl p-3 text-sm space-y-1">
+            <div class="flex justify-between text-base-content/60">
+              <span>Preço por pessoa</span>
+              <span>25.000 AKZ</span>
+            </div>
+            <div class="flex justify-between text-base-content/60">
+              <span>Pessoas</span>
+              <span id="preview-pessoas">1</span>
+            </div>
+            <div class="divider my-1"></div>
+            <div class="flex justify-between font-bold text-base">
+              <span>Total estimado</span>
+              <span id="preview-total" class="text-success">25.000 AKZ</span>
+            </div>
           </div>
 
-          <div>
-            <label class="font-medium">Número de pessoas</label>
-            <input type="number" id="nPessoas" class="input w-full mt-2" min="1" value="1">
-          </div>
-
-          <button type="button" onclick="openPagamento()" class="btn btn-success">
+          <button type="button" onclick="openPagamento()" class="btn btn-primary w-full">
+            <span class="icon-[tabler--calendar-plus] size-5"></span>
             Reservar agora
           </button>
-        </form>
+        </div>
       </div>
 
-      <!-- INFORMAÇÕES RÁPIDAS -->
-      <div class="bg-white rounded-md shadow-xl p-8">
-        <h3 class="text-2xl font-bold mb-4">Informações</h3>
-
-        <ul class="space-y-3 text-slate-600">
-          <li class="flex gap-2">
-            <span class="icon-[tabler--map-pin-filled] bg-red-600 size-6"></span>
-            <strong> Província:</strong> Namibe
+      <!-- INFO RÁPIDA -->
+      <div class="bg-base-100 rounded-2xl shadow-md p-6">
+        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+          <span class="icon-[tabler--info-circle] size-5 text-primary"></span>
+          Detalhes
+        </h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-3">
+            <span class="icon-[tabler--map-pin-filled] size-5 text-error"></span>
+            <div>
+              <p class="text-base-content/50 text-xs">Província</p>
+              <p class="font-medium">Namibe</p>
+            </div>
           </li>
-          <li class="flex gap-2">
-            <span class="icon-[tabler--alarm] size-6"></span>
-            <strong id="duracao"> Duração:</strong> 1 dia
+          <li class="flex items-center gap-3">
+            <span class="icon-[tabler--clock] size-5 text-primary"></span>
+            <div>
+              <p class="text-base-content/50 text-xs">Duração recomendada</p>
+              <p class="font-medium">1 dia</p>
+            </div>
           </li>
-          <li class="flex gap-2">
-            <span class="icon-[tabler--sunset-2] bg-yellow-300 size-6"></span>
-            <strong>Melhor época:</strong> Maio a Setembro
+          <li class="flex items-center gap-3">
+            <span class="icon-[tabler--sun] size-5 text-amber-500"></span>
+            <div>
+              <p class="text-base-content/50 text-xs">Melhor época</p>
+              <p class="font-medium">Maio a Setembro</p>
+            </div>
           </li>
-          <li class="flex gap-2">
-            <span class="icon-[tabler--car] size-6 bg-red-700"></span>
-            <strong>Acesso:</strong> Estrada asfaltada
+          <li class="flex items-center gap-3">
+            <span class="icon-[tabler--car] size-5 text-success"></span>
+            <div>
+              <p class="text-base-content/50 text-xs">Acesso</p>
+              <p class="font-medium">Estrada asfaltada</p>
+            </div>
           </li>
         </ul>
       </div>
 
     </aside>
-
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="py-20  bg-slate-900 text-white">
-  <div class="max-w-5xl mx-auto text-center px-6">
-    <h2 class="text-4xl font-bold mb-4">
-      Pronto para viver esta experiência?
-    </h2>
-    <p class="text-lg mb-8">
-      Reserve agora a sua visita à Serra da Leba e descubra uma das paisagens mais
-      impressionantes de Angola.
-    </p>
-    <a href="/reservar/serra-da-leba" class="btn btn-outline btn-lg text-white">
+<section class="py-20 bg-slate-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+  </div>
+  <div class="max-w-3xl mx-auto text-center px-6 relative">
+    <span class="badge badge-primary mb-4">Não perca esta oportunidade</span>
+    <h2 class="text-4xl font-bold mb-4">Pronto para viver esta experiência?</h2>
+    <p class="text-slate-400 mb-8 text-lg">Reserve agora e descubra uma das paisagens mais impressionantes de Angola.</p>
+    <button onclick="openPagamento()" class="btn btn-primary btn-lg px-10">
+      <span class="icon-[tabler--calendar-plus] size-5"></span>
       Fazer reserva
-    </a>
+    </button>
   </div>
 </section>
 
-
 <!-- MODAL PAGAMENTO -->
 <div id="paymentModal"
-  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 openPagamento">
+  class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4">
 
-  <div class="bg-white w-full max-w-lg mx-auto rounded-3xl shadow-2xl p-8 relative">
+  <div class="bg-base-100 w-full max-w-lg rounded-2xl shadow-2xl relative overflow-hidden max-h-[85vh] flex flex-col">
 
-    <!-- FECHAR -->
-    <button onclick="closePayment()"
-      class="absolute close top-4 right-4 btn btn-sm btn-circle btn-ghost">✕</button>
-
-    <h2 class="text-3xl font-bold mb-6 flex items-center gap-2">
-      <span class="icon-[tabler--credit-card] size-8 bg-amber-500"></span>
-      Pagamento
-    </h2>
-
-    <!-- RESUMO -->
-    <div class="border rounded-xl p-4 mb-6 bg-base-200">
-      <div class="flex justify-between mb-2">
-        <span>Destino</span>
-        <strong>Serra da Leba</strong>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Pessoas</span>
-        <strong id="qtdPessoas">1</strong>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Data Ckeck_in</span>
-        <strong id="dataEntrada">25.000 Kz</strong>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Data Check_out</span>
-        <strong id="dataSaida"></strong>
-      </div>
-      <div class="flex justify-between mb-2">
-        <span>Preço por pessoa</span>
-        <strong>25.000 Kz</strong>
-      </div>
-
-      <hr class="my-3">
-      <div class="flex justify-between text-xl font-bold">
-        <span>Total</span>
-        <span id="totalValor">25.000 Kz</span>
-      </div>
+    <!-- TOPO FIXO -->
+    <div class="bg-gradient-to-r from-primary to-primary/80 p-6 text-white flex-shrink-0">
+      <button onclick="closePayment()"
+        class="absolute top-4 right-4 btn btn-sm btn-circle bg-white/20 border-0 text-white hover:bg-white/30">✕</button>
+      <h2 class="text-2xl font-bold flex items-center gap-2">
+        <span class="icon-[tabler--credit-card] size-7"></span> Pagamento
+      </h2>
+      <p class="text-white/70 text-sm mt-1">Confirme os detalhes e efetue o pagamento</p>
     </div>
 
-    <!-- MÉTODO DE PAGAMENTO -->
-   
-    <h3 class="font-semibold mb-3">Método de pagamento</h3>
+    <!-- CONTEÚDO COM SCROLL -->
+    <div class="overflow-y-auto flex-1 p-6 space-y-5">
 
-    <div class="space-y-3">
-
-      <div class="card bg-slate-900 p-2">
-         <h1 class="cart-title text-gray-500 p-1">IBAN</h1>
-        <div class="card-body bg-slate-800 p-3 rounded-lg">
-         <p class="card-text text-teal-50">AO0000600.12345670.1001</p>
+      <!-- RESUMO -->
+      <div class="bg-base-200 rounded-xl p-4 space-y-2 text-sm">
+        <h3 class="font-semibold text-base mb-3">Resumo da reserva</h3>
+        <div class="flex justify-between">
+          <span class="text-base-content/60">Destino</span>
+          <strong>{{lugares.nome}}</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-base-content/60">Pessoas</span>
+          <strong id="qtdPessoas">—</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-base-content/60">Check-in</span>
+          <strong id="dataEntrada">—</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-base-content/60">Check-out</span>
+          <strong id="dataSaida">—</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-base-content/60">Preço por pessoa</span>
+          <strong>25.000 AKZ</strong>
+        </div>
+        <div class="divider my-1"></div>
+        <div class="flex justify-between text-lg font-bold">
+          <span>Total</span>
+          <span id="totalValor" class="text-success">25.000 AKZ</span>
         </div>
       </div>
 
-      <div class="card bg-slate-900 p-2">
-         <h1 class="cart-title text-gray-500 p-1">Multcaixa express</h1>
-        <div class="card-body bg-slate-800 p-3 rounded-lg">
-         <p class="card-text text-teal-50">929778512</p>
+      <!-- MÉTODOS DE PAGAMENTO -->
+      <div>
+        <h3 class="font-semibold mb-3 text-sm">Método de pagamento</h3>
+        <div class="space-y-2">
+          <div class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3">
+            <div>
+              <p class="text-slate-400 text-xs mb-0.5">IBAN</p>
+              <p class="text-white font-mono text-sm">AO0000600.12345670.1001</p>
+            </div>
+            <button type="button"
+              onclick="copiar('AO0000600.12345670.1001', this)"
+              class="btn btn-xs btn-ghost text-slate-400 hover:text-white">
+              <span class="icon-[tabler--copy] size-4"></span>
+            </button>
+          </div>
+          <div class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3">
+            <div>
+              <p class="text-slate-400 text-xs mb-0.5">Multicaixa Express</p>
+              <p class="text-white font-mono text-sm">929 778 512</p>
+            </div>
+            <button type="button"
+              onclick="copiar('929778512', this)"
+              class="btn btn-xs btn-ghost text-slate-400 hover:text-white">
+              <span class="icon-[tabler--copy] size-4"></span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- COMPROVATIVO -->
-    <div class="mt-5 comprovativo">
-      <form  action="/reserva" method="post">
-        <!-- Campos ocultos para enviar os dados da reserva -->
-          <input type="hidden" name="check_in" id="hiddenCheckIn">
-          <input type="hidden" name="check_out" id="hiddenCheckOut">
-          <input type="hidden" name="pessoas" id="hiddenPessoas">
-          <input type="hidden" name="id" id="hiddenID" value={{lugares.id}}>
+      <!-- COMPROVATIVO -->
+      <form action="/reserva" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="check_in"  id="hiddenCheckIn">
+        <input type="hidden" name="check_out" id="hiddenCheckOut">
+        <input type="hidden" name="pessoas"   id="hiddenPessoas">
+        <input type="hidden" name="id"        value="{{lugares.id}}">
 
-          <label class="font-medium">Comprovativo de pagamento</label>
+        <div class="space-y-2">
+          <label class="text-sm font-medium block">Comprovativo de pagamento</label>
           <label for="file"
-            class="mt-2 flex items-center justify-center gap-2 border-2 border-dashed rounded-xl p-4 cursor-pointer">
-            <span class="icon-[tabler--upload] size-6"></span>
-            Enviar comprovativo
+            class="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-base-content/20 rounded-xl p-6 cursor-pointer hover:border-primary hover:bg-primary/5 transition-all">
+            <span class="icon-[tabler--upload] size-8 text-primary"></span>
+            <span class="text-sm text-base-content/60 text-center">
+              Clique para enviar o comprovativo
+            </span>
+            <span class="text-xs text-base-content/40">JPG, PNG ou PDF · Máx. 5MB</span>
           </label>
-          <input id="file" type="file" class="hidden">
+          <input id="file" name="comprovativo" type="file" class="hidden" accept="image/*,.pdf" />
+          <div id="file-preview" class="hidden items-center gap-2 bg-success/10 border border-success/30 rounded-xl px-4 py-2">
+            <span class="icon-[tabler--file-check] size-5 text-success"></span>
+            <p id="file-nome" class="text-xs text-success font-medium truncate flex-1"></p>
+            <button type="button" onclick="removerFicheiro()"
+              class="text-base-content/40 hover:text-error">
+              <span class="icon-[tabler--x] size-4"></span>
+            </button>
+          </div>
         </div>
 
-        <button type="submit" class="btn btn-success  btn-lg w-full mt-6">
+        <button type="submit" class="btn btn-success w-full mt-5">
+          <span class="icon-[tabler--check] size-5"></span>
           Confirmar pagamento
         </button>
       </form>
+
+    </div>
+    <!-- FIM SCROLL -->
+
   </div>
 </div>
+
+<script>
+  const PRECO_POR_PESSOA = 25000;
+
+  const inputPessoas  = document.getElementById('nPessoas');
+  const inputCheckin  = document.getElementById('check_in');
+  const inputCheckout = document.getElementById('check_out');
+
+  function formatarData(val) {
+    if (!val) return '—';
+    const [y, m, d] = val.split('-');
+    return `${d}/${m}/${y}`;
+  }
+
+  function formatarValor(n) {
+    return n.toLocaleString('pt-AO') + ' AKZ';
+  }
+
+  function atualizarPreview() {
+    const pessoas = parseInt(inputPessoas.value) || 1;
+    const total   = pessoas * PRECO_POR_PESSOA;
+    document.getElementById('preview-pessoas').textContent = pessoas;
+    document.getElementById('preview-total').textContent   = formatarValor(total);
+  }
+
+  inputPessoas.addEventListener('input', atualizarPreview);
+  atualizarPreview();
+
+  function openPagamento() {
+    const pessoas  = parseInt(inputPessoas.value) || 1;
+    const checkin  = inputCheckin.value;
+    const checkout = inputCheckout.value;
+
+    if (!checkin || !checkout) {
+      alert('Por favor selecione as datas de check-in e check-out.');
+      return;
+    }
+    if (checkin >= checkout) {
+      alert('A data de check-out deve ser posterior ao check-in.');
+      return;
+    }
+
+    document.getElementById('qtdPessoas').textContent  = pessoas;
+    document.getElementById('dataEntrada').textContent = formatarData(checkin);
+    document.getElementById('dataSaida').textContent   = formatarData(checkout);
+    document.getElementById('totalValor').textContent  = formatarValor(pessoas * PRECO_POR_PESSOA);
+
+    document.getElementById('hiddenCheckIn').value  = checkin;
+    document.getElementById('hiddenCheckOut').value = checkout;
+    document.getElementById('hiddenPessoas').value  = pessoas;
+
+    const modal = document.getElementById('paymentModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closePayment() {
+    const modal = document.getElementById('paymentModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  // Fechar ao clicar fora
+  document.getElementById('paymentModal').addEventListener('click', function(e) {
+    if (e.target === this) closePayment();
+  });
+
+  // Datas mínimas
+  const hoje = new Date().toISOString().split('T')[0];
+  inputCheckin.min  = hoje;
+  inputCheckout.min = hoje;
+  inputCheckin.addEventListener('change', () => {
+    inputCheckout.min = inputCheckin.value;
+    if (inputCheckout.value && inputCheckout.value <= inputCheckin.value) {
+      inputCheckout.value = '';
+    }
+  });
+
+  // Ficheiro comprovativo
+  document.getElementById('file').addEventListener('change', function() {
+    const file    = this.files[0];
+    const preview = document.getElementById('file-preview');
+    const nome    = document.getElementById('file-nome');
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert('O ficheiro não pode ter mais de 5MB.');
+        this.value = '';
+        return;
+      }
+      nome.textContent = file.name;
+      preview.classList.remove('hidden');
+      preview.classList.add('flex');
+    }
+  });
+
+  function removerFicheiro() {
+    document.getElementById('file').value = '';
+    const preview = document.getElementById('file-preview');
+    preview.classList.add('hidden');
+    preview.classList.remove('flex');
+  }
+
+  // Copiar para clipboard com feedback
+  function copiar(texto, btn) {
+    navigator.clipboard.writeText(texto).then(() => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<span class="icon-[tabler--check] size-4 text-success"></span>';
+      setTimeout(() => { btn.innerHTML = original; }, 1500);
+    });
+  }
+</script>

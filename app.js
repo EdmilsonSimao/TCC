@@ -18,7 +18,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-
+app.set('trust proxy', true)
 // config mensagem flash
 app.use(flash())
 
@@ -43,7 +43,14 @@ app.engine("handlebars", engine({defaultLayout:"main",
           accum += block.fn(i)
         }
         return accum
-      }
+      },
+    eq:    (a, b) => a === b,
+    json:  (ctx)  => JSON.stringify(ctx),
+    times: (n, block) => {
+      let out = '';
+      for (let i = 0; i < n; i++) out += block.fn(i);
+      return out;
+    }
 
     
     }

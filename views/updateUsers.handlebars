@@ -1,0 +1,207 @@
+<section class="max-w-3xl mx-auto px-4 py-12">
+
+  <!-- HEADER -->
+  <div class="flex items-center gap-4 mb-10">
+    <a href="/users" class="btn btn-circle btn-outline btn-sm">
+      <span class="icon-[tabler--arrow-left] size-5"></span>
+    </a>
+    <div>
+      <h1 class="text-3xl font-bold">Editar Utilizador</h1>
+      <p class="text-base-content/50 text-sm mt-1">Atualize os dados do utilizador</p>
+    </div>
+  </div>
+
+  <!-- CARD PRINCIPAL -->
+  <div class="bg-base-100 rounded-2xl shadow-md overflow-hidden">
+
+    <!-- TOPO COM AVATAR -->
+    <div class="bg-gradient-to-r from-primary/10 to-base-200 px-8 py-8 flex items-center gap-6 border-b border-base-content/10">
+      <div class="avatar placeholder">
+        <div class="rounded-full w-20 text-2xl font-bold
+          {{#ifEquals usuario.genero 'Masculino'}}bg-blue-100 text-blue-700
+          {{else}}bg-pink-100 text-pink-700{{/ifEquals}}">
+          <span>{{usuario.nome}}</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold">{{usuario.nome}}</h2>
+        <p class="text-base-content/50 text-sm">{{usuario.email}}</p>
+        <span class="badge badge-soft badge-primary badge-sm mt-1">ID #{{usuario.id}}</span>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <form action="/updateusers/{{usuario.id}}" method="post" class="p-8 space-y-6">
+
+      <!-- Nome + Género -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="nome">
+            <span class="icon-[tabler--user] size-4 inline mr-1"></span>Nome completo
+          </label>
+          <input type="text" id="nome" name="nome"
+            value="{{usuario.nome}}"
+            class="input input-bordered w-full"
+            placeholder="Nome completo"
+            required />
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="genero">
+            <span class="icon-[tabler--gender-bigender] size-4 inline mr-1"></span>Género
+          </label>
+          <select id="genero" name="genero" class="select select-bordered w-full">
+            <option value="M" {{#ifEquals usuario.genero 'M'}}selected{{/ifEquals}}>Masculino</option>
+            <option value="F"  {{#ifEquals usuario.genero 'F'}}selected{{/ifEquals}}>Feminino</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Email + Telefone -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="email">
+            <span class="icon-[tabler--mail] size-4 inline mr-1"></span>Email
+          </label>
+          <input type="email" id="email" name="email"
+            value="{{usuario.email}}"
+            class="input input-bordered w-full"
+            placeholder="email@exemplo.com"
+            required />
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="telefone">
+            <span class="icon-[tabler--phone] size-4 inline mr-1"></span>Telefone
+          </label>
+          <input type="tel" id="telefone" name="telefone"
+            value="{{usuario.telefone}}"
+            class="input input-bordered w-full"
+            placeholder="+244 9XX XXX XXX" />
+        </div>
+      </div>
+
+      <!-- Data Nascimento + País -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="data_nascimento">
+            <span class="icon-[tabler--cake] size-4 inline mr-1"></span>Data de Nascimento
+          </label>
+          <input type="date" id="data_nascimento" name="data_nascimento"
+            class="input input-bordered w-full"
+            value="{{data_nascimento}}"
+             />
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="pais">
+            <span class="icon-[tabler--map-pin] size-4 inline mr-1"></span>País
+          </label>
+          <input type="text" id="pais" name="pais"
+            value="{{usuario.pais}}"
+            class="input input-bordered w-full"
+            placeholder="Ex: Angola" />
+        </div>
+      </div>
+
+      <!-- Divider senha -->
+      <div class="divider text-sm text-base-content/40">Alterar palavra-passe (opcional)</div>
+
+      <!-- Senha + Confirmar -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="senha">
+            <span class="icon-[tabler--lock] size-4 inline mr-1"></span>Nova palavra-passe
+          </label>
+          <div class="relative">
+            <input type="password" id="senha" name="senha"
+              class="input input-bordered w-full pr-10"
+              placeholder="Deixe vazio para não alterar" />
+            <button type="button" id="toggle-senha"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/40 hover:text-base-content">
+              <span class="icon-[tabler--eye] size-5" id="icon-senha"></span>
+            </button>
+          </div>
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="confirmar_senha">
+            <span class="icon-[tabler--lock-check] size-4 inline mr-1"></span>Confirmar palavra-passe
+          </label>
+          <div class="relative">
+            <input type="password" id="confirmar_senha" name="confirmar_senha"
+              class="input input-bordered w-full pr-10"
+              placeholder="Repita a palavra-passe" />
+            <button type="button" id="toggle-confirmar"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/40 hover:text-base-content">
+              <span class="icon-[tabler--eye] size-5" id="icon-confirmar"></span>
+            </button>
+          </div>
+          <!-- Aviso de senhas diferentes -->
+          <p id="aviso-senha" class="text-error text-xs hidden mt-1">
+            <span class="icon-[tabler--alert-circle] size-3 inline"></span>
+            As palavras-passe não coincidem
+          </p>
+        </div>
+      </div>
+
+      <!-- AÇÕES -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-4 border-t border-base-content/10">
+        <a href="/deleteusers/{{usuario.id}}"
+           class="btn btn-error btn-outline btn-sm"
+           onclick="return confirm('Tem certeza que deseja eliminar este utilizador?')">
+          <span class="icon-[tabler--trash] size-4"></span>
+          Eliminar utilizador
+        </a>
+        <div class="flex gap-3">
+          <a href="/users" class="btn btn-ghost btn-sm">Cancelar</a>
+          <button type="submit" id="btn-guardar" class="btn btn-primary btn-sm">
+            <span class="icon-[tabler--device-floppy] size-4"></span>
+            Guardar alterações
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</section>
+
+<script>
+  // Toggle visibilidade senha
+  function togglePassword(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon  = document.getElementById(iconId);
+    const visivel = input.type === 'text';
+    input.type = visivel ? 'password' : 'text';
+    icon.className = visivel
+      ? 'icon-[tabler--eye] size-5'
+      : 'icon-[tabler--eye-off] size-5';
+  }
+
+  document.getElementById('toggle-senha').addEventListener('click', () =>
+    togglePassword('senha', 'icon-senha'));
+
+  document.getElementById('toggle-confirmar').addEventListener('click', () =>
+    togglePassword('confirmar_senha', 'icon-confirmar'));
+
+  // Validação senhas em tempo real
+  const inputSenha     = document.getElementById('senha');
+  const inputConfirmar = document.getElementById('confirmar_senha');
+  const avisoSenha     = document.getElementById('aviso-senha');
+  const btnGuardar     = document.getElementById('btn-guardar');
+
+  function validarSenhas() {
+    const s1 = inputSenha.value;
+    const s2 = inputConfirmar.value;
+
+    if (s2 && s1 !== s2) {
+      avisoSenha.classList.remove('hidden');
+      inputConfirmar.classList.add('input-error');
+      btnGuardar.disabled = true;
+    } else {
+      avisoSenha.classList.add('hidden');
+      inputConfirmar.classList.remove('input-error');
+      btnGuardar.disabled = false;
+    }
+  }
+
+  inputSenha.addEventListener('input', validarSenhas);
+  inputConfirmar.addEventListener('input', validarSenhas);
+</script>

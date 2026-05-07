@@ -2,7 +2,8 @@ const express = require("express")
 const route = express.Router()
 const {logado} = require("../controls/helpers")
 const {checkReservas} = require("../controls/controlsUsers")
-const {addReserva, getReservas, allReservas, updateReserva, getReservaId, deleteReserva} = require("../models/reservas")
+const {addReserva, getReservas, allReservas, updateReserva, getReservaId, deleteReserva, limitReservas} = require("../models/reservas")
+const { getUser } = require("../models/users")
 
 //  Lugares
 const lugar = [
@@ -292,6 +293,11 @@ route.get("/servicos", (req, res)=>{
 route.get("/destinos", (req, res)=>{
     res.render("turismo/destinos")
 })
+
+route.get("/addDestino", (req, res)=>{
+     res.render('addDestinos', { activeDestinos: true })
+})
+
 // Turismo rota
 route.get("/tur",(req, res)=>{
   
@@ -303,7 +309,7 @@ route.get("/tur",(req, res)=>{
 
 route.get("/perfil", logado, async(req, res)=>{
     try {
-        const minhaReserva = await  getReservas(req.user.id)
+        const minhaReserva = await  limitReservas(req.user.id)
       res.render("perfil", {reservas: minhaReserva.map(reserva => ({
         id: reserva.id,
         destino: reserva.destino,
@@ -322,9 +328,57 @@ route.get("/pagamento", (req, res)=>{
 })
 
 // Dashboard rota
-route.get("/dashboard", logado, (req, res)=>{
-    res.render("dashboard")
-})
+
+route.get('/dashboard', logado, async (req, res) => {
+    dadosDhashboard = {
+    activeDashboard: true,
+    adminNome: 'Admin',
+
+    stats: {
+      totalUsuarios:    1245,
+      variacaoUsuarios: 8.3,
+      totalDestinos:    38,
+      novosDestinos:    3,
+      totalReservas:    412,
+      variacaoReservas: 12,
+      receita:          '12,4M',
+      variacaoReceita:  5.1,
+    },
+
+    graficoMeses: {
+      labels: ['Jan','Fev','Mar','Abr','Mai','Jun'],
+      dados:  [52, 61, 58, 74, 88, 79],
+    },
+
+    topDestinos: [
+      { nome: 'Serra da Leba', percentagem: 85, cor: '#6366f1', total: 142 },
+      { nome: 'Ilha Mussulo',  percentagem: 72, cor: '#0ea5e9', total: 118 },
+      { nome: 'Kalandula',     percentagem: 58, cor: '#f59e0b', total: 94  },
+      { nome: 'Lobito',        percentagem: 40, cor: '#10b981', total: 67  },
+      { nome: 'Luanda',        percentagem: 26, cor: '#ec4899', total: 44  },
+    ],
+
+    ultimasReservas: [
+      { cliente: 'João Miguel', destino: 'Serra da Leba', data: '30 abr', status: 'Confirmado' },
+      { cliente: 'Ana Silva',   destino: 'Mussulo',       data: '29 abr', status: 'Pendente'   },
+      { cliente: 'Carlos M.',   destino: 'Kalandula',     data: '28 abr', status: 'Cancelado'  },
+      { cliente: 'Fatima A.',   destino: 'Lobito',        data: '27 abr', status: 'Confirmado' },
+    ],
+
+    novosUsuarios: [
+      { id: 1, nome: 'Maria Costa',  iniciais: 'MC', bgCor: '#ede9fe', textCor: '#6d28d9', data: 'Hoje, 10:42'  },
+      { id: 2, nome: 'Pedro Lucas',  iniciais: 'PL', bgCor: '#e0f2fe', textCor: '#0369a1', data: 'Hoje, 09:15'  },
+      { id: 3, nome: 'Sandra P.',    iniciais: 'SP', bgCor: '#fef9c3', textCor: '#854d0e', data: 'Ontem, 18:30' },
+      { id: 4, nome: 'Kátia Mendes', iniciais: 'KM', bgCor: '#dcfce7', textCor: '#15803d', data: 'Ontem, 14:07' },
+    ],
+
+    avaliacoes: [
+      { destino: 'Serra da Leba',   estrelas: 4, estrelasVazias: 1, comentario: 'Experiência incrível!',  autor: 'João Miguel' },
+      { destino: 'Ilha do Mussulo', estrelas: 3, estrelasVazias: 2, comentario: 'Muito bom, recomendo.', autor: 'Ana Silva'   },
+    ],
+  }
+  res.render('dashboard', { dadosDashboard: dadosDhashboard});
+});
 // Add hospedagem rota
 route.get("/hospedagem", (req, res)=>{
     res.render("hoteis/hospedagem")
@@ -338,8 +392,6 @@ route.post("/reserva", checkReservas, (req, res)=>{
             req.query.toast = "Reserva feita com sucesso!"
             req.flash("success_msg", [{texto:"Reserva feita com sucesso!"}])
             res.redirect(`info/${req.body.id}`) 
-         
-    
     } 
     catch(err){
         console.log("Não foi possivel adicionar a reserva "+ err)
@@ -358,7 +410,8 @@ route.get("/minhaReserva", logado, async(req, res)=>{
         data_checkin: new Date(reserva.data_checkin).toLocaleDateString('pt-PT'),
         n_pessoas: reserva.n_pessoas,
         status: reserva.status
-    }))})
+    })
+    )})
     } catch (error) {
         res.render("turismo/reservas", {erro: [{texto:"Não foi possivel listar as reservas"}]})
     }
@@ -578,6 +631,24 @@ route.get("/praia/:id", (req, res) => {
   ] })
   
 })  
+
+route.get("/users", logado, async(req, res)=>{
+    try {
+        const users = await getUser()
+        const formatData = ()=>{
+        const dia = new Date(users[0].data_nascimento).getDay()
+        const mes = new Date(users[0].data_nascimento).getMonth()
+        const ano = new Date(users[0].data_nascimento).getFullYear()
+       return (`${dia}/${mes}/${ano}`)
+        }
+        const data = formatData()
+      
+        res.render("users", {usuarios: users, data})
+       
+    }catch (error) {
+        res.render("users", {erros: [{texto: "Não foi possível listar os usuários!"}]})
+    }
+})
 
 
 module.exports = route;

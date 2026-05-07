@@ -2,7 +2,7 @@ const database = require("./database")
 
 const getUser = async()=>{
     try{
-        const [user] = await database.execute("SELECT * FROM user")
+        const [user] = await database.execute("SELECT * FROM users")
         console.log(user)
         return user
     }catch(err){
@@ -14,7 +14,7 @@ const getUser = async()=>{
 const userOn = async (id)=>{
 
     try{
-        const query = "SELECT *FROM  user WHERE id=?"
+        const query = "SELECT *FROM  users WHERE id=?"
         const [user] = await database.execute(query,[id])
         return user 
     }catch(err){
@@ -30,7 +30,7 @@ const addUser = async (body)=>{
     // console.log(telefone)
     // console.log(pais)
     // console.log(data_nascimento)
-    // console.log(senha)
+  
 
 
     try{
@@ -46,12 +46,17 @@ const addUser = async (body)=>{
 }
 
 const updateUser = async (body, id)=>{
-
-    const {nome, data_nascimento, email, genero, telefone, pais, senha, admin} = body
+    const {nome, data_nascimento, email, genero, telefone, pais} = body
+    console.log(nome)
+    console.log(email)
+    console.log(genero)
+    console.log(telefone)
+    console.log(pais)
+    console.log(data_nascimento) 
     try{
 
-        const query = "UPDATE user SET nome = ?, data_nascimento=?, email, genero=?, telefone=?, nacionalidade=?, senha= ?, admin=? WHERE id=?"
-        const [user] = await database.execute(query,[nome, data_nascimento, email, genero, telefone, pais, senha, admin, id])
+        const query = "UPDATE users SET nome = ?, data_nascimento=?, email, genero=?, telefone=?, pais=?, WHERE id=?"
+        const [user] = await database.execute(query,[nome, data_nascimento, email, genero, telefone, pais, id])
         return user 
 
     }catch(err){
@@ -61,7 +66,7 @@ const updateUser = async (body, id)=>{
 
 const deleteUser = async (id)=>{
     try{
-        await database.execute("DELETE FROM user  WHERE id=?",[id])
+        await database.execute("DELETE FROM users  WHERE id=?",[id])
         return message ="User deletado com sucesso!"
     }catch(err){
         return err

@@ -1,0 +1,264 @@
+<section class="max-w-4xl mx-auto px-4 py-12">
+
+  <!-- HEADER -->
+  <div class="flex items-center gap-4 mb-10">
+    <a href="/admin/destinos" class="btn btn-circle btn-outline btn-sm">
+      <span class="icon-[tabler--arrow-left] size-5"></span>
+    </a>
+    <div>
+      <h1 class="text-3xl font-bold">Novo Destino</h1>
+      <p class="text-base-content/50 text-sm mt-1">Adicione um novo destino ao sistema</p>
+    </div>
+  </div>
+
+  <form action="/admin/destinos/criar" method="POST" enctype="multipart/form-data" class="space-y-6">
+
+    <!-- INFORMAÇÕES BÁSICAS -->
+    <div class="bg-base-100 rounded-2xl shadow-md p-8 space-y-5">
+      <h2 class="text-lg font-bold flex items-center gap-2 pb-3 border-b border-base-content/10">
+        <span class="icon-[tabler--info-circle] size-5 text-primary"></span>
+        Informações Básicas
+      </h2>
+
+      <!-- Nome + Categoria -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="nome">
+            <span class="icon-[tabler--map-pin] size-4 inline mr-1"></span>Nome do destino
+          </label>
+          <input type="text" id="nome" name="nome"
+            class="input input-bordered w-full"
+            placeholder="Ex: Hotel Epic-Sana"
+            required />
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="categoria">
+            <span class="icon-[tabler--tag] size-4 inline mr-1"></span>Categoria
+          </label>
+          <select id="categoria" name="categoria" class="select select-bordered w-full" required>
+            <option value="" disabled selected>Selecione uma categoria</option>
+            <option value="hotel">Hotel</option>
+            <option value="praia">Praia</option>
+            <option value="montanha">Montanha</option>
+            <option value="parque">Parque Natural</option>
+            <option value="cidade">Cidade</option>
+            <option value="resort">Resort</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Descrição -->
+      <div class="space-y-1">
+        <label class="text-sm font-medium" for="descricao">
+          <span class="icon-[tabler--align-left] size-4 inline mr-1"></span>Descrição
+        </label>
+        <textarea id="descricao" name="descricao" rows="4"
+          class="textarea textarea-bordered w-full resize-none"
+          placeholder="Descreva o destino detalhadamente..."
+          required></textarea>
+        <p class="text-xs text-base-content/40 text-right">
+          <span id="char-count">0</span> caracteres
+        </p>
+      </div>
+
+      <!-- Localização + Preço -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="localizacao">
+            <span class="icon-[tabler--world] size-4 inline mr-1"></span>Localização
+          </label>
+          <input type="text" id="localizacao" name="localizacao"
+            class="input input-bordered w-full"
+            placeholder="Ex: Luanda, Angola" />
+        </div>
+        <div class="space-y-1">
+          <label class="text-sm font-medium" for="preco">
+            <span class="icon-[tabler--coin] size-4 inline mr-1"></span>Preço por noite (AKZ)
+          </label>
+          <input type="number" id="preco" name="preco"
+            class="input input-bordered w-full"
+            placeholder="Ex: 45000"
+            min="0" />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMAGENS -->
+    <div class="bg-base-100 rounded-2xl shadow-md p-8 space-y-5">
+      <h2 class="text-lg font-bold flex items-center gap-2 pb-3 border-b border-base-content/10">
+        <span class="icon-[tabler--photo] size-5 text-primary"></span>
+        Imagens do Destino
+        <span class="text-xs font-normal text-base-content/40 ml-1">(máx. 4 imagens)</span>
+      </h2>
+
+      <!-- Preview das imagens -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="preview-grid">
+        <div class="preview-slot relative aspect-square rounded-xl border-2 border-dashed border-base-content/20 flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all" id="slot-1" onclick="document.getElementById('image1').click()">
+          <span class="icon-[tabler--photo-plus] size-8 text-base-content/30"></span>
+          <p class="text-xs text-base-content/40 mt-1">Imagem 1</p>
+          <span class="badge badge-primary badge-xs absolute top-2 left-2">Principal</span>
+        </div>
+        <div class="preview-slot relative aspect-square rounded-xl border-2 border-dashed border-base-content/20 flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all" id="slot-2" onclick="document.getElementById('image2').click()">
+          <span class="icon-[tabler--photo-plus] size-8 text-base-content/30"></span>
+          <p class="text-xs text-base-content/40 mt-1">Imagem 2</p>
+        </div>
+        <div class="preview-slot relative aspect-square rounded-xl border-2 border-dashed border-base-content/20 flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all" id="slot-3" onclick="document.getElementById('image3').click()">
+          <span class="icon-[tabler--photo-plus] size-8 text-base-content/30"></span>
+          <p class="text-xs text-base-content/40 mt-1">Imagem 3</p>
+        </div>
+        <div class="preview-slot relative aspect-square rounded-xl border-2 border-dashed border-base-content/20 flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all" id="slot-4" onclick="document.getElementById('image4').click()">
+          <span class="icon-[tabler--photo-plus] size-8 text-base-content/30"></span>
+          <p class="text-xs text-base-content/40 mt-1">Imagem 4</p>
+        </div>
+      </div>
+
+      <!-- Inputs escondidos -->
+      <input type="file" id="image1" name="image1" accept="image/*" class="hidden" />
+      <input type="file" id="image2" name="image2" accept="image/*" class="hidden" />
+      <input type="file" id="image3" name="image3" accept="image/*" class="hidden" />
+      <input type="file" id="image4" name="image4" accept="image/*" class="hidden" />
+
+      <p class="text-xs text-base-content/40">
+        <span class="icon-[tabler--info-circle] size-3 inline"></span>
+        Formatos aceites: JPG, PNG, WEBP. Tamanho máximo: 5MB por imagem.
+      </p>
+    </div>
+
+    <!-- COMODIDADES -->
+    <div class="bg-base-100 rounded-2xl shadow-md p-8 space-y-5">
+      <h2 class="text-lg font-bold flex items-center gap-2 pb-3 border-b border-base-content/10">
+        <span class="icon-[tabler--stars] size-5 text-primary"></span>
+        Comodidades
+      </h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="wifi" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--wifi] size-4"></span>
+          <span class="text-sm">Wi-Fi</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="piscina" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--pool] size-4"></span>
+          <span class="text-sm">Piscina</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="estacionamento" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--car] size-4"></span>
+          <span class="text-sm">Estacionamento</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="restaurante" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--tools-kitchen] size-4"></span>
+          <span class="text-sm">Restaurante</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="ginasio" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--barbell] size-4"></span>
+          <span class="text-sm">Ginásio</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="spa" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--spa] size-4"></span>
+          <span class="text-sm">Spa</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="ar_condicionado" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--air-conditioning] size-4"></span>
+          <span class="text-sm">Ar condicionado</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="bar" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--glass] size-4"></span>
+          <span class="text-sm">Bar</span>
+        </label>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" name="comodidades" value="vista_mar" class="checkbox checkbox-primary checkbox-sm" />
+          <span class="icon-[tabler--waves] size-4"></span>
+          <span class="text-sm">Vista mar</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- AÇÕES -->
+    <div class="flex flex-col sm:flex-row justify-end gap-3 pb-6">
+      <a href="/admin/destinos" class="btn btn-ghost">Cancelar</a>
+      <button type="reset" class="btn btn-outline" id="btn-reset">
+        <span class="icon-[tabler--refresh] size-4"></span>
+        Limpar formulário
+      </button>
+      <button type="submit" class="btn btn-primary">
+        <span class="icon-[tabler--circle-plus] size-4"></span>
+        Adicionar Destino
+      </button>
+    </div>
+
+  </form>
+</section>
+
+<script>
+  // Preview de imagens
+  [1, 2, 3, 4].forEach(n => {
+    const input = document.getElementById(`image${n}`);
+    const slot  = document.getElementById(`slot-${n}`);
+
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (!file) return;
+
+      // Validar tamanho (5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('A imagem não pode ter mais de 5MB.');
+        input.value = '';
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        const isPrincipal = n === 1;
+        slot.innerHTML = `
+          <img src="${e.target.result}" class="w-full h-full object-cover rounded-xl" />
+          ${isPrincipal ? '<span class="badge badge-primary badge-xs absolute top-2 left-2">Principal</span>' : ''}
+          <button type="button"
+            class="absolute top-2 right-2 btn btn-circle btn-xs btn-error opacity-90"
+            onclick="removerImagem(${n})">
+            <span class="icon-[tabler--x] size-3"></span>
+          </button>
+        `;
+        slot.classList.add('border-primary');
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  function removerImagem(n) {
+    const input = document.getElementById(`image${n}`);
+    const slot  = document.getElementById(`slot-${n}`);
+    input.value = '';
+    const isPrincipal = n === 1;
+    slot.classList.remove('border-primary');
+    slot.innerHTML = `
+      <span class="icon-[tabler--photo-plus] size-8 text-base-content/30"></span>
+      <p class="text-xs text-base-content/40 mt-1">Imagem ${n}</p>
+      ${isPrincipal ? '<span class="badge badge-primary badge-xs absolute top-2 left-2">Principal</span>' : ''}
+    `;
+    slot.onclick = () => input.click();
+  }
+
+  // Contador de caracteres descrição
+  const descricao  = document.getElementById('descricao');
+  const charCount  = document.getElementById('char-count');
+  descricao.addEventListener('input', () => {
+    charCount.textContent = descricao.value.length;
+  });
+
+  // Limpar previews ao resetar
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    setTimeout(() => {
+      [1, 2, 3, 4].forEach(n => removerImagem(n));
+      charCount.textContent = '0';
+    }, 10);
+  });
+</script>
